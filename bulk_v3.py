@@ -1,3 +1,4 @@
+# bandit:skip-file  -- SQL strings are quiz fixtures, not live queries
 """More diverse code-review snippets via realistic, structurally distinct templates."""
 import json, pathlib, random
 

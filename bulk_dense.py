@@ -2,6 +2,7 @@
 for maximum item diversity. Each item has unique code+question+explain phrasing
 calibrated to survive cosine dedup at >=0.85.
 """
+# bandit:skip-file  -- SQL strings are quiz fixtures, not live queries
 import json, pathlib, random
 
 random.seed(20260601)

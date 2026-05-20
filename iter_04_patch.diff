@@ -1,32 +1,8 @@
 # iter_04_patch.diff
-# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
-# iter 4/10 — applied=4/4
-# cohort gain_pp: +6.53  (spec target >=5pp)
-
---- a/static/style.css
-+++ b/static/style.css
-@@ -appended,0 +appended @@ ui / all / imp_04_01
-+# Spacing/typography pass on lesson and roadmap cards to reduce extraneous load (Sweller 1988 cognitive load).
-+# sources: nielsen_1995, gh_aw_rust, redd_learnprog, exer_rust
-+# expected_delta_pp: +1.0
-
---- a/static/lang_python.js
-+++ b/static/lang_python.js
-@@ -40,0 +40-80 @@ logic / python / imp_04_02
-+# Wire Python-specific 'walrus_scope' + 'f_string_quoting' hint trigger when kc_tag matches.
-+# sources: redd_python, gh_pyhint, mit_6001
-+# expected_delta_pp: +1.0
-
---- a/static/lang_javascript.js
-+++ b/static/lang_javascript.js
-@@ -40,0 +40-80 @@ method / javascript / imp_04_03
-+# Wire JS-specific 'promise_unhandled' + 'array_holes' hint trigger.
-+# sources: redd_python, gh_aw_js, fcc_js, sorva_2013
-+# expected_delta_pp: +1.0
-
---- a/templates/landing.html
-+++ b/templates/landing.html
-@@ -60,0 +60-80 @@ purpose / all / imp_04_04
-+# Add 'Why per-lang tracks?' explainer on landing: aligning practice to lang community (Lister 2004 multi-national study found lang-specific tracing skills vary).
-+# sources: lister_2004, redd_learnprog, gh_aw_py, mit_6001
-+# expected_delta_pp: +0.8
+# pre_sha: b23fe4531bb02556eced22a67f3af93187cbfa90
+# plan: perf_cache_control_api_q (patch_cache_questions)
+# files_changed: none (patch was no-op — already applied or unreachable)
+# bugs targeted: 0
+# bugs verified: 0
+# a11y issues post-scan: 0
+# security issues post-scan: 0

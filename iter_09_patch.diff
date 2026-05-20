@@ -1,39 +1,8 @@
 # iter_09_patch.diff
-# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
-# iter 9/10 — applied=5/5
-# cohort gain_pp: +1.67  (spec target >=1pp)
-
---- a/static/style.css
-+++ b/static/style.css
-@@ -appended,0 +appended @@ ui / all / imp_09_01
-+# Mobile-first review: lesson view stacks objectives/KCs vertically on viewport <600px; sidebar collapses to top sheet.
-+# sources: nielsen_1995, redd_learnprog, gh_aw_js, exer_js
-+# expected_delta_pp: +1.0
-
---- a/static/state_migrate.js
-+++ b/static/state_migrate.js
-@@ -50,0 +50-100 @@ logic / all / imp_09_02
-+# Migration guard: detect schema_v mismatch, run forward-migration of legacy roadmap_state into state.per_lang.python.
-+# sources: se_codereview, gh_aw_py, exer_py, robins_2003
-+# expected_delta_pp: +0.8
-
---- a/static/lang_python.js
-+++ b/static/lang_python.js
-@@ -160,0 +160-200 @@ method / python / imp_09_03
-+# Add Python 'late_binding_closure' callout when comprehension/lambda+closure pattern detected in code snippet.
-+# sources: redd_python, mit_6001, gh_pyhint, sorva_2013
-+# expected_delta_pp: +0.8
-
---- a/templates/improvements.html
-+++ b/templates/improvements.html
-@@ -50,0 +50-120 @@ process / all / imp_09_04
-+# Add iter timeline + cohort-gain curve to improvements changelog page so users see the build-history.
-+# sources: soloway_1984, spool_2001, gh_aw_sql, redd_learnprog
-+# expected_delta_pp: +0.8
-
---- a/static/lang_go.js
-+++ b/static/lang_go.js
-@@ -120,0 +120-160 @@ method / go / imp_09_05
-+# Go 'nil_interface_vs_value' callout - a classic forum FAQ. Sources: r/golang FAQ + Go Proverbs.
-+# sources: redd_golang, gh_go_proverbs, exer_go, tew_2011
-+# expected_delta_pp: +0.8
+# pre_sha: b23fe4531bb02556eced22a67f3af93187cbfa90
+# plan: a11y_html_meta (patch_html_meta)
+# files_changed: none (patch was no-op — already applied or unreachable)
+# bugs targeted: 0
+# bugs verified: 0
+# a11y issues post-scan: 0
+# security issues post-scan: 0

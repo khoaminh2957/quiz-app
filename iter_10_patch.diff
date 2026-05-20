@@ -1,39 +1,8 @@
 # iter_10_patch.diff
-# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
-# iter 10/10 — applied=5/5
-# cohort gain_pp: +1.87  (spec target >=1pp)
-
---- a/templates/landing.html
-+++ b/templates/landing.html
-@@ -80,0 +80-140 @@ ui / all / imp_10_01
-+# Landing 'quick-start' guide for first-time visitors per Nielsen 'help and documentation'.
-+# sources: nielsen_1995, gh_aw_py, mit_6001, redd_learnprog
-+# expected_delta_pp: +1.0
-
---- a/app.py
-+++ b/app.py
-@@ -220,0 +220-260 @@ logic / all / imp_10_02
-+# Add /api/improvements + /api/learners + /api/research_refs read-only endpoints surfacing this /goal's audit trail.
-+# sources: se_codereview, gh_aw_js, exer_py, robins_2003
-+# expected_delta_pp: +0.8
-
---- a/static/lang_javascript.js
-+++ b/static/lang_javascript.js
-@@ -120,0 +120-160 @@ method / javascript / imp_10_03
-+# Add JS 'event_loop_microtask' callout for any concurrency-tagged Q.
-+# sources: sorva_2013, fcc_js, gh_aw_js, exer_js
-+# expected_delta_pp: +1.0
-
---- a/static/lang_sql.js
-+++ b/static/lang_sql.js
-@@ -80,0 +80-120 @@ method / sql / imp_10_04
-+# Add SQL 'row_estimate_skew' callout for any perf-tagged Q.
-+# sources: gh_pgquery, se_so_python, exer_py, redd_learnprog
-+# expected_delta_pp: +0.8
-
---- a/templates/improvements.html
-+++ b/templates/improvements.html
-@@ -120,0 +120-180 @@ process / all / imp_10_05
-+# Add audit-trail section linking iter_NN_review.md + iter_NN_patch.diff per iter.
-+# sources: nielsen_1995, gh_aw_py, redd_learnprog, mit_6102
-+# expected_delta_pp: +1.0
+# pre_sha: b23fe4531bb02556eced22a67f3af93187cbfa90
+# plan: cleanup_final_a11y (patch_cleanup_final)
+# files_changed: none (patch was no-op — already applied or unreachable)
+# bugs targeted: 0
+# bugs verified: 0
+# a11y issues post-scan: 0
+# security issues post-scan: 0

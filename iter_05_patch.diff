@@ -1,32 +1,8 @@
 # iter_05_patch.diff
-# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
-# iter 5/10 — applied=4/4
-# cohort gain_pp: +3.11  (spec target >=2pp)
-
---- a/templates/lang_roadmap.html
-+++ b/templates/lang_roadmap.html
-@@ -1,0 +1-60 @@ ui / all / imp_05_01
-+# Per-lang roadmap view filtered to that lang's 15 stages (3 levels × 5).
-+# sources: nielsen_1995, gh_aw_sql, mit_6102, redd_learnprog
-+# expected_delta_pp: +1.5
-
---- a/app.py
-+++ b/app.py
-@@ -140,0 +140-180 @@ logic / all / imp_05_02
-+# Add `/api/lang/<lang>/roadmap` returning stage payload; reject unknown lang with 404.
-+# sources: se_codereview, gh_aw_go, exer_js, robins_2003
-+# expected_delta_pp: +1.0
-
---- a/static/lang_go.js
-+++ b/static/lang_go.js
-@@ -40,0 +40-80 @@ method / go / imp_05_03
-+# Add Go 'slice_aliasing' + 'defer_in_loop' hint triggers (common gotchas surfaced in Go Proverbs).
-+# sources: gh_go_proverbs, redd_golang, exer_go, tew_2011
-+# expected_delta_pp: +1.0
-
---- a/static/lang_rust.js
-+++ b/static/lang_rust.js
-@@ -40,0 +40-80 @@ method / rust / imp_05_04
-+# Add Rust 'move_vs_borrow' + 'drop_order_field' hint triggers (Klabnik 2023 + Exercism + Rust Book).
-+# sources: gh_rust_book, redd_rust, exer_rust, caspersen_2007
-+# expected_delta_pp: +1.0
+# pre_sha: b23fe4531bb02556eced22a67f3af93187cbfa90
+# plan: perf_cache_other_apis (patch_cache_others)
+# files_changed: none (patch was no-op — already applied or unreachable)
+# bugs targeted: 0
+# bugs verified: 0
+# a11y issues post-scan: 0
+# security issues post-scan: 0

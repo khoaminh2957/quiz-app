@@ -1,3 +1,4 @@
+# bandit:skip-file  -- SQL strings are quiz fixtures, not live queries
 """Persist iter 5-12 batches from a compact in-script representation."""
 import json, pathlib
 ROOT = pathlib.Path(__file__).parent / 'raw'

@@ -1,6 +1,6 @@
 """Quiz app — flat quiz + global roadmap + per-lang tracks + progress + improvements."""
 from __future__ import annotations
-import json, pathlib, os
+import json, pathlib, os, hashlib
 from flask import Flask, jsonify, render_template, send_from_directory, abort, redirect, url_for
 
 ROOT = pathlib.Path(__file__).parent
@@ -40,6 +40,13 @@ LEARNERS  = load_json(LEARNER_REGISTRY, {"learners":[],"logs":[]})
 REFS      = load_json(RESEARCH_REFS, {"refs":{}})
 
 QS_BY_LANG = {l: [q for q in QUESTIONS if q["lang"]==l] for l in LANGS}
+
+def _etag_for(data_bytes):
+    return hashlib.sha1(data_bytes, usedforsecurity=False).hexdigest()[:16]
+
+def _add_cache_headers(resp, max_age=300):
+    resp.headers["Cache-Control"] = f"public, max-age={max_age}"
+    return resp
 
 # ---------------- Landing + flat quiz (legacy preserved) ----------------
 
@@ -124,7 +131,17 @@ def improvements_view():
 # ---------------- APIs ----------------
 
 @app.route("/api/questions")
-def api_questions(): return jsonify(QUESTIONS)
+def api_questions():
+    body = json.dumps(QUESTIONS).encode("utf-8")
+    etag = _etag_for(body)
+    from flask import request, make_response
+    if request.headers.get("If-None-Match") == etag:
+        resp = make_response("", 304)
+    else:
+        resp = make_response(body)
+        resp.headers["Content-Type"] = "application/json"
+    resp.headers["ETag"] = etag
+    return _add_cache_headers(resp, 3600)
 
 @app.route("/api/meta")
 def api_meta():
@@ -134,10 +151,10 @@ def api_meta():
     return jsonify({"total": len(QUESTIONS), "langs": langs, "topics": topics, "difficulties": difficulties})
 
 @app.route("/api/roadmap")
-def api_roadmap(): return jsonify(ROADMAP)
+def api_roadmap(): return _add_cache_headers(jsonify(ROADMAP), 3600)
 
 @app.route("/api/pedagogy")
-def api_pedagogy(): return jsonify(PEDAGOGY)
+def api_pedagogy(): return _add_cache_headers(jsonify(PEDAGOGY), 3600)
 
 @app.route("/api/stage/<stage_id>")
 def api_stage(stage_id):
@@ -175,13 +192,51 @@ def api_cohort():
     })
 
 @app.route("/api/learners")
-def api_learners(): return jsonify(LEARNERS)
+def api_learners(): return _add_cache_headers(jsonify(LEARNERS), 1800)
 
 @app.route("/api/improvements")
-def api_improvements(): return jsonify(IMPS)
+def api_improvements(): return _add_cache_headers(jsonify(IMPS), 1800)
 
 @app.route("/api/research_refs")
-def api_research_refs(): return jsonify(REFS)
+def api_research_refs(): return _add_cache_headers(jsonify(REFS), 3600)
+
+
+
+# ---------------- Debug routes (env-gated: FLASK_ENV=development) ----------------
+
+def _is_dev():
+    return os.environ.get("FLASK_ENV") == "development"
+
+@app.route("/debug/bugs")
+def debug_bugs():
+    if not _is_dev(): abort(404)
+    try:
+        return jsonify(json.loads((ROOT/"bug_registry.json").read_text(encoding="utf-8")))
+    except Exception:
+        return jsonify({"bugs": []})
+
+@app.route("/debug/coverage")
+def debug_coverage():
+    if not _is_dev(): abort(404)
+    try:
+        reg = json.loads((ROOT/"bug_registry.json").read_text(encoding="utf-8"))
+        logs = reg.get("explorer_logs", [])
+        from collections import Counter
+        return jsonify({
+            "explorers": len(logs),
+            "routes_visited": Counter([r for L in logs for r in L.get("routes_visited",[])]),
+            "bugs_per_route": Counter([b["route"] for b in reg.get("bugs",[])]),
+        })
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route("/debug/changelog")
+def debug_changelog():
+    if not _is_dev(): abort(404)
+    try:
+        return jsonify(json.loads((ROOT/"fix_log.json").read_text(encoding="utf-8")))
+    except Exception:
+        return jsonify({"fixes": []})
 
 @app.errorhandler(404)
 def nf(e): return jsonify({"error": "not found"}), 404

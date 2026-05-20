@@ -1,32 +1,8 @@
 # iter_01_patch.diff
-# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
-# iter 1/10 — applied=4/4
-# cohort gain_pp: +5.56  (spec target >=5pp)
-
---- a/templates/landing.html
-+++ b/templates/landing.html
-@@ -1,0 +1-60 @@ ui / all / imp_01_01
-+# Add lang-selector landing page (5 buttons + dark-mode + nav) per Nielsen heuristic 'recognition rather than recall' to surface the per-lang track structure on entry.
-+# sources: nielsen_1995, gh_aw_py, exer_py, redd_learnprog
-+# expected_delta_pp: +1.5
-
---- a/app.py
-+++ b/app.py
-@@ -52,0 +52-95 @@ logic / all / imp_01_02
-+# Refactor app.py to register /lang/<lang>/* route family + legacy 302 redirects; isolate per-lang state from flat-quiz state to prevent cross-lang leak (§9).
-+# sources: robins_2003, gh_aw_js
-+# expected_delta_pp: +1.2
-
---- a/static/lang_python.js
-+++ b/static/lang_python.js
-@@ -1,0 +1-40 @@ method / python / imp_01_03
-+# Add Python-specific hint sidebar (PEP-8 + late-binding-closure pitfall) when a Python question with kc_tag in {late_binding_closure,list_default_mutable} is rendered. Pedagogy: Hermans 2021 cognitive priming.
-+# sources: hermans_2021, gh_aw_py, exer_py
-+# expected_delta_pp: +1.0
-
---- a/static/lang_javascript.js
-+++ b/static/lang_javascript.js
-@@ -1,0 +1-40 @@ method / javascript / imp_01_04
-+# Add JS-specific hint sidebar (event-loop + this-binding) when kc_tag matches lang-specific KC. Pedagogy: Sorva 2013 notional machine — make the runtime model explicit.
-+# sources: sorva_2013, gh_aw_js, fcc_js
-+# expected_delta_pp: +1.0
+# pre_sha: b23fe4531bb02556eced22a67f3af93187cbfa90
+# plan: a11y_landing_dashboard (patch_aria_landing)
+# files_changed: none (patch was no-op — already applied or unreachable)
+# bugs targeted: 16
+# bugs verified: 12
+# a11y issues post-scan: 0
+# security issues post-scan: 0

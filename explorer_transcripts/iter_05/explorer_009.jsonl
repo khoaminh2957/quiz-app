@@ -1,0 +1,16 @@
+{"route": "/", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=3203"}
+{"route": "/quiz", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=2724"}
+{"route": "/review", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=2724"}
+{"route": "/lang/rust", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=2437"}
+{"route": "/lang/rust/roadmap", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=1624"}
+{"route": "/lang/rust/mastery", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=1651"}
+{"route": "/progress", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=1696"}
+{"route": "/improvements", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=text/html bytes=1577"}
+{"route": "/api/questions", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=1487592"}
+{"route": "/api/roadmap", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=26959"}
+{"route": "/api/pedagogy", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=4442"}
+{"route": "/api/cohort_progress", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=1188"}
+{"route": "/api/improvements", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=17741"}
+{"route": "/api/learners", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=58942"}
+{"route": "/api/research_refs", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=6626"}
+{"route": "/api/lang/rust/roadmap", "action": "GET", "expected": "200/302", "observed": "HTTP 200 ct=application/json bytes=14594"}

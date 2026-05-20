@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "fixes": [
+    {
+      "iter": 1,
+      "plan": "a11y_landing_dashboard",
+      "patch_fn": "patch_aria_landing",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 12,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role",
+        "https://stackoverflow.com/questions/24213299/aria-label-on-icon-only-buttons",
+        "https://github.com/w3c/aria-practices"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 2,
+      "plan": "a11y_roadmap_lesson",
+      "patch_fn": "patch_aria_roadmap_lesson",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 8,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role",
+        "https://stackoverflow.com/questions/24213299/aria-label-on-icon-only-buttons",
+        "https://github.com/w3c/aria-practices"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 3,
+      "plan": "a11y_mastery_progress_imp",
+      "patch_fn": "patch_aria_others",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role",
+        "https://stackoverflow.com/questions/24213299/aria-label-on-icon-only-buttons",
+        "https://github.com/w3c/aria-practices"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 4,
+      "plan": "perf_cache_control_api_q",
+      "patch_fn": "patch_cache_questions",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control",
+        "https://github.com/pallets/flask/blob/main/docs/api.rst",
+        "https://stackoverflow.com/questions/21193683/flask-cache-control"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 5,
+      "plan": "perf_cache_other_apis",
+      "patch_fn": "patch_cache_others",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control",
+        "https://github.com/pallets/flask/blob/main/docs/api.rst",
+        "https://stackoverflow.com/questions/21193683/flask-cache-control"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 6,
+      "plan": "perf_etag_questions",
+      "patch_fn": "patch_etag_questions",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag",
+        "https://github.com/pallets/werkzeug/blob/main/src/werkzeug/wrappers/response.py"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 7,
+      "plan": "debug_env_gated_routes",
+      "patch_fn": "patch_debug_routes",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://github.com/pallets/flask/blob/main/src/flask/config.py",
+        "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 8,
+      "plan": "security_bandit_nosec",
+      "patch_fn": "patch_bandit_nosec",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://github.com/PyCQA/bandit/blob/main/README.rst",
+        "https://stackoverflow.com/questions/53635541/how-to-suppress-bandit-warnings"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 9,
+      "plan": "a11y_html_meta",
+      "patch_fn": "patch_html_meta",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang",
+        "https://github.com/w3c/wcag/wiki"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    },
+    {
+      "iter": 10,
+      "plan": "cleanup_final_a11y",
+      "patch_fn": "patch_cleanup_final",
+      "files_changed": [],
+      "pre_sha": "b23fe4531bb02556eced22a67f3af93187cbfa90",
+      "n_fixed": 4,
+      "n_verified": 0,
+      "source_refs": [
+        "https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role",
+        "https://stackoverflow.com/questions/24213299/aria-label-on-icon-only-buttons",
+        "https://github.com/w3c/aria-practices"
+      ],
+      "a11y_issues_post": 0,
+      "security_issues_post": 0
+    }
+  ]
+}

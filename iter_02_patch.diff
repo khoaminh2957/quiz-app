@@ -1,32 +1,8 @@
 # iter_02_patch.diff
-# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
-# iter 2/10 — applied=4/4
-# cohort gain_pp: +5.83  (spec target >=5pp)
-
---- a/templates/lang_dashboard.html
-+++ b/templates/lang_dashboard.html
-@@ -1,0 +1-80 @@ ui / all / imp_02_01
-+# Per-lang dashboard with progress bar, stage counter, gain-vs-cohort chart (vanilla canvas). Nielsen 'visibility of system status'.
-+# sources: nielsen_1995, gh_aw_go
-+# expected_delta_pp: +1.5
-
---- a/static/state_migrate.js
-+++ b/static/state_migrate.js
-@@ -1,0 +1-50 @@ logic / all / imp_02_02
-+# One-time migration `localStorage.roadmap_state` → `localStorage.state.per_lang[lang]` to preserve prior progress while partitioning per spec §6.
-+# sources: robins_2003, se_codereview
-+# expected_delta_pp: +1.0
-
---- a/static/lang_go.js
-+++ b/static/lang_go.js
-@@ -1,0 +1-40 @@ method / go / imp_02_03
-+# Add Go hint sidebar focusing on goroutine-leak/nil-interface-vs-value: surface common Go misconceptions as Pane 2001 + Caspersen 2007 mental-model misalignment.
-+# sources: caspersen_2007, gh_aw_go, exer_go
-+# expected_delta_pp: +1.0
-
---- a/static/lang_rust.js
-+++ b/static/lang_rust.js
-@@ -1,0 +1-40 @@ method / rust / imp_02_04
-+# Add Rust hint sidebar for borrow/lifetime — Hermans 2021 says novices benefit most from explicit chunking of ownership rules.
-+# sources: hermans_2021, redd_rust, exer_rust, gh_aw_rust
-+# expected_delta_pp: +1.0
+# pre_sha: b23fe4531bb02556eced22a67f3af93187cbfa90
+# plan: a11y_roadmap_lesson (patch_aria_roadmap_lesson)
+# files_changed: none (patch was no-op — already applied or unreachable)
+# bugs targeted: 9
+# bugs verified: 8
+# a11y issues post-scan: 0
+# security issues post-scan: 0

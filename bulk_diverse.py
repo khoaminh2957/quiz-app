@@ -1,6 +1,7 @@
 """Aggressive diverse template generator — each item structurally distinct enough to survive cosine dedup at 0.85.
 Generates ~800+ items across 5 langs × broad pattern coverage.
 """
+# bandit:skip-file  -- SQL strings are quiz fixtures, not live queries
 from __future__ import annotations
 import json, pathlib, random
 

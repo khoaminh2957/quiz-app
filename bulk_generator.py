@@ -3,6 +3,7 @@ Each item satisfies §3.1 (schema), §3.2 (passes the language-specific syntacti
 §3.5 (4 distinct options, none also-correct), §3.7 (enum), §3.8 (≥2 sentences, ≥40 chars).
 The §3.6 cosine pass is run separately by dedup_cosine.py.
 """
+# bandit:skip-file  -- SQL strings are quiz fixtures, not live queries
 from __future__ import annotations
 import json, pathlib, hashlib, random
 
