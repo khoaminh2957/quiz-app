@@ -1,17 +1,15 @@
-/* lang_python.js — Python-specific hint sidebar trigger.
- * Hints fire when q.kc_tag matches a Python-specific KC or pattern is detected.
- * Sources: Hermans 2021 (cognitive priming), MIT 6.0001, r/Python, awesome-python.
+/* lang_python.js — Hints riêng cho Python. Gợi ý kích hoạt khi q.kc_tag khớp hoặc pattern phát hiện trong code.
+ * Nguồn: Hermans 2021 (cognitive priming), MIT 6.0001, r/Python, awesome-python.
  */
 (function(){
 const HINTS = {
-  "late_binding_closure":  "Python closures bind variables LATE — they capture the name, not the value. The classic [lambda i: i for i in range(3)] vs [lambda i=i: i for i in range(3)] gotcha. (r/Python, MIT 6.0001)",
-  "list_default_mutable":  "Default arguments are evaluated ONCE at def-time. `def f(x=[])` keeps state across calls. Use `x=None` + `if x is None: x = []`. (Hermans 2021)",
-  "f_string_quoting":      "f-string quoting before Python 3.12 cannot reuse the same quote char as the f-string delimiter. 3.12+ relaxed this (PEP-701). (awesome-python, MIT 6.0001)",
-  "walrus_scope":          "Walrus `:=` creates a name in the ENCLOSING scope. Inside a comprehension, the name leaks to the enclosing function. (r/Python)",
-  "gil_threading_limits":  "CPython GIL serializes Python bytecode across threads. Use multiprocessing for CPU-bound, asyncio/threads for I/O-bound. (MIT 6.0001, awesome-python)",
+  "late_binding_closure":  "Closure trong Python bind biến THEO TÊN, không phải theo giá trị. Bẫy điển hình: `[lambda i: i for i in range(3)]` vs `[lambda i=i: i for i in range(3)]`. (r/Python, MIT 6.0001)",
+  "list_default_mutable":  "Default argument được đánh giá MỘT LẦN khi def. `def f(x=[])` sẽ giữ state qua các lần gọi. Dùng `x=None` + `if x is None: x = []`. (Hermans 2021)",
+  "f_string_quoting":      "Trước Python 3.12, f-string không cho dùng cùng dấu nháy với delimiter. 3.12+ nới lỏng (PEP-701). (awesome-python, MIT 6.0001)",
+  "walrus_scope":          "Walrus `:=` tạo tên ở scope BAO QUANH. Bên trong comprehension, tên rò ra function chứa nó. (r/Python)",
+  "gil_threading_limits":  "GIL của CPython serialize bytecode Python qua các thread. Dùng multiprocessing cho CPU-bound; asyncio/threads cho I/O-bound. (MIT 6.0001, awesome-python)",
 };
 const PATTERN_HINTS = [
-  // pattern → hint id
   [/def\s+\w+\s*\([^)]*=\s*(\[\]|\{\}|dict\(\)|list\(\))/, "list_default_mutable"],
   [/\[lambda.*for\s+\w+\s+in/,                            "late_binding_closure"],
   [/[\(\[][^)\]]*:=[^)\]]*[\)\]]/,                        "walrus_scope"],
@@ -20,7 +18,7 @@ const PATTERN_HINTS = [
 function fire(hintIds){
   const ul = document.getElementById('lang-hint-active');
   if (!ul) return;
-  if (!hintIds.length){ ul.innerHTML = '<li class="hint">No Python-specific hint for this question.</li>'; return; }
+  if (!hintIds.length){ ul.innerHTML = '<li class="hint">Không có gợi ý Python riêng cho câu này.</li>'; return; }
   ul.innerHTML = hintIds.map(id => `<li><strong>${id}</strong>: ${HINTS[id] || ''}</li>`).join('');
 }
 window.LANG_HINTS_PYTHON = function(q){

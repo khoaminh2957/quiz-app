@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Code review quiz with per-language tracks, mastery gates, and pedagogy-driven roadmap.">
+<meta name="description" content="Nhật ký các cải tiến qua 10 iteration với nguồn tham khảo.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Improvements — Code Review Quiz</title>
+<title>Nhật ký cải tiến — Quiz Review Code</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header class="topbar">
-  <h1>Improvements changelog</h1>
+  <h1>Nhật ký cải tiến</h1>
   <nav class="navlinks">
-    <a href="/">Home</a>
-    <a href="/quiz">Flat quiz</a>
-    <a href="/progress">Progress</a>
-    <a href="/improvements" class="active">Changelog</a>
+    <a href="/">Trang chủ</a>
+    <a href="/lang/python">Dashboard</a>
+    <a href="/quiz">Quiz nhanh</a>
+    <a href="/progress">Tiến độ</a>
+    <a href="/improvements" class="active">Nhật ký</a>
   </nav>
   <div class="meta">
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
   </div>
 </header>
 
 <main id="improvements-main">
   <section>
-    <h2>Audit trail (10 iters)</h2>
-    <p class="hint">Each iteration's improvements are derived from at least 4 source classes (papers / forum / github / edu). Source URLs link to the original.</p>
+    <h2>Lịch sử kiểm toán (10 iters)</h2>
+    <p class="hint">Mỗi iteration trích dẫn ≥ 4 lớp nguồn (paper / forum / github / edu). Click vào nguồn để mở link gốc.</p>
     <canvas id="gain-curve" width="800" height="240"></canvas>
   </section>
 
   <section>
-    <h2>Iteration timeline</h2>
+    <h2>Timeline iteration</h2>
     <div id="iter-timeline"></div>
   </section>
 
   <section>
-    <h2>All improvements ({{ "%s"|format(total) }})</h2>
+    <h2>Tất cả cải tiến ({{ "%s"|format(total) }})</h2>
     <div id="imp-list"></div>
   </section>
 
   <section>
-    <h2>Research references</h2>
+    <h2>Tài liệu tham khảo</h2>
     <div id="ref-list"></div>
   </section>
 </main>

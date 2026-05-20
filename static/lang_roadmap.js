@@ -50,7 +50,7 @@ async function render(){
       const card = document.createElement('a');
       card.href = locked ? '#' : `/lang/${lang}/lesson/${s.id}`;
       card.className = `stage-card ${locked?'locked':''} ${passed?'passed':''}`;
-      if (locked) card.addEventListener('click', e => {e.preventDefault(); alert('Locked: complete the prerequisite stage to mastery first.');});
+      if (locked) card.addEventListener('click', e => {e.preventDefault(); alert('Đã khoá: hoàn thành stage trước đó (đạt gate mastery) để mở stage này.');});
       card.innerHTML = `
         <div class="stage-head"><span class="stage-order">${s.order}</span><span class="stage-badge">${locked?'🔒':passed?'✓':'•'}</span></div>
         <div class="stage-title">${s.title}</div>

@@ -1,47 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Code review quiz with per-language tracks, mastery gates, and pedagogy-driven roadmap.">
+<meta name="description" content="Quiz nhanh — 286 câu Python ngẫu nhiên hoặc tuần tự.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Code Review Quiz</title>
+<title>Quiz nhanh — Python</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header class="topbar">
-  <h1>Code Review Quiz</h1>
+  <h1>Quiz Review Code <span class="lang-pill lang-python">Python</span></h1>
   <nav class="navlinks">
-    <a href="/" class="active">Quiz</a>
-    <a href="/roadmap">Roadmap</a>
-    <a href="/mastery">Mastery</a>
-    <a href="/review">Review</a>
+    <a href="/">Trang chủ</a>
+    <a href="/quiz" class="active">Quiz nhanh</a>
+    <a href="/lang/python/roadmap">Lộ trình</a>
+    <a href="/lang/python/mastery">Mức độ thành thạo</a>
+    <a href="/review">Xem lại</a>
   </nav>
   <div class="meta">
     <span id="progress">0 / {{ total }}</span>
-    <span id="score">correct 0/0</span>
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
-    <button id="reset" type="button" aria-label="Reset quiz progress" title="Reset progress">Reset</button>
+    <span id="score">đúng 0/0</span>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="reset" type="button" aria-label="Reset tiến độ" title="Reset tiến độ">Reset</button>
   </div>
 </header>
 
 <section class="controls">
-  <label>Mode:
+  <label>Chế độ:
     <select id="mode">
-      <option value="seq">Sequential</option>
-      <option value="rand">Random</option>
-      <option value="review">Review (saved)</option>
+      <option value="seq">Tuần tự</option>
+      <option value="rand">Ngẫu nhiên</option>
+      <option value="review">Ôn lại</option>
     </select>
   </label>
-  <label>Lang:
-    <select id="filter-lang"><option value="">all</option></select>
+  <label>Chủ đề:
+    <select id="filter-topic"><option value="">tất cả</option></select>
   </label>
-  <label>Topic:
-    <select id="filter-topic"><option value="">all</option></select>
+  <label>Độ khó:
+    <select id="filter-diff"><option value="">tất cả</option></select>
   </label>
-  <label>Difficulty:
-    <select id="filter-diff"><option value="">all</option></select>
-  </label>
-  <span class="loaded">Loaded <span id="filtered-count">0</span> matching</span>
+  <span class="loaded">Đang load <span id="filtered-count">0</span> câu phù hợp</span>
 </section>
 
 <main id="quiz">
@@ -52,25 +50,25 @@
       <span id="q-diff"></span>
       <span id="q-idx"></span>
     </div>
-    <pre class="code"><code id="q-code"></code><button class="copy-btn" id="copy-code" type="button" aria-label="Copy code snippet" title="Copy code">⧉</button></pre>
+    <pre class="code"><code id="q-code"></code><button class="copy-btn" id="copy-code" type="button" aria-label="Copy đoạn code" title="Copy code">⧉</button></pre>
     <p id="q-question"></p>
     <form id="q-options"></form>
     <div class="actions">
-      <button id="submit-btn">Submit</button>
-      <button id="back-btn">Back (B)</button>
-      <button id="next-btn">Next (→)</button>
+      <button id="submit-btn" type="button">Nộp</button>
+      <button id="back-btn" type="button">Quay lại (B)</button>
+      <button id="next-btn" type="button">Tiếp (→)</button>
     </div>
     <div id="feedback" class="hidden"></div>
   </div>
 
   <div id="pager">
-    <button class="page-btn" data-dir="-1">◀ Prev 50</button>
+    <button class="page-btn" data-dir="-1" type="button">◀ 50 trước</button>
     <span id="page-info"></span>
-    <button class="page-btn" data-dir="+1">Next 50 ▶</button>
+    <button class="page-btn" data-dir="+1" type="button">50 sau ▶</button>
   </div>
 </main>
 
-<footer><small>Sequential keys: <kbd>1-4</kbd> choose, <kbd>Enter</kbd> submit, <kbd>→</kbd> next, <kbd>B</kbd> back, <kbd>R</kbd> random; ignored when an input is focused.</small></footer>
+<footer><small>Phím tắt khi tuần tự: <kbd>1-4</kbd> chọn, <kbd>Enter</kbd> nộp, <kbd>→</kbd> tiếp, <kbd>B</kbd> lùi, <kbd>R</kbd> random; bỏ qua khi đang focus vào input.</small></footer>
 
 <script src="/static/prism.js"></script>
 <script src="/static/quiz.js"></script>

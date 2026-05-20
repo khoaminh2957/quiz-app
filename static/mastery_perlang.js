@@ -19,9 +19,9 @@ async function render(){
     card.className = 'kc-card';
     card.innerHTML = `
       <div class="kc-name">${kc}</div>
-      <div class="kc-stat">${recent.length}/20 attempts</div>
+      <div class="kc-stat">${recent.length}/20 lượt</div>
       <div class="bar"><span style="width:${acc===null?0:Math.round(acc*100)}%"></span></div>
-      <div class="kc-acc">${acc===null?'no data':Math.round(acc*100)+'%'}</div>`;
+      <div class="kc-acc">${acc===null?'chưa có dữ liệu':Math.round(acc*100)+'%'}</div>`;
     grid.appendChild(card);
   });
 
@@ -37,7 +37,7 @@ async function render(){
     card.innerHTML = `
       <a href="/lang/${lang}/lesson/${s.id}">${s.order}. ${s.title}</a>
       <div class="bar"><span style="width:${acc===null?0:Math.round(acc*100)}%"></span></div>
-      <div class="stage-acc">${acc===null?'no data':Math.round(acc*100)+'%'} / gate ${Math.round(s.mastery_gate*100)}% ${passed?'✓':''}</div>`;
+      <div class="stage-acc">${acc===null?'chưa có dữ liệu':Math.round(acc*100)+'%'} / gate ${Math.round(s.mastery_gate*100)}% ${passed?'✓':''}</div>`;
     sg.appendChild(card);
   });
 
@@ -51,10 +51,10 @@ async function render(){
   due.sort((a,b)=> b.overdue_days - a.overdue_days);
   const dl = document.getElementById('due-list');
   if (due.length === 0){
-    dl.innerHTML = '<li class="hint">Nothing due — keep practicing.</li>';
+    dl.innerHTML = '<li class="hint">Không có câu nào đến hạn — luyện tiếp.</li>';
   } else {
     dl.innerHTML = due.slice(0,20).map(d =>
-      `<li>Q <code>${d.qid}</code> — box ${d.box}, overdue ${d.overdue_days}d</li>`
+      `<li>Câu <code>${d.qid}</code> — box ${d.box}, quá hạn ${d.overdue_days} ngày</li>`
     ).join('');
   }
 }

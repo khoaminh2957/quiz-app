@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Code review quiz with per-language tracks, mastery gates, and pedagogy-driven roadmap.">
+<meta name="description" content="Lộ trình 15 stage Python với gate mastery và ôn tập Leitner.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ lang|capitalize }} roadmap — Code Review Quiz</title>
+<title>Lộ trình Python — Quiz Review Code</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header class="topbar">
-  <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> roadmap</h1>
+  <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> · Lộ trình</h1>
   <nav class="navlinks">
-    <a href="/">Home</a>
+    <a href="/">Trang chủ</a>
     <a href="/lang/{{ lang }}">Dashboard</a>
-    <a href="/lang/{{ lang }}/roadmap" class="active">Roadmap</a>
-    <a href="/lang/{{ lang }}/mastery">Mastery</a>
-    <a href="/progress">Progress</a>
+    <a href="/lang/{{ lang }}/roadmap" class="active">Lộ trình</a>
+    <a href="/lang/{{ lang }}/mastery">Mức độ thành thạo</a>
+    <a href="/progress">Tiến độ</a>
   </nav>
   <div class="meta">
     <span id="stage-pos">stage 0/15</span>
     <span id="mastery-bar"><span id="mastery-fill"></span></span>
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
   </div>
 </header>
 
 <main id="roadmap-main">
-  <p class="hint">15 stages in the <strong>{{ lang }}</strong> track, partitioned 3 levels × 5. Locked stages unlock as you reach the prior stage's mastery gate. KCs include the 5 <strong>{{ lang }}</strong>-specific KCs alongside the 52 global ones.</p>
+  <p class="hint">15 stage Python, chia 3 cấp × 5 stage. Stage bị khoá sẽ mở khi bạn đạt gate mastery của stage trước đó. KCs gồm 52 KC chung + 5 KC riêng cho Python.</p>
   <div id="roadmap-tree"></div>
 </main>
 
-<footer><small>Pedagogy: Bloom 1968 mastery · Cepeda 2006 spaced practice · Lister 2004 lang-specific tracing.</small></footer>
+<footer><small>Pedagogy: Bloom 1968 mastery · Cepeda 2006 spaced practice · Hermans 2021 code reading.</small></footer>
 
 <script>window.QUIZ_LANG = "{{ lang }}";</script>
 <script src="/static/state_migrate.js"></script>

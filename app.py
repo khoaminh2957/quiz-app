@@ -1,4 +1,4 @@
-"""Quiz app — flat quiz + global roadmap + per-lang tracks + progress + improvements."""
+"""Quiz app — chỉ Python, giao diện tiếng Việt."""
 from __future__ import annotations
 import json, pathlib, os, hashlib
 from flask import Flask, jsonify, render_template, send_from_directory, abort, redirect, url_for
@@ -13,7 +13,9 @@ IMPROVEMENT_LOG      = ROOT / "improvement_log.json"
 LEARNER_REGISTRY     = ROOT / "learner_registry.json"
 RESEARCH_REFS        = ROOT / "research_refs.json"
 
-LANGS = ["python","javascript","go","rust","sql"]
+# Python-only focus per latest /goal
+PRIMARY_LANG = "python"
+LANGS = [PRIMARY_LANG]
 
 app = Flask(__name__, template_folder=str(ROOT/"templates"), static_folder=str(ROOT/"static"))
 
@@ -39,8 +41,6 @@ IMPS      = load_json(IMPROVEMENT_LOG, {"improvements":[]})
 LEARNERS  = load_json(LEARNER_REGISTRY, {"learners":[],"logs":[]})
 REFS      = load_json(RESEARCH_REFS, {"refs":{}})
 
-QS_BY_LANG = {l: [q for q in QUESTIONS if q["lang"]==l] for l in LANGS}
-
 def _etag_for(data_bytes):
     return hashlib.sha1(data_bytes, usedforsecurity=False).hexdigest()[:16]
 
@@ -48,10 +48,11 @@ def _add_cache_headers(resp, max_age=300):
     resp.headers["Cache-Control"] = f"public, max-age={max_age}"
     return resp
 
-# ---------------- Landing + flat quiz (legacy preserved) ----------------
+# ---------------- Landing (Python-only, tiếng Việt) ----------------
 
 @app.route("/")
 def index():
+    # Direct landing on the Python dashboard
     return render_template("landing.html", total=len(QUESTIONS))
 
 @app.route("/quiz")
@@ -62,16 +63,14 @@ def flat_quiz():
 def review():
     return render_template("index.html", total=len(QUESTIONS), review=True)
 
-# ---------------- Legacy roadmap routes (preserved + redirects) ----------------
+# ---------------- Legacy roadmap routes (redirect) ----------------
 
 @app.route("/roadmap")
 def roadmap_legacy():
-    # Spec §6: legacy /roadmap → 302 /lang/python/roadmap
     return redirect("/lang/python/roadmap", code=302)
 
 @app.route("/roadmap/global")
 def roadmap_global():
-    # Preserves the global cross-lang roadmap view (prior feature, immutable).
     return render_template("roadmap.html", total=len(QUESTIONS), n_stages=len(ROADMAP.get("stages",[])))
 
 @app.route("/lesson/<stage_id>")
@@ -82,14 +81,13 @@ def lesson_legacy(stage_id):
 
 @app.route("/mastery")
 def mastery_legacy():
-    # Spec §6: legacy /mastery → 302 /lang/python/mastery
     return redirect("/lang/python/mastery", code=302)
 
 @app.route("/mastery/global")
 def mastery_global():
     return render_template("mastery.html", total=len(QUESTIONS), n_kcs=len(ROADMAP.get("kcs",[])))
 
-# ---------------- Per-lang tracks ----------------
+# ---------------- Python track (other langs deprecated) ----------------
 
 def _stage_for(lang, stage_id):
     stages = ROADMAP_PERLANG.get("per_lang_stages",{}).get(lang, [])
@@ -97,24 +95,30 @@ def _stage_for(lang, stage_id):
 
 @app.route("/lang/<lang>")
 def lang_dashboard(lang):
-    if lang not in LANGS: abort(404)
-    return render_template("lang_dashboard.html", lang=lang, q_count=len(QS_BY_LANG[lang]))
+    if lang != PRIMARY_LANG:
+        # All non-Python langs redirect home (Python-only focus)
+        return redirect("/", code=302)
+    qs_lang = [q for q in QUESTIONS if q["lang"] == lang]
+    return render_template("lang_dashboard.html", lang=lang, q_count=len(qs_lang))
 
 @app.route("/lang/<lang>/roadmap")
 def lang_roadmap(lang):
-    if lang not in LANGS: abort(404)
+    if lang != PRIMARY_LANG:
+        return redirect(f"/lang/{PRIMARY_LANG}/roadmap", code=302)
     return render_template("lang_roadmap.html", lang=lang)
 
 @app.route("/lang/<lang>/lesson/<stage_id>")
 def lang_lesson(lang, stage_id):
-    if lang not in LANGS: abort(404)
+    if lang != PRIMARY_LANG:
+        return redirect(f"/lang/{PRIMARY_LANG}/roadmap", code=302)
     stage = _stage_for(lang, stage_id)
     if not stage: abort(404)
     return render_template("lang_lesson.html", lang=lang, stage=stage)
 
 @app.route("/lang/<lang>/mastery")
 def lang_mastery(lang):
-    if lang not in LANGS: abort(404)
+    if lang != PRIMARY_LANG:
+        return redirect(f"/lang/{PRIMARY_LANG}/mastery", code=302)
     return render_template("lang_mastery.html", lang=lang)
 
 # ---------------- Progress + improvements ----------------
@@ -164,10 +168,9 @@ def api_stage(stage_id):
     qs = [q for q in QUESTIONS if q["id"] in qids]
     return jsonify({"stage": stage, "questions": qs})
 
-# Per-lang API
 @app.route("/api/lang/<lang>/roadmap")
 def api_lang_roadmap(lang):
-    if lang not in LANGS: abort(404)
+    if lang != PRIMARY_LANG: abort(404)
     return jsonify({"lang": lang,
                     "stages": ROADMAP_PERLANG.get("per_lang_stages",{}).get(lang, []),
                     "kcs": ROADMAP_PERLANG.get("per_lang_kcs",{}).get(lang, []),
@@ -175,14 +178,13 @@ def api_lang_roadmap(lang):
 
 @app.route("/api/lang/<lang>/stage/<stage_id>")
 def api_lang_stage(lang, stage_id):
-    if lang not in LANGS: abort(404)
+    if lang != PRIMARY_LANG: abort(404)
     stage = _stage_for(lang, stage_id)
     if not stage: abort(404)
     qids = set(stage.get("question_ids", []))
     qs = [q for q in QUESTIONS if q["id"] in qids]
     return jsonify({"stage": stage, "questions": qs, "lang": lang})
 
-# Cohort + improvements + audit APIs
 @app.route("/api/cohort_progress")
 def api_cohort():
     return jsonify({
@@ -199,7 +201,6 @@ def api_improvements(): return _add_cache_headers(jsonify(IMPS), 1800)
 
 @app.route("/api/research_refs")
 def api_research_refs(): return _add_cache_headers(jsonify(REFS), 3600)
-
 
 
 # ---------------- Debug routes (env-gated: FLASK_ENV=development) ----------------
@@ -239,10 +240,10 @@ def debug_changelog():
         return jsonify({"fixes": []})
 
 @app.errorhandler(404)
-def nf(e): return jsonify({"error": "not found"}), 404
+def nf(e): return jsonify({"error": "không tìm thấy"}), 404
 
 if __name__ == "__main__":
-    print(f"Loaded {len(QUESTIONS)} questions, {len(ROADMAP.get('stages',[]))} global stages, "
-          f"{sum(len(v) for v in ROADMAP_PERLANG.get('per_lang_stages',{}).values())} per-lang stage instances, "
-          f"{len(IMPS.get('improvements',[]))} improvements, {LEARNERS.get('distinct_learner_ids_cum',0)} learner_ids.")
+    print(f"Loaded {len(QUESTIONS)} Python questions, "
+          f"{len(ROADMAP_PERLANG.get('per_lang_stages',{}).get('python',[]))} stages, "
+          f"{len(IMPS.get('improvements',[]))} improvements.")
     app.run(host="127.0.0.1", port=5000, debug=False)

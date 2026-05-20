@@ -39,15 +39,14 @@ async function init() {
 }
 
 function populateFilters() {
-  const langs = [...new Set(state.all.map(q => q.lang))].sort();
   const topics = [...new Set(state.all.map(q => q.topic))].sort();
   const diffs = ['easy','med','hard'];
-  fillSelect('filter-lang', langs);
   fillSelect('filter-topic', topics);
   fillSelect('filter-diff', diffs);
 }
 function fillSelect(id, opts) {
   const sel = $(id);
+  if (!sel) return;
   for (const o of opts) {
     const op = document.createElement('option');
     op.value = o; op.textContent = o;
@@ -56,12 +55,11 @@ function fillSelect(id, opts) {
 }
 
 function applyFilters() {
-  const lang = $('filter-lang').value;
-  const topic = $('filter-topic').value;
-  const diff = $('filter-diff').value;
+  const topicEl = $('filter-topic'); const diffEl = $('filter-diff');
+  const topic = topicEl ? topicEl.value : '';
+  const diff = diffEl ? diffEl.value : '';
   const mode = $('mode').value;
   let pool = state.all.filter(q =>
-    (!lang || q.lang === lang) &&
     (!topic || q.topic === topic) &&
     (!diff || q.difficulty === diff)
   );
@@ -85,9 +83,9 @@ function render() {
     return acc + (qq && qq.correct_idx === choice ? 1 : 0);
   }, 0);
   $('progress').textContent = `${answered} / ${total}`;
-  $('score').textContent = `correct ${correct}/${answered}`;
+  $('score').textContent = `đúng ${correct}/${answered}`;
   if (!q) {
-    $('question-card').innerHTML = '<p>No questions match the current filters.</p>';
+    $('question-card').innerHTML = '<p>Không có câu hỏi nào khớp với bộ lọc hiện tại.</p>';
     return;
   }
   $('q-lang').textContent = q.lang;
@@ -117,7 +115,7 @@ function render() {
   fb.classList.add('hidden'); fb.className = 'hidden';
   if (state.answers[q.id] != null) showFeedback(q, state.answers[q.id]);
   // pager
-  $('page-info').textContent = `Page ${Math.floor(state.idx / PAGE_SIZE) + 1} of ${Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE))}`;
+  $('page-info').textContent = `Trang ${Math.floor(state.idx / PAGE_SIZE) + 1} / ${Math.max(1, Math.ceil(state.filtered.length / PAGE_SIZE))}`;
 }
 
 function showFeedback(q, choice) {
@@ -125,8 +123,8 @@ function showFeedback(q, choice) {
   const ok = (choice === q.correct_idx);
   fb.className = ok ? 'ok' : 'bad';
   fb.classList.remove('hidden');
-  const status = ok ? '✓ Correct' : `✗ Wrong (answer: ${q.correct_idx+1}. ${q.options[q.correct_idx]})`;
-  const sources = (q.sources && q.sources.length) ? `Sources: ${q.sources.join(', ')}` : '';
+  const status = ok ? '✓ Đúng' : `✗ Sai (đáp án: ${q.correct_idx+1}. ${q.options[q.correct_idx]})`;
+  const sources = (q.sources && q.sources.length) ? `Nguồn: ${q.sources.join(', ')}` : '';
   fb.innerHTML = `<strong>${status}</strong><div class="explain">${escapeHtml(q.explain)}</div>${sources ? `<div class="sources">${escapeHtml(sources)}</div>` : ''}`;
   // color the options
   document.querySelectorAll('#q-options label').forEach(l => {
@@ -147,7 +145,7 @@ function submit() {
   save();
   render();
   if (state.all.length > 0 && Object.keys(state.answers).length >= state.all.length) {
-    setTimeout(() => alert('🎉 Completed all ' + state.all.length + ' questions!'), 100);
+    setTimeout(() => alert('🎉 Hoàn thành tất cả ' + state.all.length + ' câu!'), 100);
   }
 }
 function nextQ() {
@@ -166,13 +164,13 @@ function attachEvents() {
   $('next-btn').onclick = nextQ;
   $('back-btn').onclick = prevQ;
   $('reset').onclick = () => {
-    if (!confirm('Reset all answers?')) return;
+    if (!confirm('Reset toàn bộ câu trả lời?')) return;
     state.answers = {}; state.idx = 0; save(); applyFilters(); render();
   };
   $('theme-toggle').onclick = () => setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
   $('copy-code').onclick = () => navigator.clipboard.writeText($('q-code').textContent || '');
-  for (const id of ['mode','filter-lang','filter-topic','filter-diff']) {
-    $(id).onchange = () => { applyFilters(); render(); };
+  for (const id of ['mode','filter-topic','filter-diff']) {
+    const el = $(id); if (el) el.onchange = () => { applyFilters(); render(); };
   }
   document.querySelectorAll('.page-btn').forEach(b => {
     b.onclick = () => {

@@ -52,12 +52,12 @@ async function render(){
   const next = document.getElementById('next-card');
   if (lowest){
     next.classList.remove('hint');
-    next.innerHTML = `<div class="kpi-label">Next: stage ${lowest.stage.order}</div>
+    next.innerHTML = `<div class="kpi-label">Tiếp theo: stage ${lowest.stage.order}</div>
       <div class="kpi-val">${lowest.stage.title}</div>
-      <p>${lowest.stage.question_ids.length} ${lang} questions · gate ${Math.round(lowest.stage.mastery_gate*100)}% · ${lowest.acc===null?'no data yet':Math.round(lowest.acc*100)+'% current'}</p>
-      <a href="/lang/${lang}/lesson/${lowest.stage.id}" class="cta">Open lesson →</a>`;
+      <p>${lowest.stage.question_ids.length} câu ${lang} · gate ${Math.round(lowest.stage.mastery_gate*100)}% · ${lowest.acc===null?'chưa có dữ liệu':Math.round(lowest.acc*100)+'% hiện tại'}</p>
+      <a href="/lang/${lang}/lesson/${lowest.stage.id}" class="cta">Mở bài học →</a>`;
   } else {
-    next.innerHTML = `<p>All stages at gate. <a href="/lang/${lang}/mastery">View mastery →</a></p>`;
+    next.innerHTML = `<p>Tất cả stage đã đạt gate. <a href="/lang/${lang}/mastery">Xem mức độ thành thạo →</a></p>`;
   }
 
   // Lang hints panel

@@ -17,8 +17,8 @@ function fireHints(q){
 
 function renderQ(){
   if (cur >= qs.length){
-    document.getElementById('lesson-practice').innerHTML = `<h2>Lesson complete</h2>
-      <p>Answered ${qs.length} {{lang}} questions. <a href="/lang/${lang}/mastery">View mastery →</a></p>`;
+    document.getElementById('lesson-practice').innerHTML = `<h2>Hoàn thành bài học</h2>
+      <p>Đã trả lời ${qs.length} câu ${lang}. <a href="/lang/${lang}/mastery">Xem mức độ thành thạo →</a></p>`;
     return;
   }
   const q = qs[cur];
@@ -26,7 +26,7 @@ function renderQ(){
   document.getElementById('q-topic').textContent = q.topic;
   document.getElementById('q-diff').textContent = `est ${q.est_difficulty>=0?'+':''}${q.est_difficulty.toFixed(2)}`;
   document.getElementById('q-kc').textContent = q.kc_tag;
-  document.getElementById('q-idx').textContent = `Q ${cur+1}/${qs.length}`;
+  document.getElementById('q-idx').textContent = `Câu ${cur+1}/${qs.length}`;
   document.getElementById('q-code').textContent = q.code;
   document.getElementById('q-question').textContent = q.question;
   document.getElementById('metacog-pre-text').textContent = q.metacog_pre;
@@ -54,12 +54,12 @@ function submit(){
   const correct = chosen === q.correct_idx;
   const fb = document.getElementById('feedback');
   fb.classList.remove('hidden');
-  let html = `<div class="${correct?'correct':'wrong'}"><strong>${correct?'Correct':'Incorrect'}</strong></div><p>${q.explain}</p>`;
+  let html = `<div class="${correct?'correct':'wrong'}"><strong>${correct?'Đúng':'Sai'}</strong></div><p>${q.explain}</p>`;
   if (!correct && q.misconception_map && q.misconception_map[String(chosen)]){
-    html += `<div class="misconception"><strong>Why option ${chosen+1} is wrong:</strong> ${q.misconception_map[String(chosen)]}</div>`;
+    html += `<div class="misconception"><strong>Vì sao đáp án ${chosen+1} sai:</strong> ${q.misconception_map[String(chosen)]}</div>`;
   }
   if (q.sources && q.sources.length){
-    html += `<div class="sources">Sources: ${q.sources.join(' · ')}</div>`;
+    html += `<div class="sources">Nguồn: ${q.sources.join(' · ')}</div>`;
   }
   fb.innerHTML = html;
   document.getElementById('metacog-post').classList.remove('hidden');
@@ -72,7 +72,7 @@ function submit(){
   const recent = attempts.slice(-20);
   const accPct = recent.length ? (recent.filter(a=>a.correct).length / recent.length) : 0;
   const ms = document.getElementById('mastery-status');
-  ms.innerHTML = `<div class="mastery-row">Rolling 20-Q accuracy: <strong>${Math.round(accPct*100)}%</strong> · gate <strong>${Math.round(stageData.mastery_gate*100)}%</strong> ${accPct>=stageData.mastery_gate?'<span class="passed">✓ gate met</span>':''}</div>`;
+  ms.innerHTML = `<div class="mastery-row">Độ chính xác (20 câu gần nhất): <strong>${Math.round(accPct*100)}%</strong> · gate <strong>${Math.round(stageData.mastery_gate*100)}%</strong> ${accPct>=stageData.mastery_gate?'<span class="passed">✓ đã đạt gate</span>':''}</div>`;
 }
 function next(){ cur++; renderQ(); window.scrollTo({top:0, behavior:'smooth'}); }
 

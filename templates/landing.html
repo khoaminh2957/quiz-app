@@ -1,58 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Code review quiz with per-language tracks, mastery gates, and pedagogy-driven roadmap.">
+<meta name="description" content="Quiz review code Python — 286 câu hỏi, 15 stages, gate mastery, ôn tập Leitner.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Code Review Quiz — Pick a language</title>
+<title>Quiz Review Code — Python</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header class="topbar">
-  <h1>Code Review Quiz</h1>
+  <h1>Quiz Review Code · <span class="lang-pill lang-python">Python</span></h1>
   <nav class="navlinks">
-    <a href="/" class="active">Home</a>
-    <a href="/quiz">Flat quiz</a>
-    <a href="/progress">Progress</a>
-    <a href="/improvements">Changelog</a>
+    <a href="/" class="active">Trang chủ</a>
+    <a href="/lang/python/roadmap">Lộ trình</a>
+    <a href="/lang/python/mastery">Mức độ thành thạo</a>
+    <a href="/quiz">Quiz nhanh</a>
+    <a href="/progress">Tiến độ</a>
+    <a href="/improvements">Nhật ký</a>
   </nav>
   <div class="meta">
-    <span>{{ total }} questions · 5 languages · 15 stages each</span>
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+    <span>{{ total }} câu hỏi · 15 stages · 3 cấp độ</span>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
   </div>
 </header>
 
 <main id="landing-main">
   <section class="hero">
-    <h2>Pick a language to start your track</h2>
-    <p class="hint">Per-language progression — 15 stages, level-gated mastery (80% / 85% / 90%), Leitner spaced review.</p>
+    <h2>Lộ trình Code Review bằng Python</h2>
+    <p class="hint">Học theo từng giai đoạn — 15 stages, gate mastery theo cấp độ (80% / 85% / 90%), ôn lại theo Leitner 5-box (1·3·7·16·35 ngày).</p>
   </section>
 
   <section class="lang-grid">
-    <a class="lang-card lang-python"     href="/lang/python"     data-key="1"><span class="badge">Alt+1</span><h3>Python</h3><p>286 Qs · GIL, late binding, mutable defaults</p></a>
-    <a class="lang-card lang-javascript" href="/lang/javascript" data-key="2"><span class="badge">Alt+2</span><h3>JavaScript</h3><p>237 Qs · event loop, this binding, coercion</p></a>
-    <a class="lang-card lang-go"         href="/lang/go"         data-key="3"><span class="badge">Alt+3</span><h3>Go</h3><p>222 Qs · goroutines, slice aliasing, nil interface</p></a>
-    <a class="lang-card lang-rust"       href="/lang/rust"       data-key="4"><span class="badge">Alt+4</span><h3>Rust</h3><p>175 Qs · borrow checker, lifetimes, unsafe</p></a>
-    <a class="lang-card lang-sql"        href="/lang/sql"        data-key="5"><span class="badge">Alt+5</span><h3>SQL</h3><p>221 Qs · NULL 3VL, indexes, CTEs, windows</p></a>
+    <a class="lang-card lang-python" href="/lang/python"><span class="badge">Bắt đầu</span><h3>Python</h3><p>{{ total }} câu · GIL, late binding, mutable default, list comprehension</p></a>
   </section>
 
   <section class="quick-start">
-    <h2>Quick start</h2>
+    <h2>Bắt đầu nhanh</h2>
     <ol>
-      <li>Choose a language above (or press <kbd>Alt+1</kbd>..<kbd>Alt+5</kbd>).</li>
-      <li>Start at the foundational stages: <em>code reading → runtime errors → idioms → boundaries → truthy/falsy</em>.</li>
-      <li>Each stage has a <em>mastery gate</em>; clear it to unlock the next.</li>
-      <li>Use <a href="/quiz">flat quiz</a> for random practice, or <a href="/progress">Progress</a> to compare against the simulated cohort.</li>
+      <li>Vào <a href="/lang/python">Dashboard Python</a> để xem KPI và stage tiếp theo.</li>
+      <li>Theo lộ trình foundational → intermediate → advanced. Mỗi stage có gate mastery riêng.</li>
+      <li>Trả lời sai sẽ hiện <em>misconception</em> giải thích vì sao lựa chọn đó sai.</li>
+      <li>Dùng <a href="/quiz">quiz nhanh</a> để luyện random, hoặc <a href="/progress">Tiến độ</a> để so với cohort.</li>
     </ol>
   </section>
 
   <section class="why">
-    <h2>Why per-language tracks?</h2>
-    <p>Lister 2004's multi-national study found that code-reading and tracing skills vary measurably by language. We partition the 1141 questions and 52 + 5 KCs into language tracks so practice stays focused on idioms and pitfalls of one language at a time — without losing the shared cross-language taxonomy (Koedinger 2012 KLI).</p>
+    <h2>Vì sao chỉ Python?</h2>
+    <p>Web tập trung vào một ngôn ngữ duy nhất để học sâu hơn: idiom, pitfalls, KC Python-specific (GIL, late binding, mutable defaults, walrus scope, f-string quoting). Triết lý pedagogy theo Lister 2004 (tracing skills theo ngôn ngữ) và Hermans 2021 (cognitive chunking) — practice tập trung 1 ngôn ngữ thay vì rải mỏng.</p>
   </section>
 </main>
 
-<footer><small>Pedagogy refs: <a href="/api/pedagogy">all refs JSON</a> · Audit trail: <a href="/improvements">/improvements</a></small></footer>
+<footer><small>Tham khảo pedagogy: <a href="/api/pedagogy">refs JSON</a> · Nhật ký build: <a href="/improvements">/improvements</a></small></footer>
 
 <script src="/static/landing.js"></script>
 </body>

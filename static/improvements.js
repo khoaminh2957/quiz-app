@@ -35,7 +35,7 @@ function drawGain(canvas, byIter){
     ctx.fillText(`i${it}`, x, H-padB+16);
   });
   ctx.fillStyle = '#888';
-  ctx.fillText('cohort gain (pp)', padL, padT-6);
+  ctx.fillText('gain của cohort (pp)', padL, padT-6);
 }
 
 async function render(){
@@ -59,8 +59,8 @@ async function render(){
     div.className = 'iter-row';
     div.innerHTML = `<div class="iter-num">iter ${String(it).padStart(2,'0')}</div>
       <div class="iter-summary">
-        <strong>${its.length} improvements</strong> · gain ${g.gain_pp!=null?(g.gain_pp>=0?'+':'')+g.gain_pp.toFixed(2)+'pp':'—'} ·
-        active learners ${g.active_learners||0} · cum ${g.cum_distinct_learners||0}
+        <strong>${its.length} cải tiến</strong> · gain ${g.gain_pp!=null?(g.gain_pp>=0?'+':'')+g.gain_pp.toFixed(2)+'pp':'—'} ·
+        người học hoạt động ${g.active_learners||0} · cộng dồn ${g.cum_distinct_learners||0}
         <div class="iter-cats">${Array.from(new Set(its.map(x=>x.category))).map(c => `<span class="badge cat-${c}">${c}</span>`).join(' ')}</div>
       </div>`;
     tl.appendChild(div);
@@ -81,10 +81,10 @@ async function render(){
         <span class="badge lang-${x.lang}">${x.lang}</span>
         <span>iter ${x.iter}</span>
         <code>${x.file}:${x.line_range}</code>
-        <span class="muted">expected +${x.expected_delta_pp}pp</span>
+        <span class="muted">dự kiến +${x.expected_delta_pp}pp</span>
       </div>
       <p>${x.rationale}</p>
-      <div class="muted">sources: ${srcs} · pre_sha <code>${(x.pre_sha||'').slice(0,8)}</code></div>`;
+      <div class="muted">nguồn: ${srcs} · pre_sha <code>${(x.pre_sha||'').slice(0,8)}</code></div>`;
     list.appendChild(li);
   }
 

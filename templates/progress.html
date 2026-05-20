@@ -1,40 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Code review quiz with per-language tracks, mastery gates, and pedagogy-driven roadmap.">
+<meta name="description" content="Tiến độ cá nhân so với cohort 25 người học mô phỏng.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Progress — Code Review Quiz</title>
+<title>Tiến độ — Quiz Review Code</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header class="topbar">
-  <h1>Progress</h1>
+  <h1>Tiến độ</h1>
   <nav class="navlinks">
-    <a href="/">Home</a>
-    <a href="/quiz">Flat quiz</a>
-    <a href="/progress" class="active">Progress</a>
-    <a href="/improvements">Changelog</a>
+    <a href="/">Trang chủ</a>
+    <a href="/lang/python">Dashboard</a>
+    <a href="/quiz">Quiz nhanh</a>
+    <a href="/progress" class="active">Tiến độ</a>
+    <a href="/improvements">Nhật ký</a>
   </nav>
   <div class="meta">
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
   </div>
 </header>
 
 <main id="progress-main">
   <section>
-    <h2>Cohort vs you — pass rate by iteration</h2>
-    <p class="hint">Cohort is a simulated 25-learner panel ({{ "{}" if false else "" }} novice + intermediate + polyglot profiles, 5-lang rotation, paired-seed Monte Carlo). Your personal curve is computed from <code>localStorage.state</code>.</p>
+    <h2>Cohort vs bạn — tỉ lệ đúng theo iteration</h2>
+    <p class="hint">Cohort là 25 người học mô phỏng (3 profile: novice / intermediate / polyglot), Monte Carlo paired-seed. Đường của bạn được tính từ <code>localStorage.state</code>.</p>
     <canvas id="cohort-chart" width="800" height="320"></canvas>
   </section>
 
   <section>
-    <h2>Per-language progress</h2>
+    <h2>Tiến độ theo ngôn ngữ</h2>
     <div id="per-lang-grid"></div>
   </section>
 
   <section>
-    <h2>Cohort details</h2>
+    <h2>Chi tiết cohort</h2>
     <table id="cohort-table">
       <thead><tr><th>iter</th><th>diag</th><th>post</th><th>gain pp</th><th>active</th><th>cum learners</th></tr></thead>
       <tbody></tbody>

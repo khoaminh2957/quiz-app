@@ -70,8 +70,8 @@ function drawChart(canvas, byIter){
   });
   ctx.stroke();
   // legend
-  ctx.fillStyle = '#94a3b8'; ctx.fillRect(padL, padT-12, 12, 2); ctx.fillText('cohort diag', padL+18, padT-6);
-  ctx.fillStyle = '#2563eb'; ctx.fillRect(padL+100, padT-12, 12, 2); ctx.fillText('cohort post', padL+118, padT-6);
+  ctx.fillStyle = '#94a3b8'; ctx.fillRect(padL, padT-12, 12, 2); ctx.fillText('cohort trước (diag)', padL+18, padT-6);
+  ctx.fillStyle = '#2563eb'; ctx.fillRect(padL+140, padT-12, 12, 2); ctx.fillText('cohort sau (post)', padL+158, padT-6);
 }
 
 function renderTable(byIter){
@@ -92,7 +92,7 @@ function renderPerLang(personal, byIter){
   const iters = Object.keys(byIter).map(Number).filter(k=>k>0).sort((a,b)=>a-b);
   const lastPost = iters.length ? byIter[String(iters[iters.length-1])].post : 0;
   grid.innerHTML = '';
-  for (const lang of ['python','javascript','go','rust','sql']){
+  for (const lang of ['python']){
     const me = personal && personal[lang];
     const delta = me!=null ? Math.round((me - lastPost) * 1000)/10 : null;
     const card = document.createElement('div');
@@ -100,8 +100,8 @@ function renderPerLang(personal, byIter){
     card.innerHTML = `
       <div class="kpi-label">${lang}</div>
       <div class="kpi-val">${me==null?'—':Math.round(me*100)+'%'}</div>
-      <div class="kpi-label">${delta==null?'no data':((delta>=0?'+':'')+delta+'pp vs cohort')}</div>
-      <a href="/lang/${lang}" class="cta">Open →</a>`;
+      <div class="kpi-label">${delta==null?'chưa có dữ liệu':((delta>=0?'+':'')+delta+'pp so với cohort')}</div>
+      <a href="/lang/${lang}" class="cta">Mở →</a>`;
     grid.appendChild(card);
   }
 }

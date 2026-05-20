@@ -5,10 +5,10 @@
       "id": "f1",
       "level": "foundational",
       "order": 1,
-      "title": "Đọc code: trace từng dòng",
+      "title": "Reading code: literal trace",
       "objectives": [
-        "Trace thực thi của đoạn code 5-15 dòng đạt ≥ 90% độ chính xác khi kết thúc stage",
-        "Xác định giá trị in/return của đoạn code deterministic trong 60 giây"
+        "trace execution of a 5-15 line snippet ≥ 90% accuracy by end of stage",
+        "identify the printed/returned value of a deterministic snippet within 60 seconds"
       ],
       "prereqs": [],
       "kc_coverage": [
@@ -53,7 +53,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Trước khi trả lời, mô phỏng code từng dòng trong đầu. Sau khi trả lời, ghi lại dòng nào khiến bạn bất ngờ.",
+      "metacog_prompt": "Before answering, mentally simulate the snippet line by line. After answering, note which line surprised you.",
       "est_min": 45,
       "pedagogy_sources": [
         "Hermans 2021",
@@ -66,10 +66,10 @@
       "id": "f2",
       "level": "foundational",
       "order": 2,
-      "title": "Lỗi runtime thường gặp",
+      "title": "Common runtime errors",
       "objectives": [
-        "Dự đoán class của runtime exception của đoạn code lỗi đạt ≥ 85% khi kết thúc stage",
-        "Phân biệt NullPointer-like vs TypeError-like trong 90 giây"
+        "predict the runtime exception class of a flawed snippet ≥ 85% accuracy by end of stage",
+        "distinguish NullPointer-like vs TypeError-like failures within 90 seconds"
       ],
       "prereqs": [
         "f1"
@@ -94,7 +94,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Input nào sẽ khiến code này crash? Đánh giá lại sau khi xem đáp án.",
+      "metacog_prompt": "What input value would make this code crash? Re-evaluate after seeing the answer.",
       "est_min": 50,
       "pedagogy_sources": [
         "Hermans 2021",
@@ -105,10 +105,10 @@
       "id": "f3",
       "level": "foundational",
       "order": 3,
-      "title": "Cú pháp & style idiomatic",
+      "title": "Idiomatic syntax & style",
       "objectives": [
-        "Chọn lựa chọn idiomatic thay vì literal-correct đạt ≥ 80% khi kết thúc stage",
-        "Phát hiện cấu trúc thừa (double negation, biến vô dụng) trong 45 giây"
+        "select the idiomatic option over the literal-correct option ≥ 80% accuracy by end of stage",
+        "spot a redundant construct (double negation, useless variable) within 45 seconds"
       ],
       "prereqs": [
         "f2"
@@ -214,7 +214,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Có cách viết ngắn hơn và idiomatic hơn không? Đánh giá độ tự tin 1-5.",
+      "metacog_prompt": "Is there a shorter, language-native way to express this? Rate your confidence 1-5.",
       "est_min": 40,
       "pedagogy_sources": [
         "Anderson 2001",
@@ -225,7 +225,7 @@
       "id": "f4",
       "level": "foundational",
       "order": 4,
-      "title": "Off-by-one và biên",
+      "title": "Off-by-one and boundary edges",
       "objectives": [
         "identify the off-by-one boundary in a loop or slice ≥ 85% accuracy by end of stage",
         "predict behavior on empty input within 60 seconds"
@@ -330,7 +330,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Trace vòng lặp với n=0 và n=1. Số lần lặp khác nhau ở đâu?",
+      "metacog_prompt": "Trace the loop with n=0 and n=1. Which iteration counts differ?",
       "est_min": 50,
       "pedagogy_sources": [
         "Soloway 1984"
@@ -340,7 +340,7 @@
       "id": "f5",
       "level": "foundational",
       "order": 5,
-      "title": "Truthy/falsy & bẫy so sánh",
+      "title": "Truthy/falsy & comparison pitfalls",
       "objectives": [
         "distinguish == vs === / is vs == semantics ≥ 80% accuracy by end of stage",
         "predict short-circuit eval order within 45 seconds"
@@ -497,7 +497,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Kết quả có thay đổi nếu thay input bằng 0, '', hoặc None?",
+      "metacog_prompt": "Would the result change if 0, '', or None replaced the input?",
       "est_min": 45,
       "pedagogy_sources": [
         "Du Boulay 1986"
@@ -683,7 +683,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Mutate arg có làm thay đổi biến của caller không? Suy luận trước khi trả lời.",
+      "metacog_prompt": "Does mutating arg also mutate the caller's variable? Reason before answering.",
       "est_min": 60,
       "pedagogy_sources": [
         "Flanagan 2020"
@@ -780,7 +780,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Dòng nào chạy nhiều lần nhất? Ước lượng big-O trước khi xem lựa chọn.",
+      "metacog_prompt": "Which line runs the most times? Estimate big-O before reading options.",
       "est_min": 75,
       "pedagogy_sources": [
         "Schwartz 2008"
@@ -790,7 +790,7 @@
       "id": "i3",
       "level": "intermediate",
       "order": 8,
-      "title": "Quản lý resource & lifetime",
+      "title": "Resource & lifetime management",
       "objectives": [
         "identify missed close/drop/free within 60 seconds ≥ 80% accuracy by end of stage",
         "predict resource leak under exception path within 75 seconds"
@@ -838,7 +838,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Chuyện gì xảy ra nếu exception bắn trước khi close? Trace cả hai nhánh.",
+      "metacog_prompt": "What happens if an exception fires before the close call? Trace both branches.",
       "est_min": 70,
       "pedagogy_sources": [
         "Klabnik 2023"
@@ -848,7 +848,7 @@
       "id": "i4",
       "level": "intermediate",
       "order": 9,
-      "title": "Validate input & injection",
+      "title": "Input validation & injection",
       "objectives": [
         "identify the injection sink in 15-30 line code within 90 seconds",
         "select the parameterized fix over string-concat fix ≥ 90% accuracy by end of stage"
@@ -993,7 +993,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Biến nào đến từ user input và chạm tới interpreter mà không qua xử lý?",
+      "metacog_prompt": "Which variable came from user input and reaches an interpreter unchanged?",
       "est_min": 75,
       "pedagogy_sources": [
         "OWASP 2021",
@@ -1187,7 +1187,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Thông tin gì bị mất khi catch exception này? Retry có thể double-execute side effect không?",
+      "metacog_prompt": "What information is lost when this exception is caught? Could the retry double-execute a side effect?",
       "est_min": 60,
       "pedagogy_sources": [
         "Flanagan 2020"
@@ -1197,7 +1197,7 @@
       "id": "a1",
       "level": "advanced",
       "order": 11,
-      "title": "Concurrency: race & atomicity",
+      "title": "Concurrency: races & atomicity",
       "objectives": [
         "identify the race window in a 2-thread snippet within 120 seconds",
         "select the atomic primitive over coarse-lock option ≥ 75% accuracy by end of stage"
@@ -1330,7 +1330,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Interleave hai thread tại mỗi line break — có thứ tự nào ra kết quả sai không?",
+      "metacog_prompt": "Interleave the two threads at every line break - does any ordering produce the wrong result?",
       "est_min": 90,
       "pedagogy_sources": [
         "Donovan 2015",
@@ -1422,7 +1422,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Giá trị tại biên (INT_MAX, 0, -1) là bao nhiêu? Đi qua từng bước số học.",
+      "metacog_prompt": "What is the value at the boundary (INT_MAX, 0, -1)? Walk the arithmetic.",
       "est_min": 85,
       "pedagogy_sources": [
         "Klabnik 2023"
@@ -1470,7 +1470,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Timing hoặc length leak ở đâu có thể cho attacker thông tin? Suy ngẫm sau khi trả lời.",
+      "metacog_prompt": "Where could a timing or length leak give an attacker information? Reflect after answering.",
       "est_min": 75,
       "pedagogy_sources": [
         "OWASP 2021"
@@ -1480,7 +1480,7 @@
       "id": "a4",
       "level": "advanced",
       "order": 14,
-      "title": "Concurrency: thứ tự & memory model",
+      "title": "Concurrency: ordering & memory model",
       "objectives": [
         "identify deadlock due to lock ordering within 120 seconds ≥ 70% accuracy by end of stage",
         "spot missing happens-before edge between producer and consumer within 120 seconds"
@@ -1556,7 +1556,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Vẽ thứ tự acquire lock theo cả hai path. Có thứ tự nào đảo ngược không?",
+      "metacog_prompt": "Draw the lock acquisition order across both paths. Does any reverse ordering exist?",
       "est_min": 100,
       "pedagogy_sources": [
         "Donovan 2015",
@@ -1567,7 +1567,7 @@
       "id": "a5",
       "level": "advanced",
       "order": 15,
-      "title": "Review cấp architecture",
+      "title": "Architecture-level review",
       "objectives": [
         "recognize hidden coupling between modules within 120 seconds ≥ 70% accuracy by end of stage",
         "identify stringly-typed API smell ≥ 80% accuracy by end of stage"
@@ -1644,7 +1644,7 @@
         16,
         35
       ],
-      "metacog_prompt": "Nếu đổi tên một field, bao nhiêu file phải sửa? Suy ngẫm về chi phí của abstraction.",
+      "metacog_prompt": "If you renamed a field, how many files would change? Reflect on the cost of the abstraction.",
       "est_min": 80,
       "pedagogy_sources": [
         "Bloom 1968",

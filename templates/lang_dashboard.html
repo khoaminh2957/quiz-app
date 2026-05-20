@@ -1,56 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Code review quiz with per-language tracks, mastery gates, and pedagogy-driven roadmap.">
+<meta name="description" content="Dashboard Python: tiến độ, stage tiếp theo, hints Python.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ lang|capitalize }} track — Code Review Quiz</title>
+<title>Dashboard Python — Quiz Review Code</title>
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 <header class="topbar">
-  <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> track</h1>
+  <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> dashboard</h1>
   <nav class="navlinks">
-    <a href="/">Home</a>
+    <a href="/">Trang chủ</a>
     <a href="/lang/{{ lang }}" class="active">Dashboard</a>
-    <a href="/lang/{{ lang }}/roadmap">Roadmap</a>
-    <a href="/lang/{{ lang }}/mastery">Mastery</a>
-    <a href="/progress">Progress</a>
+    <a href="/lang/{{ lang }}/roadmap">Lộ trình</a>
+    <a href="/lang/{{ lang }}/mastery">Mức độ thành thạo</a>
+    <a href="/progress">Tiến độ</a>
   </nav>
   <div class="meta">
     <span id="stage-pos">stage 0/15</span>
     <span id="mastery-bar"><span id="mastery-fill"></span></span>
-    <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
   </div>
 </header>
 
 <main id="dashboard-main">
   <section class="dashboard-summary">
     <div class="kpi">
-      <div class="kpi-card"><div class="kpi-val" id="kpi-stages">0/15</div><div class="kpi-label">Stages complete</div></div>
-      <div class="kpi-card"><div class="kpi-val" id="kpi-questions">0/{{ q_count }}</div><div class="kpi-label">Questions answered</div></div>
-      <div class="kpi-card"><div class="kpi-val" id="kpi-accuracy">—</div><div class="kpi-label">Rolling-20 accuracy</div></div>
-      <div class="kpi-card"><div class="kpi-val" id="kpi-vs-cohort">—</div><div class="kpi-label">vs. cohort (pp)</div></div>
+      <div class="kpi-card"><div class="kpi-val" id="kpi-stages">0/15</div><div class="kpi-label">Stage hoàn thành</div></div>
+      <div class="kpi-card"><div class="kpi-val" id="kpi-questions">0/{{ q_count }}</div><div class="kpi-label">Câu đã trả lời</div></div>
+      <div class="kpi-card"><div class="kpi-val" id="kpi-accuracy">—</div><div class="kpi-label">Độ chính xác (20 câu gần nhất)</div></div>
+      <div class="kpi-card"><div class="kpi-val" id="kpi-vs-cohort">—</div><div class="kpi-label">So với cohort (pp)</div></div>
     </div>
   </section>
 
   <section class="dashboard-next">
-    <h2>Next recommended</h2>
-    <div id="next-card" class="card hint">Answer some questions in this track to get a personalized recommendation.</div>
+    <h2>Đề xuất tiếp theo</h2>
+    <div id="next-card" class="card hint">Trả lời vài câu để hệ thống đề xuất stage tiếp theo phù hợp.</div>
   </section>
 
   <section class="lang-hints" id="lang-hints">
-    <h2>{{ lang|capitalize }}-specific pitfalls</h2>
-    <ul id="lang-hint-list" class="hint">Loading…</ul>
+    <h2>Bẫy đặc trưng của Python</h2>
+    <ul id="lang-hint-list" class="hint">Đang tải…</ul>
   </section>
 
   <section class="dashboard-stages">
-    <h2>Stages</h2>
-    <a href="/lang/{{ lang }}/roadmap" class="cta">Open roadmap →</a>
+    <h2>Các stage</h2>
+    <a href="/lang/{{ lang }}/roadmap" class="cta">Mở lộ trình →</a>
   </section>
 </main>
 
-<footer><small>Per-lang KC ontology: 52 global + 5 lang-specific. <a href="/api/lang/{{ lang }}/roadmap">JSON</a></small></footer>
+<footer><small>KCs: 52 global + 5 Python-specific. <a href="/api/lang/{{ lang }}/roadmap">JSON</a></small></footer>
 
 <script>window.QUIZ_LANG = "{{ lang }}";</script>
 <script src="/static/state_migrate.js"></script>
