@@ -20,6 +20,8 @@ function renderDaily(daily, completed){
   }
   const q = daily.question;
   const doneClass = completed ? ' daily-done' : '';
+  // q.stage_id is the GLOBAL stage id (e.g. "i5"). Per-lang route expects "py_i5".
+  const perLangStageId = q.stage_id && q.stage_id.startsWith('py_') ? q.stage_id : `py_${q.stage_id}`;
   card.innerHTML = `
     <div class="daily-head">
       <h3>Câu hỏi hôm nay${completed ? ' <span class="passed">✓ đã làm</span>' : ''}</h3>
@@ -31,7 +33,7 @@ function renderDaily(daily, completed){
       <span class="badge">${q.difficulty}</span>
       <span class="badge cat-idea">stage ${q.stage_id}</span>
     </div>
-    <a href="/lang/python/lesson/${q.stage_id}" class="cta daily-cta${doneClass}">${completed ? 'Làm lại stage' : 'Mở bài học'}</a>
+    <a href="/lang/python/lesson/${perLangStageId}" class="cta daily-cta${doneClass}">${completed ? 'Làm lại stage' : 'Mở bài học'}</a>
   `;
 }
 

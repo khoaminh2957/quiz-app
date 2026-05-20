@@ -204,7 +204,14 @@ def lang_lesson(lang, stage_id):
     if lang != PRIMARY_LANG:
         return redirect(f"/lang/{PRIMARY_LANG}/roadmap", code=302)
     stage = _stage_for(lang, stage_id)
-    if not stage: abort(404)
+    if not stage:
+        # Defensive: maybe caller passed global stage_id (e.g. "i5" instead of "py_i5")
+        prefix = lang[:2]  # "py" for python
+        if not stage_id.startswith(prefix + "_"):
+            candidate = f"{prefix}_{stage_id}"
+            if _stage_for(lang, candidate):
+                return redirect(f"/lang/{lang}/lesson/{candidate}", code=302)
+        abort(404)
     return render_template("lang_lesson.html", lang=lang, stage=stage)
 
 @app.route("/lang/<lang>/mastery")
@@ -272,7 +279,11 @@ def api_lang_roadmap(lang):
 def api_lang_stage(lang, stage_id):
     if lang != PRIMARY_LANG: abort(404)
     stage = _stage_for(lang, stage_id)
-    if not stage: abort(404)
+    if not stage:
+        prefix = lang[:2]
+        if not stage_id.startswith(prefix + "_"):
+            stage = _stage_for(lang, f"{prefix}_{stage_id}")
+        if not stage: abort(404)
     qids = set(stage.get("question_ids", []))
     qs = [q for q in QUESTIONS if q["id"] in qids]
     return jsonify({"stage": stage, "questions": qs, "lang": lang})
