@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
 <header class="topbar">
   <h1>Quiz Review Code · <span class="lang-pill lang-python">Python</span></h1>
   <nav class="navlinks">
@@ -20,14 +21,22 @@
   </nav>
   <div class="meta">
     <span>{{ total }} câu hỏi · 15 stages · 3 cấp độ</span>
-    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
   </div>
 </header>
 
-<main id="landing-main">
+<main id="main" tabindex="-1">
   <section class="hero">
     <h2>Lộ trình Code Review bằng Python</h2>
     <p class="hint">Học theo từng giai đoạn — 15 stages, gate mastery theo cấp độ (80% / 85% / 90%), ôn lại theo Leitner 5-box (1·3·7·16·35 ngày).</p>
+  </section>
+
+  <section class="gamification-grid">
+    <div id="daily-card" class="card g-card"><p class="hint">Đang tải câu hôm nay…</p></div>
+    <div id="xp-card" class="card g-card"><p class="hint">Đang tải XP…</p></div>
+  </section>
+  <section class="streak-section">
+    <div id="streak-card" class="card g-card"><p class="hint">Đang tải streak…</p></div>
   </section>
 
   <section class="lang-grid">
@@ -52,6 +61,8 @@
 
 <footer><small>Tham khảo pedagogy: <a href="/api/pedagogy">refs JSON</a> · Nhật ký build: <a href="/improvements">/improvements</a></small></footer>
 
+<script src="/static/state_migrate.js"></script>
 <script src="/static/landing.js"></script>
+<script src="/static/gamification.js"></script>
 </body>
 </html>

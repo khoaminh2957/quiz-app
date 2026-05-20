@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
 <header class="topbar">
   <h1>Tiến độ</h1>
   <nav class="navlinks">
@@ -18,11 +19,11 @@
     <a href="/improvements">Nhật ký</a>
   </nav>
   <div class="meta">
-    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
   </div>
 </header>
 
-<main id="progress-main">
+<main id="main" tabindex="-1">
   <section>
     <h2>Cohort vs bạn — tỉ lệ đúng theo iteration</h2>
     <p class="hint">Cohort là 25 người học mô phỏng (3 profile: novice / intermediate / polyglot), Monte Carlo paired-seed. Đường của bạn được tính từ <code>localStorage.state</code>.</p>

@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
 <header class="topbar">
   <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> · Lộ trình</h1>
   <nav class="navlinks">
@@ -20,12 +21,22 @@
   <div class="meta">
     <span id="stage-pos">stage 0/15</span>
     <span id="mastery-bar"><span id="mastery-fill"></span></span>
-    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
   </div>
 </header>
 
-<main id="roadmap-main">
+<main id="main" tabindex="-1">
   <p class="hint">15 stage Python, chia 3 cấp × 5 stage. Stage bị khoá sẽ mở khi bạn đạt gate mastery của stage trước đó. KCs gồm 52 KC chung + 5 KC riêng cho Python.</p>
+  <div id="topic-filter" class="topic-filter" role="group" aria-label="Lọc theo chủ đề">
+    <button type="button" class="chip-filter active" data-topic="">Tất cả</button>
+    <button type="button" class="chip-filter" data-topic="bug">bug</button>
+    <button type="button" class="chip-filter" data-topic="security">security</button>
+    <button type="button" class="chip-filter" data-topic="perf">perf</button>
+    <button type="button" class="chip-filter" data-topic="style">style</button>
+    <button type="button" class="chip-filter" data-topic="edge">edge</button>
+    <button type="button" class="chip-filter" data-topic="concurrency">concurrency</button>
+  </div>
+  <div id="roadmap-status" role="status" aria-live="polite" class="hint"></div>
   <div id="roadmap-tree"></div>
 </main>
 

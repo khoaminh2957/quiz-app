@@ -30,8 +30,20 @@ async function init() {
   const t = (function(){ try { return localStorage.getItem('theme'); } catch(e){ return null; } })() || 'light';
   setTheme(t);
   load();
-  const resp = await fetch('/api/questions');
+  let resp;
+  try { resp = await fetch('/api/questions'); }
+  catch(e){
+    document.getElementById('quiz').innerHTML = '<p>Không tải được câu hỏi. <button type="button" onclick="location.reload()">Thử lại</button></p>';
+    return;
+  }
   state.all = await resp.json();
+  // Prune stale qids that no longer exist (P2 fix)
+  const validIds = new Set(state.all.map(q => q.id));
+  let pruned = 0;
+  for (const k of Object.keys(state.answers)){
+    if (!validIds.has(k)){ delete state.answers[k]; pruned++; }
+  }
+  if (pruned > 0) save();
   populateFilters();
   applyFilters();
   render();
@@ -182,7 +194,8 @@ function attachEvents() {
 
   document.addEventListener('keydown', e => {
     const tag = (e.target.tagName || '').toLowerCase();
-    if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+    if (tag === 'input' || tag === 'select' || tag === 'textarea' || tag === 'button') return;
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.key >= '1' && e.key <= '4') {
       const r = document.querySelector(`#q-options input[value="${+e.key - 1}"]`);
       if (r) r.checked = true;

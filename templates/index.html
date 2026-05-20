@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
 <header class="topbar">
   <h1>Quiz Review Code <span class="lang-pill lang-python">Python</span></h1>
   <nav class="navlinks">
@@ -20,7 +21,7 @@
   <div class="meta">
     <span id="progress">0 / {{ total }}</span>
     <span id="score">đúng 0/0</span>
-    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
     <button id="reset" type="button" aria-label="Reset tiến độ" title="Reset tiến độ">Reset</button>
   </div>
 </header>
@@ -42,7 +43,8 @@
   <span class="loaded">Đang load <span id="filtered-count">0</span> câu phù hợp</span>
 </section>
 
-<main id="quiz">
+<main id="main" tabindex="-1">
+<section id="quiz">
   <div id="question-card" class="card">
     <div class="qmeta">
       <span id="q-lang"></span>
@@ -50,7 +52,7 @@
       <span id="q-diff"></span>
       <span id="q-idx"></span>
     </div>
-    <pre class="code"><code id="q-code"></code><button class="copy-btn" id="copy-code" type="button" aria-label="Copy đoạn code" title="Copy code">⧉</button></pre>
+    <pre class="code"><code id="q-code"></code><button class="copy-btn" id="copy-code" type="button" aria-label="Copy đoạn code" title="Copy code"><span aria-hidden="true">⧉</span></button></pre>
     <p id="q-question"></p>
     <form id="q-options"></form>
     <div class="actions">
@@ -58,7 +60,7 @@
       <button id="back-btn" type="button">Quay lại (B)</button>
       <button id="next-btn" type="button">Tiếp (→)</button>
     </div>
-    <div id="feedback" class="hidden"></div>
+    <div id="feedback" class="hidden" role="status" aria-live="polite"></div>
   </div>
 
   <div id="pager">
@@ -66,6 +68,7 @@
     <span id="page-info"></span>
     <button class="page-btn" data-dir="+1" type="button">50 sau ▶</button>
   </div>
+</section>
 </main>
 
 <footer><small>Phím tắt khi tuần tự: <kbd>1-4</kbd> chọn, <kbd>Enter</kbd> nộp, <kbd>→</kbd> tiếp, <kbd>B</kbd> lùi, <kbd>R</kbd> random; bỏ qua khi đang focus vào input.</small></footer>

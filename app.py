@@ -202,6 +202,25 @@ def api_improvements(): return _add_cache_headers(jsonify(IMPS), 1800)
 @app.route("/api/research_refs")
 def api_research_refs(): return _add_cache_headers(jsonify(REFS), 3600)
 
+# ---------------- Daily question (deterministic by date, ICT) ----------------
+import datetime as _dt
+
+def _today_ict():
+    # Asia/Ho_Chi_Minh = UTC+7, deterministic without pytz
+    return (_dt.datetime.utcnow() + _dt.timedelta(hours=7)).date().isoformat()
+
+@app.route("/api/daily")
+def api_daily():
+    """Deterministic daily question — rotates by date hash mod len(QUESTIONS)."""
+    if not QUESTIONS: abort(404)
+    date_str = _today_ict()
+    seed = int(hashlib.sha1(date_str.encode(), usedforsecurity=False).hexdigest(), 16)
+    # Prefer mid-difficulty questions for daily: filter to easy+med, fallback to all
+    pool = [q for q in QUESTIONS if q.get("difficulty") in ("easy","med")]
+    if not pool: pool = QUESTIONS
+    q = pool[seed % len(pool)]
+    return jsonify({"date": date_str, "question": q, "total_pool": len(pool)})
+
 
 # ---------------- Debug routes (env-gated: FLASK_ENV=development) ----------------
 

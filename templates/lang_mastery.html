@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
 <header class="topbar">
   <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> · Mức độ thành thạo</h1>
   <nav class="navlinks">
@@ -17,11 +18,11 @@
     <a href="/lang/{{ lang }}/mastery" class="active">Mức độ thành thạo</a>
   </nav>
   <div class="meta">
-    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
   </div>
 </header>
 
-<main id="mastery-main">
+<main id="main" tabindex="-1">
   <section class="due-queue">
     <h2>Hàng đợi ôn tập (Leitner 5-box: 1·3·7·16·35 ngày)</h2>
     <ul id="due-list"><li class="hint">Chưa có câu nào đến hạn — luyện tiếp để có dữ liệu.</li></ul>

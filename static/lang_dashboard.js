@@ -2,10 +2,18 @@
 (function(){
 const lang = window.QUIZ_LANG;
 async function render(){
-  const [r, cohort] = await Promise.all([
-    fetch(`/api/lang/${lang}/roadmap`).then(r=>r.json()),
-    fetch('/api/cohort_progress').then(r=>r.json()),
-  ]);
+  let r, cohort;
+  try {
+    [r, cohort] = await Promise.all([
+      fetch(`/api/lang/${lang}/roadmap`).then(r=>r.json()),
+      fetch('/api/cohort_progress').then(r=>r.json()),
+    ]);
+  } catch(e){
+    const next = document.getElementById('next-card');
+    if (next){ next.innerHTML = '<p>Không tải được dữ liệu. <button type="button" onclick="location.reload()">Thử lại</button></p>'; }
+    return;
+  }
+  cohort = cohort || {by_iter: {}};
   const stages = r.stages || [];
   const langKcs = r.lang_specific_kcs || [];
   const state = window.QUIZ_STATE_API ? window.QUIZ_STATE_API.get(lang) : {stage_attempts:{}, kc_mastery:{}};

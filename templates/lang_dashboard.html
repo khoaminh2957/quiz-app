@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
 <header class="topbar">
   <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> dashboard</h1>
   <nav class="navlinks">
@@ -20,11 +21,11 @@
   <div class="meta">
     <span id="stage-pos">stage 0/15</span>
     <span id="mastery-bar"><span id="mastery-fill"></span></span>
-    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối">🌓</button>
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
   </div>
 </header>
 
-<main id="dashboard-main">
+<main id="main" tabindex="-1">
   <section class="dashboard-summary">
     <div class="kpi">
       <div class="kpi-card"><div class="kpi-val" id="kpi-stages">0/15</div><div class="kpi-label">Stage hoàn thành</div></div>
@@ -41,7 +42,7 @@
 
   <section class="lang-hints" id="lang-hints">
     <h2>Bẫy đặc trưng của Python</h2>
-    <ul id="lang-hint-list" class="hint">Đang tải…</ul>
+    <ul id="lang-hint-list"><li class="hint">Đang tải…</li></ul>
   </section>
 
   <section class="dashboard-stages">
