@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Code Review Quiz</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Code Review Quiz</h1>
+  <div class="meta">
+    <span id="progress">0 / {{ total }}</span>
+    <span id="score">correct 0/0</span>
+    <button id="theme-toggle" title="Toggle dark mode">🌓</button>
+    <button id="reset" title="Reset progress">Reset</button>
+  </div>
+</header>
+
+<section class="controls">
+  <label>Mode:
+    <select id="mode">
+      <option value="seq">Sequential</option>
+      <option value="rand">Random</option>
+      <option value="review">Review (saved)</option>
+    </select>
+  </label>
+  <label>Lang:
+    <select id="filter-lang"><option value="">all</option></select>
+  </label>
+  <label>Topic:
+    <select id="filter-topic"><option value="">all</option></select>
+  </label>
+  <label>Difficulty:
+    <select id="filter-diff"><option value="">all</option></select>
+  </label>
+  <span class="loaded">Loaded <span id="filtered-count">0</span> matching</span>
+</section>
+
+<main id="quiz">
+  <div id="question-card" class="card">
+    <div class="qmeta">
+      <span id="q-lang"></span>
+      <span id="q-topic"></span>
+      <span id="q-diff"></span>
+      <span id="q-idx"></span>
+    </div>
+    <pre class="code"><code id="q-code"></code><button class="copy-btn" id="copy-code" title="Copy code">⧉</button></pre>
+    <p id="q-question"></p>
+    <form id="q-options"></form>
+    <div class="actions">
+      <button id="submit-btn">Submit</button>
+      <button id="back-btn">Back (B)</button>
+      <button id="next-btn">Next (→)</button>
+    </div>
+    <div id="feedback" class="hidden"></div>
+  </div>
+
+  <div id="pager">
+    <button class="page-btn" data-dir="-1">◀ Prev 50</button>
+    <span id="page-info"></span>
+    <button class="page-btn" data-dir="+1">Next 50 ▶</button>
+  </div>
+</main>
+
+<footer><small>Sequential keys: <kbd>1-4</kbd> choose, <kbd>Enter</kbd> submit, <kbd>→</kbd> next, <kbd>B</kbd> back, <kbd>R</kbd> random; ignored when an input is focused.</small></footer>
+
+<script src="/static/prism.js"></script>
+<script src="/static/quiz.js"></script>
+</body>
+</html>

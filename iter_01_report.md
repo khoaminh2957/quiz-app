@@ -1,0 +1,3 @@
+# Iter 01 Report
+
+candidates=201;pass=199;regen=0;fails={schema:0,code:0,api:0,correct:0,distractor:0,dedup:0,difficulty:0,pedagogy:0};hallu_drops=2;cum=199/2000;per_lang={'python': 41, 'javascript': 39, 'go': 39, 'rust': 40, 'sql': 40};per_topic={'style': 49, 'bug': 39, 'security': 11, 'perf': 19, 'concurrency': 13, 'edge': 68};starved_cells=[];hallu_flags=[];tokens=~301500;notes=iter 1 ran full 10-agent Turn A in 1 msg: 5 gen (1/lang slice from sha1(iter|lang)%6 → py=style, js=bug, go=style, rust=edge, sql=edge), 3 research (OWASP-T10, CWE-T25, style-guides), 2 subtopic-exp. Turn B condensed to orchestrator-side validation pass.

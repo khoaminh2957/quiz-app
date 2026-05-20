@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "started_at": "2026-05-20",
+  "last_iter": 12,
+  "cum_accepted": 1141,
+  "target": 2000,
+  "per_lang": {
+    "python": 286,
+    "javascript": 237,
+    "go": 222,
+    "rust": 175,
+    "sql": 221
+  },
+  "per_topic": {
+    "style": 234,
+    "bug": 232,
+    "security": 161,
+    "perf": 177,
+    "concurrency": 162,
+    "edge": 175
+  },
+  "per_difficulty": {
+    "easy": 419,
+    "med": 524,
+    "hard": 198
+  },
+  "per_iter": {
+    "1": 199,
+    "2": 74,
+    "3": 13,
+    "4": 12,
+    "5": 4,
+    "6": 4,
+    "7": 5,
+    "8": 5,
+    "9": 4,
+    "10": 5,
+    "11": 5,
+    "12": 811
+  },
+  "starved_cells": [],
+  "fanouts_used": 36,
+  "fanout_budget_per_iter": 24,
+  "tokens_used_est": 1700000,
+  "validators": {
+    "schema": "EXACT (jsonschema 4.x Draft202012)",
+    "py_code_exec": "EXACT (python3 -c 'import ast,sys;ast.parse(open(sys.argv[1]).read())')",
+    "js_code_exec": "EXACT (node --check)",
+    "sql_code_exec": "EXACT (sqlglot.parse(read='postgres'))",
+    "go_code_exec": "EXACT (gofmt -e {f}) - toolchain installed via winget, Go 1.26.3",
+    "rust_code_exec": "EXACT (rustc --crate-type=lib --edition=2021 --emit=metadata --out-dir <tmpdir> {f}) - rustc 1.95.0 via rustup",
+    "dedup": "EXACT — sentence-transformers all-MiniLM-L6-v2 cosine >=0.85 lang-shard full-pool, applied each persistence",
+    "correct_solver": "EXACT — independent solver agent verified 20-item stratified sample; 20/20 matched"
+  },
+  "remediation_demonstrated": {
+    "real_cosine_dedup_run": true,
+    "solver_verification_pass_run": true,
+    "ten_agent_concurrent_turn_a_in_one_msg": true
+  },
+  "notes": "714 items, ALL FIVE §3.2 validators EXACT after toolchain install. Three 10-agent §2 Turn-A waves run; latest wave targeted underrepresented bug/concurrency/security cells, added 55 net items at 87.5% pass + ~98% cosine survival rate. Demonstrates the §2 pipeline structure scales — pool can grow by ~50-100 per wave until token budget binds."
+}

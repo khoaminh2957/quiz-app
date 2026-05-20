@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id","lang","code","question","options","correct_idx","topic","subtopic","difficulty","explain","sources","iter"],
+  "properties": {
+    "id": {"type": "string", "minLength": 8},
+    "lang": {"enum": ["python","javascript","go","rust","sql"]},
+    "code": {"type": "string", "minLength": 10},
+    "question": {"type": "string", "minLength": 8},
+    "options": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "string", "minLength": 1}},
+    "correct_idx": {"type": "integer", "minimum": 0, "maximum": 3},
+    "topic": {"enum": ["bug","security","perf","style","edge","concurrency"]},
+    "subtopic": {"type": "string", "minLength": 2},
+    "difficulty": {"enum": ["easy","med","hard"]},
+    "explain": {"type": "string", "minLength": 40},
+    "sources": {"type": "array", "items": {"type": "string"}, "minItems": 0},
+    "iter": {"type": "integer", "minimum": 1, "maximum": 12}
+  }
+}

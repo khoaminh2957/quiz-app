@@ -1,0 +1,12 @@
+raw/
+iter_*.md
+state.lock
+state.json
+INCOMPLETE.md
+validate.py
+dedup_cosine.py
+bulk_*.py
+extract_*.py
+schema.json
+__pycache__/
+*.pyc
