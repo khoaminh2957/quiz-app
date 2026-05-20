@@ -49,3 +49,67 @@ footer { text-align: center; padding: 16px; color: var(--muted); }
   .controls { padding: 10px 12px; }
   main { padding: 12px; }
 }
+
+/* ---- Roadmap / Lesson / Mastery ---- */
+.navlinks { display: flex; gap: 14px; }
+.navlinks a { color: var(--muted); text-decoration: none; padding: 4px 8px; border-radius: 6px; font-size: 14px; }
+.navlinks a:hover, .navlinks a.active { color: var(--fg); background: var(--code-bg); }
+#mastery-bar { display: inline-block; width: 120px; height: 8px; background: var(--code-bg); border-radius: 4px; overflow: hidden; vertical-align: middle; }
+#mastery-fill { display: block; height: 100%; background: var(--accent); width: 0%; transition: width .3s; }
+.hint { color: var(--muted); font-size: 13px; }
+.level { margin-bottom: 28px; }
+.level h2 { font-size: 16px; color: var(--muted); margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
+.stage-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.stage-card { display: block; padding: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; text-decoration: none; color: var(--fg); transition: transform .15s, border-color .15s; }
+.stage-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.stage-card.locked { opacity: .55; cursor: not-allowed; }
+.stage-card.passed { border-color: var(--ok); }
+.stage-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.stage-order { font-size: 11px; padding: 2px 6px; background: var(--code-bg); border-radius: 4px; color: var(--muted); }
+.stage-badge { font-size: 16px; }
+.stage-title { font-weight: 600; margin: 6px 0; font-size: 15px; }
+.stage-meta { display: flex; gap: 10px; color: var(--muted); font-size: 12px; flex-wrap: wrap; }
+.stage-acc { margin-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.bar { display: inline-block; flex: 1; height: 6px; background: var(--code-bg); border-radius: 3px; overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--accent); transition: width .3s; }
+.level-foundational h2 { color: var(--accent); }
+.level-intermediate h2 { color: #f59e0b; }
+.level-advanced h2 { color: var(--bad); }
+.level-badge { padding: 2px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.level-badge.level-foundational { background: rgba(37,99,235,.12); color: var(--accent); }
+.level-badge.level-intermediate { background: rgba(245,158,11,.12); color: #f59e0b; }
+.level-badge.level-advanced { background: rgba(220,38,38,.12); color: var(--bad); }
+.lesson-intro { max-width: 880px; margin: 0 auto; padding: 20px; }
+.lesson-intro h2 { font-size: 16px; margin: 20px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.kc-list, .ped-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; }
+.kc-list li, .ped-list li { background: var(--code-bg); padding: 4px 10px; border-radius: 6px; font-size: 13px; }
+.kc-list li code { background: transparent; }
+.metacog { background: rgba(96,165,250,.08); border-left: 3px solid var(--accent); padding: 10px 14px; margin: 10px 0; font-style: italic; color: var(--fg); }
+#start-practice { background: var(--accent); color: white; border-color: var(--accent); padding: 10px 18px; font-size: 15px; margin-top: 16px; }
+#lesson-practice { max-width: 880px; margin: 0 auto; padding: 20px; }
+.metacog-pre { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; margin-bottom: 14px; }
+.metacog-pre label { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: 13px; }
+.metacog-pre input { width: 50px; }
+.misconception { background: rgba(245,158,11,.08); border-left: 3px solid #f59e0b; padding: 10px 14px; margin: 10px 0; color: var(--fg); }
+.correct { color: var(--ok); }
+.wrong { color: var(--bad); }
+.passed { color: var(--ok); font-weight: 600; }
+#mastery-status { margin-top: 14px; padding: 10px 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; }
+.mastery-row { font-size: 14px; }
+#mastery-main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+#mastery-main h2 { font-size: 16px; color: var(--muted); margin-top: 24px; text-transform: uppercase; letter-spacing: 1px; }
+#kc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.kc-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; }
+.kc-name { font-family: ui-monospace,Menlo,Consolas,monospace; font-size: 12px; margin-bottom: 4px; word-break: break-all; }
+.kc-stat { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.kc-acc { font-size: 12px; margin-top: 6px; color: var(--muted); }
+#stage-grid { display: grid; gap: 8px; }
+.stage-bar { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; }
+.stage-bar a { color: var(--fg); text-decoration: none; font-weight: 600; }
+.stage-bar.passed { border-color: var(--ok); }
+.stage-acc { margin-top: 6px; font-size: 12px; color: var(--muted); }
+.due-queue ul { list-style: none; padding: 0; }
+.due-queue li { padding: 6px 10px; background: var(--card); border: 1px solid var(--border); border-radius: 6px; margin: 4px 0; font-size: 13px; }
+#q-options input[name=opt] { margin-top: 2px; }
+.opt-text { flex: 1; }
+#reflection { width: 100%; padding: 8px; margin-top: 8px; background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 6px; font: inherit; }

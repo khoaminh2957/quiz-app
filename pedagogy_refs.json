@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "refs": [
+    {
+      "first_author": "Bloom",
+      "year": 1968,
+      "title": "Learning for Mastery",
+      "ref": "Evaluation Comment 1(2)",
+      "stage_relevance": [
+        "mastery_gate"
+      ]
+    },
+    {
+      "first_author": "Sweller",
+      "year": 1988,
+      "title": "Cognitive Load During Problem Solving: Effects on Learning",
+      "ref": "Cognitive Science 12(2):257-285",
+      "stage_relevance": [
+        "cognitive_load",
+        "diff_calibration"
+      ]
+    },
+    {
+      "first_author": "Ericsson",
+      "year": 1993,
+      "title": "The Role of Deliberate Practice in the Acquisition of Expert Performance",
+      "ref": "Psychological Review 100(3):363-406",
+      "stage_relevance": [
+        "deliberate_practice"
+      ]
+    },
+    {
+      "first_author": "Hermans",
+      "year": 2021,
+      "title": "The Programmer's Brain: What every programmer needs to know about cognition",
+      "ref": "Manning Publications, ISBN 9781617298677",
+      "stage_relevance": [
+        "code_reading",
+        "f1",
+        "f2"
+      ]
+    },
+    {
+      "first_author": "Koedinger",
+      "year": 2012,
+      "title": "The Knowledge-Learning-Instruction Framework: Bridging the Science-Practice Chasm",
+      "ref": "Cognitive Science 36(5):757-798",
+      "stage_relevance": [
+        "kc_tagging"
+      ]
+    },
+    {
+      "first_author": "Roediger",
+      "year": 2006,
+      "title": "Test-Enhanced Learning: Taking Memory Tests Improves Long-Term Retention",
+      "ref": "Psychological Science 17(3):249-255",
+      "stage_relevance": [
+        "retrieval_practice"
+      ]
+    },
+    {
+      "first_author": "Anderson",
+      "year": 2001,
+      "title": "A Taxonomy for Learning, Teaching, and Assessing (Bloom revised)",
+      "ref": "Longman, ISBN 9780801319037",
+      "stage_relevance": [
+        "objectives",
+        "f1",
+        "f3"
+      ]
+    },
+    {
+      "first_author": "Mager",
+      "year": 1962,
+      "title": "Preparing Instructional Objectives",
+      "ref": "Fearon Publishers",
+      "stage_relevance": [
+        "smart_objectives"
+      ]
+    },
+    {
+      "first_author": "Soloway",
+      "year": 1984,
+      "title": "Empirical Studies of Programming Knowledge",
+      "ref": "IEEE TSE 10(5):595-609",
+      "stage_relevance": [
+        "misconceptions",
+        "f1",
+        "f4"
+      ]
+    },
+    {
+      "first_author": "Pane",
+      "year": 2001,
+      "title": "Studying the Language and Structure in Non-Programmers' Solutions",
+      "ref": "CMU-CS-01-141",
+      "stage_relevance": [
+        "misconceptions",
+        "f3"
+      ]
+    },
+    {
+      "first_author": "Du Boulay",
+      "year": 1986,
+      "title": "Some Difficulties of Learning to Program",
+      "ref": "J. Educational Computing Research 2(1):57-73",
+      "stage_relevance": [
+        "f1",
+        "f2",
+        "f5"
+      ]
+    },
+    {
+      "first_author": "Leitner",
+      "year": 1972,
+      "title": "So lernt man lernen (How to learn to learn)",
+      "ref": "Herder, Freiburg",
+      "stage_relevance": [
+        "spaced_review"
+      ]
+    },
+    {
+      "first_author": "Cepeda",
+      "year": 2006,
+      "title": "Distributed Practice in Verbal Recall Tasks: A Review and Quantitative Synthesis",
+      "ref": "Psychological Bulletin 132(3):354-380",
+      "stage_relevance": [
+        "spaced_review"
+      ]
+    },
+    {
+      "first_author": "Karpicke",
+      "year": 2008,
+      "title": "The Critical Importance of Retrieval for Learning",
+      "ref": "Science 319(5865):966-968",
+      "stage_relevance": [
+        "retrieval_practice"
+      ]
+    },
+    {
+      "first_author": "McCabe",
+      "year": 1976,
+      "title": "A Complexity Measure",
+      "ref": "IEEE TSE 2(4):308-320",
+      "stage_relevance": [
+        "diff_calibration",
+        "cyclomatic"
+      ]
+    },
+    {
+      "first_author": "Flanagan",
+      "year": 2020,
+      "title": "JavaScript: The Definitive Guide, 7th ed.",
+      "ref": "O'Reilly, ISBN 9781491952023",
+      "stage_relevance": [
+        "i1",
+        "i5"
+      ]
+    },
+    {
+      "first_author": "OWASP",
+      "year": 2021,
+      "title": "OWASP Top 10:2021",
+      "ref": "https://owasp.org/Top10/",
+      "stage_relevance": [
+        "i4",
+        "a3"
+      ]
+    },
+    {
+      "first_author": "Klabnik",
+      "year": 2023,
+      "title": "The Rust Programming Language, 2nd ed.",
+      "ref": "No Starch Press, ISBN 9781718503106",
+      "stage_relevance": [
+        "i3",
+        "a2"
+      ]
+    },
+    {
+      "first_author": "Donovan",
+      "year": 2015,
+      "title": "The Go Programming Language",
+      "ref": "Addison-Wesley, ISBN 9780134190440",
+      "stage_relevance": [
+        "a1",
+        "a4"
+      ]
+    },
+    {
+      "first_author": "Goetz",
+      "year": 2006,
+      "title": "Java Concurrency in Practice",
+      "ref": "Addison-Wesley, ISBN 9780321349606",
+      "stage_relevance": [
+        "a1",
+        "a4"
+      ]
+    },
+    {
+      "first_author": "Schwartz",
+      "year": 2008,
+      "title": "High Performance MySQL, 2nd ed.",
+      "ref": "O'Reilly, ISBN 9780596101718",
+      "stage_relevance": [
+        "i2",
+        "i4"
+      ]
+    },
+    {
+      "first_author": "Brown",
+      "year": 2014,
+      "title": "Make It Stick: The Science of Successful Learning",
+      "ref": "Belknap, ISBN 9780674729018",
+      "stage_relevance": [
+        "retrieval_practice",
+        "metacog"
+      ]
+    },
+    {
+      "first_author": "Schraw",
+      "year": 1998,
+      "title": "Promoting General Metacognitive Awareness",
+      "ref": "Instructional Science 26:113-125",
+      "stage_relevance": [
+        "metacog"
+      ]
+    },
+    {
+      "first_author": "Flavell",
+      "year": 1979,
+      "title": "Metacognition and Cognitive Monitoring",
+      "ref": "American Psychologist 34(10):906-911",
+      "stage_relevance": [
+        "metacog"
+      ]
+    }
+  ],
+  "distinct_first_authors": 24,
+  "surnames": [
+    "Anderson",
+    "Bloom",
+    "Brown",
+    "Cepeda",
+    "Donovan",
+    "Du Boulay",
+    "Ericsson",
+    "Flanagan",
+    "Flavell",
+    "Goetz",
+    "Hermans",
+    "Karpicke",
+    "Klabnik",
+    "Koedinger",
+    "Leitner",
+    "Mager",
+    "McCabe",
+    "OWASP",
+    "Pane",
+    "Roediger",
+    "Schraw",
+    "Schwartz",
+    "Soloway",
+    "Sweller"
+  ]
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roadmap — Code Review Quiz</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Learning Roadmap</h1>
+  <nav class="navlinks">
+    <a href="/">Quiz</a>
+    <a href="/roadmap" class="active">Roadmap</a>
+    <a href="/mastery">Mastery</a>
+    <a href="/review">Review</a>
+  </nav>
+  <div class="meta">
+    <span id="stage-pos">stage 0/{{ n_stages }}</span>
+    <span id="mastery-bar"><span id="mastery-fill"></span></span>
+    <button id="theme-toggle" title="Toggle dark mode">🌓</button>
+  </div>
+</header>
+
+<main id="roadmap-main">
+  <p class="hint">Click a stage to see objectives, KCs, and practice questions. Locked stages unlock as you reach the prior stage's mastery gate.</p>
+  <div id="roadmap-tree"></div>
+</main>
+
+<footer><small>Pedagogy refs: Bloom 1968 mastery learning · Sweller 1988 cognitive load · Ericsson 1993 deliberate practice · Hermans 2021 code reading · Koedinger 2012 KLI · Roediger 2006 retrieval practice. <a href="/api/pedagogy">All refs JSON</a></small></footer>
+
+<script src="/static/roadmap.js"></script>
+</body>
+</html>

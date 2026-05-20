@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ stage.title }} — Lesson {{ stage.order }}/15</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>{{ stage.title }}</h1>
+  <nav class="navlinks">
+    <a href="/">Quiz</a>
+    <a href="/roadmap">Roadmap</a>
+    <a href="/mastery">Mastery</a>
+  </nav>
+  <div class="meta">
+    <span class="level-badge level-{{ stage.level }}">{{ stage.level }}</span>
+    <span id="stage-pos">stage {{ stage.order }}/15</span>
+    <button id="theme-toggle">🌓</button>
+  </div>
+</header>
+
+<section class="lesson-intro">
+  <h2>Learning Objectives</h2>
+  <ul id="lesson-objectives">
+    {% for o in stage.objectives %}<li>{{ o }}</li>{% endfor %}
+  </ul>
+  <h2>Knowledge Components</h2>
+  <ul class="kc-list" id="lesson-kcs">
+    {% for kc in stage.kc_coverage %}<li><code>{{ kc }}</code></li>{% endfor %}
+  </ul>
+  <h2>Mastery Gate</h2>
+  <p>Reach <strong id="gate-pct">{{ "%.0f"|format(stage.mastery_gate * 100) }}%</strong> rolling accuracy across the questions in this stage to unlock the next one. Spaced review intervals (Leitner 5-box): <code>{{ stage.spaced_review|join(', ') }}</code> days.</p>
+  <h2>Pedagogy sources</h2>
+  <ul class="ped-list">
+    {% for src in stage.pedagogy_sources %}<li>{{ src }}</li>{% endfor %}
+  </ul>
+  <h2>Metacognitive prompt</h2>
+  <blockquote class="metacog">{{ stage.metacog_prompt }}</blockquote>
+  <button id="start-practice" data-stage-id="{{ stage.id }}">Start practice ({{ stage.question_ids|length }} questions)</button>
+</section>
+
+<section id="lesson-practice" class="hidden">
+  <div class="metacog-pre">
+    <label>Pre-question confidence (1-5):
+      <input type="number" id="confidence-pre" min="1" max="5" value="3">
+    </label>
+    <p id="metacog-pre-text" class="metacog"></p>
+  </div>
+  <div id="question-card" class="card">
+    <div class="qmeta">
+      <span id="q-lang"></span>
+      <span id="q-topic"></span>
+      <span id="q-diff"></span>
+      <span id="q-kc"></span>
+      <span id="q-idx"></span>
+    </div>
+    <pre class="code"><code id="q-code"></code><button class="copy-btn" id="copy-code" title="Copy code">⧉</button></pre>
+    <p id="q-question"></p>
+    <form id="q-options"></form>
+    <div class="actions">
+      <button id="submit-btn">Submit</button>
+      <button id="next-btn">Next →</button>
+    </div>
+    <div id="feedback" class="hidden"></div>
+    <div id="metacog-post" class="hidden metacog">
+      <p id="metacog-post-text"></p>
+      <textarea id="reflection" rows="2" placeholder="One sentence: what surprised you?"></textarea>
+    </div>
+  </div>
+  <div id="mastery-status"></div>
+</section>
+
+<script src="/static/prism.js"></script>
+<script src="/static/lesson.js"></script>
+</body>
+</html>

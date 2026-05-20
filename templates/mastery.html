@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mastery — Code Review Quiz</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Mastery</h1>
+  <nav class="navlinks">
+    <a href="/">Quiz</a>
+    <a href="/roadmap">Roadmap</a>
+    <a href="/mastery" class="active">Mastery</a>
+  </nav>
+  <div class="meta">
+    <span id="kc-count">{{ n_kcs }} KCs tracked</span>
+    <button id="theme-toggle">🌓</button>
+  </div>
+</header>
+
+<main id="mastery-main">
+  <section class="due-queue">
+    <h2>Spaced-review queue (Leitner 5-box: 1·3·7·16·35d)</h2>
+    <ul id="due-list"><li class="hint">Nothing due yet — answer questions to populate the queue.</li></ul>
+  </section>
+
+  <section class="kc-grid">
+    <h2>Knowledge components — rolling 20-Q accuracy</h2>
+    <div id="kc-grid"></div>
+  </section>
+
+  <section class="stage-progress">
+    <h2>Per-stage mastery</h2>
+    <div id="stage-grid"></div>
+  </section>
+</main>
+
+<footer><small>Mastery thresholds: foundational 80% · intermediate 85% · advanced 90% (Bloom 1968 mastery learning).</small></footer>
+
+<script src="/static/mastery.js"></script>
+</body>
+</html>
