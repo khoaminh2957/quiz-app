@@ -1,7 +1,7 @@
 """Quiz app — chỉ Python, giao diện tiếng Việt."""
 from __future__ import annotations
-import json, pathlib, os, hashlib
-from flask import Flask, jsonify, render_template, send_from_directory, abort, redirect, url_for
+import json, pathlib, os, hashlib, logging, logging.handlers, uuid, time
+from flask import Flask, jsonify, render_template, send_from_directory, abort, redirect, url_for, request, g
 
 ROOT = pathlib.Path(__file__).parent
 QUESTIONS_JSON       = ROOT / "questions.json"
@@ -18,6 +18,64 @@ PRIMARY_LANG = "python"
 LANGS = [PRIMARY_LANG]
 
 app = Flask(__name__, template_folder=str(ROOT/"templates"), static_folder=str(ROOT/"static"))
+
+# -------- Structured logging --------
+LOG_DIR = ROOT / "logs"
+try: LOG_DIR.mkdir(exist_ok=True)
+except Exception: pass
+
+class JsonLineFormatter(logging.Formatter):
+    def format(self, record):
+        d = {
+            "ts": time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime(record.created)),
+            "lvl": record.levelname,
+            "logger": record.name,
+            "msg": record.getMessage(),
+        }
+        for k in ("req_id", "path", "method", "status", "ms", "client_err"):
+            v = getattr(record, k, None)
+            if v is not None: d[k] = v
+        if record.exc_info:
+            import traceback as _tb
+            d["exc"] = "".join(_tb.format_exception(*record.exc_info))[:1000]
+        return json.dumps(d, ensure_ascii=False)
+
+logger = logging.getLogger("quizapp")
+logger.setLevel(logging.INFO)
+if not logger.handlers:
+    try:
+        fh = logging.handlers.RotatingFileHandler(LOG_DIR/"app.log", maxBytes=2_000_000, backupCount=3, encoding="utf-8")
+        fh.setFormatter(JsonLineFormatter())
+        logger.addHandler(fh)
+    except Exception:
+        pass
+
+# -------- Request lifecycle: assign req_id + log timing --------
+@app.before_request
+def _before():
+    g._t0 = time.time()
+    g._req_id = uuid.uuid4().hex[:12]
+
+@app.after_request
+def _after(resp):
+    try:
+        ms = int((time.time() - g._t0) * 1000) if hasattr(g, "_t0") else 0
+        logger.info("req",
+                    extra={"req_id": getattr(g, "_req_id", "?"), "path": request.path,
+                           "method": request.method, "status": resp.status_code, "ms": ms})
+        resp.headers["X-Req-Id"] = getattr(g, "_req_id", "?")
+    except Exception: pass
+    return resp
+
+@app.errorhandler(Exception)
+def _err(e):
+    try:
+        logger.exception("unhandled", extra={"req_id": getattr(g, "_req_id", "?"), "path": request.path})
+    except Exception: pass
+    # Re-raise so Flask still returns its default error page in dev
+    if isinstance(e, Exception) and hasattr(e, "code") and isinstance(getattr(e, "code"), int):
+        return jsonify({"error": str(e), "req_id": getattr(g, "_req_id", "?")}), e.code
+    return jsonify({"error": "internal", "req_id": getattr(g, "_req_id", "?")}), 500
 
 def load_questions():
     if QUESTIONS_JSON.exists():
@@ -257,6 +315,76 @@ def debug_changelog():
         return jsonify(json.loads((ROOT/"fix_log.json").read_text(encoding="utf-8")))
     except Exception:
         return jsonify({"fixes": []})
+
+@app.route("/debug/health")
+def debug_health():
+    """Always reachable summary health probe — minimal info even when not dev."""
+    info = {
+        "ok": True,
+        "questions": len(QUESTIONS),
+        "stages_global": len(ROADMAP.get("stages", [])),
+        "stages_perlang": {l: len(s) for l, s in ROADMAP_PERLANG.get("per_lang_stages", {}).items()},
+        "improvements": len(IMPS.get("improvements", [])),
+        "learners_cum": LEARNERS.get("distinct_learner_ids_cum", 0),
+        "git_sha": _git_sha(),
+        "env_dev": _is_dev(),
+    }
+    return _add_cache_headers(jsonify(info), 60)
+
+def _git_sha():
+    try:
+        import subprocess as _sp
+        r = _sp.run(["git","rev-parse","HEAD"], capture_output=True, text=True, cwd=str(ROOT), timeout=2)
+        return r.stdout.strip()[:12] if r.returncode == 0 else None
+    except Exception:
+        return None
+
+@app.route("/debug/state-inspector")
+def debug_state_inspector():
+    """Env-gated: returns summary of data files for fast diagnosis."""
+    if not _is_dev(): abort(404)
+    from collections import Counter
+    info = {
+        "questions_count": len(QUESTIONS),
+        "by_topic": dict(Counter(q.get("topic") for q in QUESTIONS)),
+        "by_difficulty": dict(Counter(q.get("difficulty") for q in QUESTIONS)),
+        "by_stage": dict(Counter(q.get("stage_id") for q in QUESTIONS)),
+        "by_lang": dict(Counter(q.get("lang") for q in QUESTIONS)),
+        "kcs_total": len(set(q.get("kc_tag") for q in QUESTIONS)),
+        "perlang_python_stages": [
+            {"id": s["id"], "title": s["title"], "qids": len(s["question_ids"]),
+             "level": s["level"], "gate": s["mastery_gate"]}
+            for s in ROADMAP_PERLANG.get("per_lang_stages", {}).get("python", [])
+        ],
+        "files": {
+            f: os.path.getsize(ROOT/f) for f in
+            ["questions.json","roadmap.json","roadmap_perlang.json","pedagogy_refs.json",
+             "improvement_log.json","learner_registry.json","research_refs.json",
+             "bug_registry.json","fix_log.json"]
+            if (ROOT/f).exists()
+        },
+    }
+    return jsonify(info)
+
+@app.route("/api/client_errors", methods=["POST"])
+def api_client_errors():
+    """Client JS error reporter — accepted always, but logged."""
+    try:
+        body = request.get_json(silent=True) or {}
+        logger.warning("client_error", extra={
+            "req_id": getattr(g, "_req_id", "?"),
+            "client_err": json.dumps({
+                "msg": str(body.get("msg",""))[:300],
+                "src": str(body.get("src",""))[:200],
+                "line": body.get("line"),
+                "col": body.get("col"),
+                "url": str(body.get("url",""))[:200],
+                "ua": str(body.get("ua",""))[:200],
+            }, ensure_ascii=False),
+        })
+    except Exception:
+        pass
+    return jsonify({"ok": True})
 
 @app.errorhandler(404)
 def nf(e): return jsonify({"error": "không tìm thấy"}), 404
