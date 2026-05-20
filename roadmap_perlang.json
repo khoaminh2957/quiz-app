@@ -27,7 +27,13 @@
           "f_string_quoting",
           "walrus_scope"
         ],
-        "question_ids": [],
+        "question_ids": [
+          "84d104a354a9",
+          "84bfb1d54269",
+          "bf1cae8505f0",
+          "a8c5a3559adc",
+          "1137cf956916"
+        ],
         "mastery_gate": 0.8,
         "spaced_review": [
           1,
@@ -69,7 +75,13 @@
           "f_string_quoting",
           "walrus_scope"
         ],
-        "question_ids": [],
+        "question_ids": [
+          "2a425dbe1a1a",
+          "fd8fe22c2141",
+          "5545993b07bd",
+          "a254f1862837",
+          "d6d748c6d3b5"
+        ],
         "mastery_gate": 0.8,
         "spaced_review": [
           1,
@@ -113,8 +125,6 @@
           "051fed5b2b0d",
           "32d9114ce6cb",
           "647ab48a6f22",
-          "84d104a354a9",
-          "84bfb1d54269",
           "8e26c23d57e6",
           "cb8f00416f2f",
           "fe256191a164",
@@ -129,9 +139,6 @@
           "3798f860aabf",
           "04a93589cf84",
           "d898e9974a5b",
-          "bf1cae8505f0",
-          "a8c5a3559adc",
-          "1137cf956916",
           "df586cfffd2c",
           "75695fe9a844",
           "f7cd8ee62c9d",
@@ -240,18 +247,14 @@
           "53bb97ca2c6a",
           "da3c91d64861",
           "9b18f9a808ab",
-          "2a425dbe1a1a",
           "fe636503f806",
           "d36dc1dd9cb0",
           "0ae660a542a6",
           "72b976a8fa90",
-          "fd8fe22c2141",
           "b7c91a3fe842",
           "75d8e89130d5",
           "e7640f73333e",
           "1e5f83ed622e",
-          "5545993b07bd",
-          "a254f1862837",
           "f6a97f0d2ee9",
           "fe947c30688d",
           "1a18987ae026",
@@ -267,7 +270,6 @@
           "54d8be8212b7",
           "bfe72acf1595",
           "dc7d74240f10",
-          "d6d748c6d3b5",
           "5d84ba42ae38",
           "bede06bae87f",
           "a73e2a157638",
@@ -495,11 +497,9 @@
           "9c14b85eacf1",
           "18b2d2d43c1f",
           "861b6e45bf19",
-          "c148ff9a7592",
           "b99042bf15d3",
           "f67e5afbed8d",
           "b93587102a42",
-          "bf217c776da2",
           "6a309b7a18d5",
           "201955ebf856",
           "2de3b44de741",
@@ -510,7 +510,6 @@
           "11e181cf69d0",
           "c9430348179d",
           "eebe30a6fb48",
-          "3f51178a1118",
           "c5d7409aabb7",
           "306676c5b30e",
           "a720d4a98dd2",
@@ -524,7 +523,6 @@
           "3f8654984be0",
           "8f5d8b8fc7ec",
           "63d249e08acd",
-          "ecd82f1efbdf",
           "20b7856e9587",
           "60e5ce54a404",
           "c25e7504a892",
@@ -775,7 +773,11 @@
           "walrus_scope"
         ],
         "question_ids": [
-          "a849be8ff12c"
+          "c148ff9a7592",
+          "bf217c776da2",
+          "3f51178a1118",
+          "a849be8ff12c",
+          "ecd82f1efbdf"
         ],
         "mastery_gate": 0.9,
         "spaced_review": [

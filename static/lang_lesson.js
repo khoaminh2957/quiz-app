@@ -16,6 +16,11 @@ function fireHints(q){
 }
 
 function renderQ(){
+  if (qs.length === 0){
+    document.getElementById('lesson-practice').innerHTML = `<h2>Stage này chưa có câu hỏi</h2>
+      <p>Stage <code>${stageId}</code> hiện không có câu Python phù hợp. <a href="/lang/${lang}/roadmap">Quay lại lộ trình →</a></p>`;
+    return;
+  }
   if (cur >= qs.length){
     document.getElementById('lesson-practice').innerHTML = `<h2>Hoàn thành bài học</h2>
       <p>Đã trả lời ${qs.length} câu ${lang}. <a href="/lang/${lang}/mastery">Xem mức độ thành thạo →</a></p>`;
