@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Lỗi máy chủ.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>500 — Lỗi máy chủ</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/error_reporter.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+<header class="topbar">
+  <h1>Quiz Review Code · <span class="lang-pill lang-python">Python</span></h1>
+  <nav class="navlinks">
+    <a href="/">Trang chủ</a>
+    <a href="/lang/python/roadmap">Lộ trình</a>
+    <a href="/quiz">Quiz nhanh</a>
+  </nav>
+  <div class="meta">
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero" style="text-align:center;padding:40px 20px;">
+    <h2 style="font-size:48px;margin:0;color:var(--bad);">500</h2>
+    <p style="font-size:18px;margin:10px 0;"><strong>Lỗi máy chủ</strong></p>
+    <p class="hint">Server gặp lỗi không mong muốn. Vui lòng thử lại sau.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;">
+      <a href="/" class="cta">Về trang chủ</a>
+      <button type="button" class="cta" style="background:var(--warn);border:0;cursor:pointer;" onclick="location.reload()">Thử lại</button>
+    </div>
+    {% if req_id %}
+    <p class="muted" style="margin-top:30px;font-size:12px;">Mã request: <code>{{ req_id }}</code><br>Vui lòng gửi mã này nếu báo lỗi.</p>
+    {% endif %}
+  </section>
+</main>
+
+<footer><small><a href="/debug/health">Kiểm tra health</a></small></footer>
+</body>
+</html>

@@ -18,6 +18,11 @@ PRIMARY_LANG = "python"
 LANGS = [PRIMARY_LANG]
 
 app = Flask(__name__, template_folder=str(ROOT/"templates"), static_folder=str(ROOT/"static"))
+# Vietnamese-friendly JSON output (no \uXXXX escapes)
+try:
+    app.json.ensure_ascii = False  # Flask 2.2+
+except Exception:
+    app.config["JSON_AS_ASCII"] = False  # older Flask fallback
 
 # -------- Structured logging --------
 LOG_DIR = ROOT / "logs"
@@ -67,15 +72,44 @@ def _after(resp):
     except Exception: pass
     return resp
 
+def _wants_html():
+    """True if request prefers HTML over JSON (typical browser navigation)."""
+    accept = (request.headers.get("Accept") or "").lower()
+    if request.path.startswith("/api/") or request.path.startswith("/debug/"):
+        return False  # API/debug routes always JSON
+    # Browser sends "text/html,application/xhtml+xml,..." with high q for HTML
+    return "text/html" in accept or accept == "" or "*/*" in accept
+
+@app.errorhandler(404)
+def _404(e):
+    req_id = getattr(g, "_req_id", "?")
+    try:
+        logger.info("404", extra={"req_id": req_id, "path": request.path})
+    except Exception: pass
+    if _wants_html():
+        return render_template("404.html", path=request.path, req_id=req_id), 404
+    return jsonify({"error": "không tìm thấy", "path": request.path, "req_id": req_id}), 404
+
 @app.errorhandler(Exception)
 def _err(e):
+    req_id = getattr(g, "_req_id", "?")
     try:
-        logger.exception("unhandled", extra={"req_id": getattr(g, "_req_id", "?"), "path": request.path})
+        logger.exception("unhandled", extra={"req_id": req_id, "path": request.path})
     except Exception: pass
-    # Re-raise so Flask still returns its default error page in dev
-    if isinstance(e, Exception) and hasattr(e, "code") and isinstance(getattr(e, "code"), int):
-        return jsonify({"error": str(e), "req_id": getattr(g, "_req_id", "?")}), e.code
-    return jsonify({"error": "internal", "req_id": getattr(g, "_req_id", "?")}), 500
+    # HTTP exceptions (404, 403, etc) — defer to specific handler if set, else generic
+    if hasattr(e, "code") and isinstance(getattr(e, "code"), int):
+        code = e.code
+        if code == 404:
+            return _404(e)
+        if _wants_html():
+            try: return render_template("500.html", req_id=req_id), code
+            except Exception: pass
+        return jsonify({"error": str(e), "req_id": req_id}), code
+    # Truly unhandled — 500
+    if _wants_html():
+        try: return render_template("500.html", req_id=req_id), 500
+        except Exception: pass
+    return jsonify({"error": "internal", "req_id": req_id}), 500
 
 def load_questions():
     if QUESTIONS_JSON.exists():
@@ -386,8 +420,7 @@ def api_client_errors():
         pass
     return jsonify({"ok": True})
 
-@app.errorhandler(404)
-def nf(e): return jsonify({"error": "không tìm thấy"}), 404
+# (404 handler defined above near logging middleware)
 
 if __name__ == "__main__":
     print(f"Loaded {len(QUESTIONS)} Python questions, "
