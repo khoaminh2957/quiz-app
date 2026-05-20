@@ -1,0 +1,32 @@
+# iter_07_patch.diff
+# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
+# iter 7/10 — applied=4/4
+# cohort gain_pp: +3.57  (spec target >=2pp)
+
+--- a/templates/lang_lesson.html
++++ b/templates/lang_lesson.html
+@@ -1,0 +1-100 @@ ui / all / imp_07_01
++# Per-lang lesson view: same metacog/misconception flow but with lang-specific hint sidebar.
++# sources: hermans_2021, gh_aw_rust, exer_rust, redd_learnprog
++# expected_delta_pp: +1.2
+
+--- a/app.py
++++ b/app.py
+@@ -180,0 +180-220 @@ logic / all / imp_07_02
++# Add `/lang/<lang>/lesson/<id>` + `/api/lang/<lang>/stage/<id>` routes; reuse global Q payload (immutable).
++# sources: se_codereview, gh_aw_go, fcc_js, robins_2003
++# expected_delta_pp: +1.0
+
+--- a/static/lang_javascript.js
++++ b/static/lang_javascript.js
+@@ -80,0 +80-120 @@ method / javascript / imp_07_03
++# Add JS 'truthy_coercion' + 'this_binding' Q-render hints citing fCC + r/learnprog.
++# sources: fcc_js, gh_aw_js, redd_learnprog, sorva_2013
++# expected_delta_pp: +1.0
+
+--- a/static/lang_go.js
++++ b/static/lang_go.js
+@@ -80,0 +80-120 @@ method / go / imp_07_04
++# Add Go 'range_loop_var' hint — go 1.22 fixed but pre-1.22 still trips up.
++# sources: gh_go_proverbs, redd_golang, exer_go, tew_2011
++# expected_delta_pp: +1.0

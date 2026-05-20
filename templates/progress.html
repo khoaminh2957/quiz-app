@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Progress — Code Review Quiz</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Progress</h1>
+  <nav class="navlinks">
+    <a href="/">Home</a>
+    <a href="/quiz">Flat quiz</a>
+    <a href="/progress" class="active">Progress</a>
+    <a href="/improvements">Changelog</a>
+  </nav>
+  <div class="meta">
+    <button id="theme-toggle">🌓</button>
+  </div>
+</header>
+
+<main id="progress-main">
+  <section>
+    <h2>Cohort vs you — pass rate by iteration</h2>
+    <p class="hint">Cohort is a simulated 25-learner panel ({{ "{}" if false else "" }} novice + intermediate + polyglot profiles, 5-lang rotation, paired-seed Monte Carlo). Your personal curve is computed from <code>localStorage.state</code>.</p>
+    <canvas id="cohort-chart" width="800" height="320"></canvas>
+  </section>
+
+  <section>
+    <h2>Per-language progress</h2>
+    <div id="per-lang-grid"></div>
+  </section>
+
+  <section>
+    <h2>Cohort details</h2>
+    <table id="cohort-table">
+      <thead><tr><th>iter</th><th>diag</th><th>post</th><th>gain pp</th><th>active</th><th>cum learners</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</main>
+
+<footer><small><a href="/api/cohort_progress">cohort JSON</a> · <a href="/api/learners">learner registry JSON</a></small></footer>
+
+<script src="/static/progress.js"></script>
+</body>
+</html>

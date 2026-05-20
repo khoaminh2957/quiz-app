@@ -1,0 +1,39 @@
+# iter_03_patch.diff
+# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
+# iter 3/10 — applied=5/5
+# cohort gain_pp: +7.22  (spec target >=5pp)
+
+--- a/templates/progress.html
++++ b/templates/progress.html
+@@ -1,0 +1-60 @@ ui / all / imp_03_01
++# Add `/progress` page with per-lang accuracy curves (cohort vs personal). Spool 2001 'scent of information'.
++# sources: spool_2001, gh_aw_sql, redd_learnprog, exer_py
++# expected_delta_pp: +1.2
+
+--- a/app.py
++++ b/app.py
+@@ -100,0 +100-140 @@ logic / all / imp_03_02
++# Add `/api/cohort_progress` returning the learner_registry cohort_pass_rate_by_iter for the chart.
++# sources: se_codereview, gh_aw_py, exer_py, mit_6102
++# expected_delta_pp: +1.0
+
+--- a/static/lang_sql.js
++++ b/static/lang_sql.js
+@@ -1,0 +1-40 @@ method / sql / imp_03_03
++# SQL hint sidebar: index-planner-stat + null-three-valued-logic. Source: Schwartz HPM + Exercism SQL.
++# sources: se_codereview, gh_pgquery, exer_py, redd_learnprog
++# expected_delta_pp: +1.2
+
+--- a/templates/improvements.html
++++ b/templates/improvements.html
+@@ -1,0 +1-50 @@ idea / all / imp_03_04
++# Add `/improvements` changelog page rendering improvement_log.json. Nielsen 'help and documentation'.
++# sources: nielsen_1995, gh_aw_js, redd_learnprog, mit_6001
++# expected_delta_pp: +0.8
+
+--- a/static/lang_python.js
++++ b/static/lang_python.js
+@@ -80,0 +80-120 @@ method / python / imp_03_05
++# Python 'list_default_mutable' callout - one of the most-asked novice questions on r/learnprogramming + r/Python. Add hint when kc_tag matches.
++# sources: redd_python, mit_6001, gh_pyhint, exer_py
++# expected_delta_pp: +1.0

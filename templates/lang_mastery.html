@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ lang|capitalize }} mastery</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1><span class="lang-pill lang-{{ lang }}">{{ lang }}</span> mastery</h1>
+  <nav class="navlinks">
+    <a href="/">Home</a>
+    <a href="/lang/{{ lang }}">Dashboard</a>
+    <a href="/lang/{{ lang }}/roadmap">Roadmap</a>
+    <a href="/lang/{{ lang }}/mastery" class="active">Mastery</a>
+  </nav>
+  <div class="meta">
+    <button id="theme-toggle">🌓</button>
+  </div>
+</header>
+
+<main id="mastery-main">
+  <section class="due-queue">
+    <h2>Spaced-review queue (Leitner 5-box: 1·3·7·16·35d)</h2>
+    <ul id="due-list"><li class="hint">Nothing due — keep practicing.</li></ul>
+  </section>
+
+  <section class="kc-grid">
+    <h2>Knowledge components — rolling 20-Q accuracy</h2>
+    <div id="kc-grid"></div>
+  </section>
+
+  <section class="stage-progress">
+    <h2>Per-stage mastery</h2>
+    <div id="stage-grid"></div>
+  </section>
+</main>
+
+<footer><small>Per-lang KCs: 52 global + 5 {{ lang }}-specific. Mastery thresholds: foundational 80% · intermediate 85% · advanced 90% (Bloom 1968).</small></footer>
+
+<script>window.QUIZ_LANG = "{{ lang }}";</script>
+<script src="/static/state_migrate.js"></script>
+<script src="/static/lang_switcher.js"></script>
+<script src="/static/mastery_perlang.js"></script>
+</body>
+</html>

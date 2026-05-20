@@ -5,7 +5,7 @@
       "src": "api/index.py",
       "use": "@vercel/python",
       "config": {
-        "includeFiles": "{app.py,questions.json,questions.jsonl,roadmap.json,pedagogy_refs.json,templates/**,static/**}"
+        "includeFiles": "{app.py,questions.json,questions.jsonl,roadmap.json,roadmap_perlang.json,pedagogy_refs.json,improvement_log.json,learner_registry.json,research_refs.json,templates/**,static/**}"
       }
     }
   ],

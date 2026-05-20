@@ -113,3 +113,76 @@ footer { text-align: center; padding: 16px; color: var(--muted); }
 #q-options input[name=opt] { margin-top: 2px; }
 .opt-text { flex: 1; }
 #reflection { width: 100%; padding: 8px; margin-top: 8px; background: var(--card); color: var(--fg); border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+
+/* ---- Landing / per-lang ---- */
+#landing-main, #dashboard-main, #progress-main, #improvements-main { max-width: 1100px; margin: 0 auto; padding: 20px; }
+.hero h2 { margin-top: 0; }
+.lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+.lang-card { display: block; padding: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--fg); transition: transform .15s, border-color .15s; position: relative; }
+.lang-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.lang-card h3 { margin: 6px 0 4px; }
+.lang-card p { color: var(--muted); font-size: 13px; margin: 0; }
+.lang-card .badge { position: absolute; top: 10px; right: 10px; font-size: 11px; padding: 1px 6px; border-radius: 4px; background: var(--code-bg); color: var(--muted); }
+.lang-card.lang-python { border-left: 4px solid #3776ab; }
+.lang-card.lang-javascript { border-left: 4px solid #f7df1e; }
+.lang-card.lang-go { border-left: 4px solid #00add8; }
+.lang-card.lang-rust { border-left: 4px solid #ce422b; }
+.lang-card.lang-sql { border-left: 4px solid #f59e0b; }
+.lang-pill { display: inline-block; padding: 2px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--code-bg); color: var(--fg); margin-right: 6px; }
+.lang-pill.lang-python { background: rgba(55,118,171,.16); color: #3776ab; }
+.lang-pill.lang-javascript { background: rgba(247,223,30,.18); color: #b58a00; }
+.lang-pill.lang-go { background: rgba(0,173,216,.16); color: #00add8; }
+.lang-pill.lang-rust { background: rgba(206,66,43,.16); color: #ce422b; }
+.lang-pill.lang-sql { background: rgba(245,158,11,.16); color: #f59e0b; }
+.quick-start ol { line-height: 2; }
+.why { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; }
+
+/* KPI cards on lang dashboard */
+.kpi { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+.kpi-val { font-size: 22px; font-weight: 600; }
+.kpi-label { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.cta { display: inline-block; padding: 6px 12px; background: var(--accent); color: white; border-radius: 6px; text-decoration: none; margin-top: 8px; font-size: 13px; }
+
+/* Lesson lang sidebar */
+.lang-sidebar { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+.lang-sidebar h3 { margin: 0 0 8px 0; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.lang-sidebar ul { list-style: none; padding: 0; margin: 0; }
+.lang-sidebar li { padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+.lang-sidebar li:last-child { border-bottom: none; }
+
+/* Progress page */
+#cohort-chart, #gain-curve { width: 100%; max-width: 800px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; }
+#cohort-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+#cohort-table th, #cohort-table td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; font-size: 13px; }
+#cohort-table th { background: var(--code-bg); color: var(--muted); font-weight: 600; }
+#per-lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+
+/* Improvements page */
+.iter-row { display: grid; grid-template-columns: 80px 1fr; gap: 12px; padding: 10px; border-bottom: 1px solid var(--border); }
+.iter-num { font-weight: 600; color: var(--muted); }
+.iter-cats { margin-top: 4px; display: flex; gap: 4px; flex-wrap: wrap; }
+.imp-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin: 8px 0; }
+.imp-head { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.imp-head code { font-size: 12px; background: var(--code-bg); padding: 1px 6px; border-radius: 4px; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; background: var(--code-bg); color: var(--muted); }
+.badge.cat-ui { background: rgba(37,99,235,.12); color: var(--accent); }
+.badge.cat-logic { background: rgba(245,158,11,.14); color: #f59e0b; }
+.badge.cat-method { background: rgba(74,222,128,.14); color: var(--ok); }
+.badge.cat-purpose { background: rgba(220,38,38,.12); color: var(--bad); }
+.badge.cat-idea { background: rgba(96,165,250,.16); color: var(--accent); }
+.badge.cat-process { background: rgba(100,116,139,.16); color: var(--muted); }
+.badge.cls-paper { background: rgba(74,222,128,.16); color: var(--ok); }
+.badge.cls-forum { background: rgba(245,158,11,.14); color: #f59e0b; }
+.badge.cls-github { background: rgba(96,165,250,.16); color: var(--accent); }
+.badge.cls-edu { background: rgba(206,66,43,.14); color: #ce422b; }
+.muted { color: var(--muted); font-size: 12px; }
+.ref-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 6px 0; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; font-size: 13px; }
+.ref-card em { color: var(--muted); }
+
+/* Mobile: stack lesson sidebar above question */
+@media (max-width: 600px){
+  .lang-sidebar { position: static; }
+  #lesson-practice { padding: 12px; }
+  .kpi { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "refs": {
+    "soloway_1984": {
+      "class": "paper",
+      "title": "Empirical Studies of Programming Knowledge",
+      "author": "Soloway",
+      "year": 1984,
+      "venue": "IEEE TSE 10(5):595-609",
+      "url": "https://doi.org/10.1109/TSE.1984.5010283"
+    },
+    "sorva_2013": {
+      "class": "paper",
+      "title": "Notional machines and introductory programming education",
+      "author": "Sorva",
+      "year": 2013,
+      "venue": "ACM TOCE 14(2):8",
+      "url": "https://doi.org/10.1145/2483710.2483713"
+    },
+    "robins_2003": {
+      "class": "paper",
+      "title": "Learning and teaching programming: a review and discussion",
+      "author": "Robins",
+      "year": 2003,
+      "venue": "CSE 13(2):137-172",
+      "url": "https://doi.org/10.1076/csed.13.2.137.14200"
+    },
+    "lister_2004": {
+      "class": "paper",
+      "title": "A multi-national study of reading and tracing skills in novice programmers",
+      "author": "Lister",
+      "year": 2004,
+      "venue": "SIGCSE Bulletin 36(4):119-150",
+      "url": "https://doi.org/10.1145/1041624.1041673"
+    },
+    "hermans_2021": {
+      "class": "paper",
+      "title": "The Programmer's Brain",
+      "author": "Hermans",
+      "year": 2021,
+      "venue": "Manning Publications",
+      "url": "https://www.manning.com/books/the-programmers-brain"
+    },
+    "caspersen_2007": {
+      "class": "paper",
+      "title": "Mental models and programming aptitude",
+      "author": "Caspersen",
+      "year": 2007,
+      "venue": "SIGCSE 39(3):206-210",
+      "url": "https://doi.org/10.1145/1268784.1268845"
+    },
+    "tew_2011": {
+      "class": "paper",
+      "title": "The FCS1: a language independent assessment of CS1 knowledge",
+      "author": "Tew",
+      "year": 2011,
+      "venue": "SIGCSE",
+      "url": "https://doi.org/10.1145/1953163.1953200"
+    },
+    "guo_2013": {
+      "class": "paper",
+      "title": "Online Python Tutor: embeddable web-based program visualization for CS education",
+      "author": "Guo",
+      "year": 2013,
+      "venue": "SIGCSE",
+      "url": "https://doi.org/10.1145/2445196.2445368"
+    },
+    "nielsen_1995": {
+      "class": "paper",
+      "title": "10 Usability Heuristics for User Interface Design",
+      "author": "Nielsen",
+      "year": 1995,
+      "venue": "Nielsen Norman Group",
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/"
+    },
+    "spool_2001": {
+      "class": "paper",
+      "title": "Designing for the Scent of Information",
+      "author": "Spool",
+      "year": 2001,
+      "venue": "User Interface Engineering",
+      "url": "https://www.uie.com/articles/scent_of_information/"
+    },
+    "redd_learnprog": {
+      "class": "forum",
+      "title": "How to learn to read code (sticky)",
+      "author": "reddit r/learnprogramming",
+      "year": 2024,
+      "venue": "reddit",
+      "url": "https://www.reddit.com/r/learnprogramming/wiki/faq/"
+    },
+    "redd_python": {
+      "class": "forum",
+      "title": "Reading other people's Python code: techniques",
+      "author": "reddit r/Python",
+      "year": 2023,
+      "venue": "reddit",
+      "url": "https://www.reddit.com/r/Python/wiki/index/"
+    },
+    "redd_rust": {
+      "class": "forum",
+      "title": "Learning Rust the slow way",
+      "author": "reddit r/rust",
+      "year": 2023,
+      "venue": "reddit",
+      "url": "https://www.reddit.com/r/rust/wiki/index/"
+    },
+    "redd_golang": {
+      "class": "forum",
+      "title": "Effective Go reading list",
+      "author": "reddit r/golang",
+      "year": 2024,
+      "venue": "reddit",
+      "url": "https://www.reddit.com/r/golang/wiki/index/"
+    },
+    "se_codereview": {
+      "class": "forum",
+      "title": "StackExchange Code Review top answers (tag voted)",
+      "author": "StackExchange API",
+      "year": 2025,
+      "venue": "codereview.stackexchange.com",
+      "url": "https://codereview.stackexchange.com/questions?tab=Votes"
+    },
+    "se_so_python": {
+      "class": "forum",
+      "title": "StackOverflow [python] top-voted (last year)",
+      "author": "StackOverflow API",
+      "year": 2025,
+      "venue": "stackoverflow.com",
+      "url": "https://stackoverflow.com/questions/tagged/python?tab=Votes"
+    },
+    "gh_aw_py": {
+      "class": "github",
+      "title": "awesome-python",
+      "author": "vinta",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/vinta/awesome-python"
+    },
+    "gh_aw_js": {
+      "class": "github",
+      "title": "awesome-javascript",
+      "author": "sorrycc",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/sorrycc/awesome-javascript"
+    },
+    "gh_aw_go": {
+      "class": "github",
+      "title": "awesome-go",
+      "author": "avelino",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/avelino/awesome-go"
+    },
+    "gh_aw_rust": {
+      "class": "github",
+      "title": "awesome-rust",
+      "author": "rust-unofficial",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/rust-unofficial/awesome-rust"
+    },
+    "gh_aw_sql": {
+      "class": "github",
+      "title": "awesome-sql",
+      "author": "danhuss",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/danhuss/awesome-sql"
+    },
+    "gh_pyhint": {
+      "class": "github",
+      "title": "python-patterns",
+      "author": "faif",
+      "year": 2024,
+      "venue": "GitHub",
+      "url": "https://github.com/faif/python-patterns"
+    },
+    "gh_rust_book": {
+      "class": "github",
+      "title": "The Rust Programming Language (book repo)",
+      "author": "rust-lang",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/rust-lang/book"
+    },
+    "gh_go_proverbs": {
+      "class": "github",
+      "title": "Go Proverbs (proverbs.go-talk)",
+      "author": "go-proverbs",
+      "year": 2024,
+      "venue": "GitHub",
+      "url": "https://github.com/golang/go/wiki/Articles"
+    },
+    "gh_pgquery": {
+      "class": "github",
+      "title": "pg_query (Postgres query parsing library)",
+      "author": "lfittl",
+      "year": 2025,
+      "venue": "GitHub",
+      "url": "https://github.com/lfittl/pg_query"
+    },
+    "exer_py": {
+      "class": "edu",
+      "title": "Exercism Python track",
+      "author": "Exercism",
+      "year": 2025,
+      "venue": "Exercism",
+      "url": "https://exercism.org/tracks/python"
+    },
+    "exer_js": {
+      "class": "edu",
+      "title": "Exercism JavaScript track",
+      "author": "Exercism",
+      "year": 2025,
+      "venue": "Exercism",
+      "url": "https://exercism.org/tracks/javascript"
+    },
+    "exer_go": {
+      "class": "edu",
+      "title": "Exercism Go track",
+      "author": "Exercism",
+      "year": 2025,
+      "venue": "Exercism",
+      "url": "https://exercism.org/tracks/go"
+    },
+    "exer_rust": {
+      "class": "edu",
+      "title": "Exercism Rust track",
+      "author": "Exercism",
+      "year": 2025,
+      "venue": "Exercism",
+      "url": "https://exercism.org/tracks/rust"
+    },
+    "fcc_js": {
+      "class": "edu",
+      "title": "freeCodeCamp JavaScript Algorithms and Data Structures",
+      "author": "freeCodeCamp",
+      "year": 2025,
+      "venue": "freeCodeCamp",
+      "url": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+    },
+    "mit_6001": {
+      "class": "edu",
+      "title": "MIT 6.0001 Introduction to CS and Programming in Python",
+      "author": "MIT-OCW",
+      "year": 2016,
+      "venue": "MIT OCW",
+      "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/"
+    },
+    "mit_6102": {
+      "class": "edu",
+      "title": "MIT 6.102 Software Construction",
+      "author": "MIT-OCW",
+      "year": 2023,
+      "venue": "MIT OCW",
+      "url": "https://web.mit.edu/6.102/www/sp23/"
+    },
+    "codewars": {
+      "class": "edu",
+      "title": "Codewars kata",
+      "author": "Codewars",
+      "year": 2025,
+      "venue": "Codewars",
+      "url": "https://www.codewars.com/kata"
+    }
+  },
+  "by_class": {
+    "paper": [
+      "soloway_1984",
+      "sorva_2013",
+      "robins_2003",
+      "lister_2004",
+      "hermans_2021",
+      "caspersen_2007",
+      "tew_2011",
+      "guo_2013",
+      "nielsen_1995",
+      "spool_2001"
+    ],
+    "forum": [
+      "redd_learnprog",
+      "redd_python",
+      "redd_rust",
+      "redd_golang",
+      "se_codereview",
+      "se_so_python"
+    ],
+    "github": [
+      "gh_aw_py",
+      "gh_aw_js",
+      "gh_aw_go",
+      "gh_aw_rust",
+      "gh_aw_sql",
+      "gh_pyhint",
+      "gh_rust_book",
+      "gh_go_proverbs",
+      "gh_pgquery"
+    ],
+    "edu": [
+      "exer_py",
+      "exer_js",
+      "exer_go",
+      "exer_rust",
+      "fcc_js",
+      "mit_6001",
+      "mit_6102",
+      "codewars"
+    ]
+  }
+}

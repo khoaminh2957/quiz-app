@@ -1,0 +1,4591 @@
+{
+  "version": 1,
+  "langs": [
+    "python",
+    "javascript",
+    "go",
+    "rust",
+    "sql"
+  ],
+  "per_lang_stages": {
+    "python": [
+      {
+        "id": "py_f1",
+        "lang": "python",
+        "global_stage_id": "f1",
+        "level": "foundational",
+        "order": 1,
+        "title": "Reading code: literal trace",
+        "objectives": [
+          "trace execution of a 5-15 line snippet ≥ 90% accuracy by end of stage",
+          "identify the printed/returned value of a deterministic snippet within 60 seconds"
+        ],
+        "prereqs": [],
+        "kc_coverage": [
+          "read_control_flow",
+          "read_data_flow",
+          "read_io",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Before answering, mentally simulate the snippet line by line. After answering, note which line surprised you.",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Anderson 2001",
+          "Soloway 1984",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "py_f2",
+        "lang": "python",
+        "global_stage_id": "f2",
+        "level": "foundational",
+        "order": 2,
+        "title": "Common runtime errors",
+        "objectives": [
+          "predict the runtime exception class of a flawed snippet ≥ 85% accuracy by end of stage",
+          "distinguish NullPointer-like vs TypeError-like failures within 90 seconds"
+        ],
+        "prereqs": [
+          "py_f1"
+        ],
+        "kc_coverage": [
+          "null_undefined",
+          "index_out_of_range",
+          "type_mismatch",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What input value would make this code crash? Re-evaluate after seeing the answer.",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "py_f3",
+        "lang": "python",
+        "global_stage_id": "f3",
+        "level": "foundational",
+        "order": 3,
+        "title": "Idiomatic syntax & style",
+        "objectives": [
+          "select the idiomatic option over the literal-correct option ≥ 80% accuracy by end of stage",
+          "spot a redundant construct (double negation, useless variable) within 45 seconds"
+        ],
+        "prereqs": [
+          "py_f2"
+        ],
+        "kc_coverage": [
+          "lang_idiom",
+          "naming_convention",
+          "redundant_construct",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "051fed5b2b0d",
+          "32d9114ce6cb",
+          "647ab48a6f22",
+          "84d104a354a9",
+          "84bfb1d54269",
+          "8e26c23d57e6",
+          "cb8f00416f2f",
+          "fe256191a164",
+          "fc240ff695cb",
+          "8ed5aa686a1d",
+          "bcb9077eb13c",
+          "b744feaa2595",
+          "8a638452dcdb",
+          "5b15ba104188",
+          "a13b7adcd889",
+          "ad7704d04a77",
+          "3798f860aabf",
+          "04a93589cf84",
+          "d898e9974a5b",
+          "bf1cae8505f0",
+          "a8c5a3559adc",
+          "1137cf956916",
+          "df586cfffd2c",
+          "75695fe9a844",
+          "f7cd8ee62c9d",
+          "8783bc61710b",
+          "8d200adbba88",
+          "e8bae7807286",
+          "e90f44fdccb6",
+          "365896140aed",
+          "47cc5e9d50d1",
+          "d9119b37ea4f",
+          "155994bd0ac7",
+          "0b4bcc1b6df3",
+          "77a2350eace1",
+          "f317d7424dc8",
+          "2a740ce65ddb"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Is there a shorter, language-native way to express this? Rate your confidence 1-5.",
+        "est_min": 40,
+        "pedagogy_sources": [
+          "Anderson 2001",
+          "Pane 2001"
+        ]
+      },
+      {
+        "id": "py_f4",
+        "lang": "python",
+        "global_stage_id": "f4",
+        "level": "foundational",
+        "order": 4,
+        "title": "Off-by-one and boundary edges",
+        "objectives": [
+          "identify the off-by-one boundary in a loop or slice ≥ 85% accuracy by end of stage",
+          "predict behavior on empty input within 60 seconds"
+        ],
+        "prereqs": [
+          "py_f3"
+        ],
+        "kc_coverage": [
+          "off_by_one",
+          "empty_collection",
+          "boundary_value",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "16c85e7fe603",
+          "ab1fd648ccd6",
+          "0f67e09a2d9d",
+          "c2267d33e135",
+          "4b6113bc8cd8",
+          "ebfd4da21526",
+          "0d5d4d7b9403",
+          "73464c1b45b1",
+          "14b08e675b3c"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Trace the loop with n=0 and n=1. Which iteration counts differ?",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Soloway 1984"
+        ]
+      },
+      {
+        "id": "py_f5",
+        "lang": "python",
+        "global_stage_id": "f5",
+        "level": "foundational",
+        "order": 5,
+        "title": "Truthy/falsy & comparison pitfalls",
+        "objectives": [
+          "distinguish == vs === / is vs == semantics ≥ 80% accuracy by end of stage",
+          "predict short-circuit eval order within 45 seconds"
+        ],
+        "prereqs": [
+          "py_f4"
+        ],
+        "kc_coverage": [
+          "truthy_falsy",
+          "equality_semantics",
+          "short_circuit",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "53bb97ca2c6a",
+          "da3c91d64861",
+          "9b18f9a808ab",
+          "2a425dbe1a1a",
+          "fe636503f806",
+          "d36dc1dd9cb0",
+          "0ae660a542a6",
+          "72b976a8fa90",
+          "fd8fe22c2141",
+          "b7c91a3fe842",
+          "75d8e89130d5",
+          "e7640f73333e",
+          "1e5f83ed622e",
+          "5545993b07bd",
+          "a254f1862837",
+          "f6a97f0d2ee9",
+          "fe947c30688d",
+          "1a18987ae026",
+          "b290ba76dda9",
+          "6e3876b60054",
+          "bbfe8595e5d7",
+          "3415c0a5fc5b",
+          "f8609f864bb3",
+          "37b571c3097a",
+          "2eeb18a443d8",
+          "f7b492a0b85b",
+          "74c3bd4733f1",
+          "54d8be8212b7",
+          "bfe72acf1595",
+          "dc7d74240f10",
+          "d6d748c6d3b5",
+          "5d84ba42ae38",
+          "bede06bae87f",
+          "a73e2a157638",
+          "9ed0c9ce729f",
+          "6732e7025f68",
+          "5c9f2b0be255"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Would the result change if 0, '', or None replaced the input?",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "py_i1",
+        "lang": "python",
+        "global_stage_id": "i1",
+        "level": "intermediate",
+        "order": 6,
+        "title": "Mutability & reference semantics",
+        "objectives": [
+          "spot unintended shared-reference bugs ≥ 80% accuracy by end of stage",
+          "decide between shallow and deep copy within 60 seconds given a mutation scenario"
+        ],
+        "prereqs": [
+          "py_f5"
+        ],
+        "kc_coverage": [
+          "aliasing",
+          "shallow_vs_deep",
+          "unintended_mutation",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "b6ee9c208314",
+          "eeb84e194171",
+          "b03bc80ae3bc",
+          "b9729c065a3a",
+          "620e0c964211",
+          "f427c1a0d365",
+          "166616863528",
+          "2195f9cd65f4",
+          "0eab8fbfd743",
+          "2be452b1f447",
+          "1cee17d189eb",
+          "3fd7dacf392a",
+          "f24b1a51c9d4",
+          "f8bac66c5233",
+          "3c0ca4bddcd9",
+          "49750f071422",
+          "f4c3f24d8625",
+          "84cc556b93fd",
+          "4af91a4c3e75",
+          "140dba0ab086",
+          "64b50a29cc3c",
+          "2852ba4d9f10",
+          "bb6f5734936c",
+          "d9af040a9166",
+          "5f4f9d013f5d",
+          "55ba0602811d",
+          "d73f57f0eef5",
+          "1fb1b968945c"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Does mutating arg also mutate the caller's variable? Reason before answering.",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "py_i2",
+        "lang": "python",
+        "global_stage_id": "i2",
+        "level": "intermediate",
+        "order": 7,
+        "title": "Performance: complexity & hot paths",
+        "objectives": [
+          "estimate time complexity of a 10-30 line snippet within 90 seconds",
+          "identify the dominant cost line ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "py_i1"
+        ],
+        "kc_coverage": [
+          "big_o_recognition",
+          "quadratic_inside_loop",
+          "memo_opportunity",
+          "wasted_alloc",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "f96edee0b8a2",
+          "7149acee9405",
+          "987d9c3a8309",
+          "bb38b176cb4b",
+          "6a8240742497",
+          "c92d630c878a",
+          "653d4dfb9faf",
+          "7cf3ecaf9c95",
+          "b1f1c85112d6",
+          "889044410c8a",
+          "c992eba55caa",
+          "a541cc0ad565",
+          "388d93f437f5",
+          "2fbacf6ac05a",
+          "0bdb21369330",
+          "c5be07e87537",
+          "2340fe4bdcbd",
+          "ac6ac83794fc",
+          "363620538995"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which line runs the most times? Estimate big-O before reading options.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "py_i3",
+        "lang": "python",
+        "global_stage_id": "i3",
+        "level": "intermediate",
+        "order": 8,
+        "title": "Resource & lifetime management",
+        "objectives": [
+          "identify missed close/drop/free within 60 seconds ≥ 80% accuracy by end of stage",
+          "predict resource leak under exception path within 75 seconds"
+        ],
+        "prereqs": [
+          "py_i2"
+        ],
+        "kc_coverage": [
+          "close_handle",
+          "ownership_borrow",
+          "drop_order",
+          "raii",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "68a7e810c33f",
+          "5ff1435c917f",
+          "76e72a70f808",
+          "96a697fcd17b",
+          "44f2720419b6",
+          "6c17547a6fa6",
+          "b01e6afbc804"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What happens if an exception fires before the close call? Trace both branches.",
+        "est_min": 70,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "py_i4",
+        "lang": "python",
+        "global_stage_id": "i4",
+        "level": "intermediate",
+        "order": 9,
+        "title": "Input validation & injection",
+        "objectives": [
+          "identify the injection sink in 15-30 line code within 90 seconds",
+          "select the parameterized fix over string-concat fix ≥ 90% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "py_i3"
+        ],
+        "kc_coverage": [
+          "sql_injection",
+          "xss_sink",
+          "unvalidated_input",
+          "path_traversal",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "d43f74da6c17",
+          "9c14b85eacf1",
+          "18b2d2d43c1f",
+          "861b6e45bf19",
+          "c148ff9a7592",
+          "b99042bf15d3",
+          "f67e5afbed8d",
+          "b93587102a42",
+          "bf217c776da2",
+          "6a309b7a18d5",
+          "201955ebf856",
+          "2de3b44de741",
+          "c8ba5332037b",
+          "7e490bb1e2d5",
+          "d1b334bcb4fd",
+          "36d189b44100",
+          "11e181cf69d0",
+          "c9430348179d",
+          "eebe30a6fb48",
+          "3f51178a1118",
+          "c5d7409aabb7",
+          "306676c5b30e",
+          "a720d4a98dd2",
+          "c99d5ac6ea20",
+          "425d5ad8c091",
+          "8186ab380fbc",
+          "f20d44c22d26",
+          "317eb82d5f58",
+          "eddc365f9c2f",
+          "c1848e5603cc",
+          "3f8654984be0",
+          "8f5d8b8fc7ec",
+          "63d249e08acd",
+          "ecd82f1efbdf",
+          "20b7856e9587",
+          "60e5ce54a404",
+          "c25e7504a892",
+          "b8aaa10920e9",
+          "35f2bd88e1b5"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which variable came from user input and reaches an interpreter unchanged?",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021",
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "py_i5",
+        "lang": "python",
+        "global_stage_id": "i5",
+        "level": "intermediate",
+        "order": 10,
+        "title": "Error handling & retry semantics",
+        "objectives": [
+          "spot a swallowed-exception anti-pattern within 60 seconds ≥ 85% accuracy by end of stage",
+          "decide whether a failed op is safe to retry ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "py_i4"
+        ],
+        "kc_coverage": [
+          "swallowed_exception",
+          "wrong_exception_type",
+          "retry_idempotency",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "af7b95f8242e",
+          "d1ab3b5a079e",
+          "fe75153dcea8",
+          "b2bb01f76cbd",
+          "af7271122319",
+          "0349d49e4f1f",
+          "fb1ba23496a1",
+          "4b63bfc7d272",
+          "dd8fe2441c26",
+          "326bef549948",
+          "b418c24bf26f",
+          "3c8ec588f545",
+          "2a1bc261acc7",
+          "2429414b5b65",
+          "e3d8eb5349d0",
+          "ca392816d317",
+          "61938e4cb46b",
+          "449e52441008",
+          "f94908f79c86",
+          "fedaff474dd3",
+          "60115480779f",
+          "1deccfe177fa",
+          "65e4b557e774",
+          "eb44363bda16",
+          "baee20c658ec",
+          "017645f498f3",
+          "554f0c5c1ef4",
+          "4aac5845e8e1",
+          "7300fc4e93df",
+          "f95056dbff19",
+          "68c7583c1af8",
+          "8dff7e08e3d6",
+          "d4ada1a39ecd",
+          "2d2e0133894d",
+          "164c0a0a7195",
+          "fb02233dbed3",
+          "bd73e69429c5",
+          "bd8c1dee5a4b",
+          "1ef5a6bbde61",
+          "d264c18c67ac",
+          "a05397c53001",
+          "e6bbed4a358f",
+          "af4bc35b9c45",
+          "302767ae6a95",
+          "382e7508e3e1",
+          "41ec3eeb3ae6"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What information is lost when this exception is caught? Could the retry double-execute a side effect?",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "py_a1",
+        "lang": "python",
+        "global_stage_id": "a1",
+        "level": "advanced",
+        "order": 11,
+        "title": "Concurrency: races & atomicity",
+        "objectives": [
+          "identify the race window in a 2-thread snippet within 120 seconds",
+          "select the atomic primitive over coarse-lock option ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "py_i5"
+        ],
+        "kc_coverage": [
+          "data_race",
+          "check_then_act",
+          "unprotected_shared_state",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "ae800f9938ad",
+          "af3547bf6101",
+          "3e7193b9c73c",
+          "b0bacdbe1451",
+          "9376261981f4",
+          "db14bf1b2cb9",
+          "f264e4adb736",
+          "1f7195312684",
+          "846490758db8",
+          "99f72222ceec",
+          "200a932e8019",
+          "c9cdcd7dd196",
+          "045e14c73e46",
+          "ada5cc794da7",
+          "d95768583e03",
+          "8a5471715fa6",
+          "e62421f00020",
+          "efa29670bbf9",
+          "ff56baedafa5",
+          "d68a91774ab6",
+          "5dbe34824557",
+          "f01118436613",
+          "631593681e72",
+          "c54f90526198"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Interleave the two threads at every line break - does any ordering produce the wrong result?",
+        "est_min": 90,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "py_a2",
+        "lang": "python",
+        "global_stage_id": "a2",
+        "level": "advanced",
+        "order": 12,
+        "title": "Memory & UB hazards",
+        "objectives": [
+          "spot use-after-free / dangling-ref within 90 seconds ≥ 75% accuracy by end of stage",
+          "predict integer overflow wraparound result ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "py_a1"
+        ],
+        "kc_coverage": [
+          "use_after_free",
+          "integer_overflow",
+          "unsafe_aliasing",
+          "unchecked_arithmetic",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "8fc21535335f",
+          "f29e66700744",
+          "bf6627641a15",
+          "fa8ee3a0df06",
+          "54475eda9116",
+          "e714945a4964",
+          "e0280ba7c3dd",
+          "ee705ace364a",
+          "bc0e9141ccf2",
+          "d2d26a5fc593",
+          "be086afa7cd1"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What is the value at the boundary (INT_MAX, 0, -1)? Walk the arithmetic.",
+        "est_min": 85,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "py_a3",
+        "lang": "python",
+        "global_stage_id": "a3",
+        "level": "advanced",
+        "order": 13,
+        "title": "Crypto & auth correctness",
+        "objectives": [
+          "distinguish MD5/SHA-1 vs SHA-256/Argon2 contexts ≥ 90% accuracy by end of stage",
+          "spot non-constant-time compare in auth code within 60 seconds"
+        ],
+        "prereqs": [
+          "py_a2"
+        ],
+        "kc_coverage": [
+          "weak_hash_alg",
+          "constant_time_compare",
+          "cred_in_code",
+          "insecure_random",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "a849be8ff12c"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Where could a timing or length leak give an attacker information? Reflect after answering.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021"
+        ]
+      },
+      {
+        "id": "py_a4",
+        "lang": "python",
+        "global_stage_id": "a4",
+        "level": "advanced",
+        "order": 14,
+        "title": "Concurrency: ordering & memory model",
+        "objectives": [
+          "identify deadlock due to lock ordering within 120 seconds ≥ 70% accuracy by end of stage",
+          "spot missing happens-before edge between producer and consumer within 120 seconds"
+        ],
+        "prereqs": [
+          "py_a3"
+        ],
+        "kc_coverage": [
+          "happens_before",
+          "memory_ordering",
+          "deadlock_order",
+          "missed_signal",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "fc552cd27ee6",
+          "0cb648b02f8a",
+          "ef82be035965",
+          "971d46d784d0",
+          "4f3b536e882f",
+          "b3077e4c9fbf",
+          "9c0bcae89b0f",
+          "4e5ca4f8aac9",
+          "3d05e763f136",
+          "2f705bce1719",
+          "2517b2ee8ccb",
+          "30a43ac904fe",
+          "805f7cf45d77"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Draw the lock acquisition order across both paths. Does any reverse ordering exist?",
+        "est_min": 100,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "py_a5",
+        "lang": "python",
+        "global_stage_id": "a5",
+        "level": "advanced",
+        "order": 15,
+        "title": "Architecture-level review",
+        "objectives": [
+          "recognize hidden coupling between modules within 120 seconds ≥ 70% accuracy by end of stage",
+          "identify stringly-typed API smell ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "py_a4"
+        ],
+        "kc_coverage": [
+          "hidden_coupling",
+          "leaky_abstraction",
+          "stringly_typed",
+          "mutable_global_state",
+          "gil_threading_limits",
+          "list_default_mutable",
+          "late_binding_closure",
+          "f_string_quoting",
+          "walrus_scope"
+        ],
+        "question_ids": [
+          "a6d5cbef874a",
+          "64bfd72b1504",
+          "7abf75e62649",
+          "a9c545fb6cbd",
+          "2b80acf885ef",
+          "f6659bff1811",
+          "ab7dab17b2a5",
+          "429728fad82f",
+          "e2a6e7905419",
+          "d1d293700d95",
+          "b90372c5f30a",
+          "43bc4a00a0f0",
+          "0e78a65b55f7",
+          "d60e51007ca8",
+          "776b39b4518b"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "If you renamed a field, how many files would change? Reflect on the cost of the abstraction.",
+        "est_min": 80,
+        "pedagogy_sources": [
+          "Bloom 1968",
+          "Koedinger 2012",
+          "Hermans 2021"
+        ]
+      }
+    ],
+    "javascript": [
+      {
+        "id": "ja_f1",
+        "lang": "javascript",
+        "global_stage_id": "f1",
+        "level": "foundational",
+        "order": 1,
+        "title": "Reading code: literal trace",
+        "objectives": [
+          "trace execution of a 5-15 line snippet ≥ 90% accuracy by end of stage",
+          "identify the printed/returned value of a deterministic snippet within 60 seconds"
+        ],
+        "prereqs": [],
+        "kc_coverage": [
+          "read_control_flow",
+          "read_data_flow",
+          "read_io",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "947144824cb6",
+          "7f105856422b",
+          "ecb7682b934f",
+          "3dc1c31fde5e",
+          "292741e4a2f2",
+          "a9a28b822bc0",
+          "da148b039e9a",
+          "c545c5740d0c",
+          "ef260f1405c0",
+          "4578f29b3e78",
+          "4b2daa921652",
+          "0d8554807904"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Before answering, mentally simulate the snippet line by line. After answering, note which line surprised you.",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Anderson 2001",
+          "Soloway 1984",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "ja_f2",
+        "lang": "javascript",
+        "global_stage_id": "f2",
+        "level": "foundational",
+        "order": 2,
+        "title": "Common runtime errors",
+        "objectives": [
+          "predict the runtime exception class of a flawed snippet ≥ 85% accuracy by end of stage",
+          "distinguish NullPointer-like vs TypeError-like failures within 90 seconds"
+        ],
+        "prereqs": [
+          "ja_f1"
+        ],
+        "kc_coverage": [
+          "null_undefined",
+          "index_out_of_range",
+          "type_mismatch",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "9bf6e7c74748"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What input value would make this code crash? Re-evaluate after seeing the answer.",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "ja_f3",
+        "lang": "javascript",
+        "global_stage_id": "f3",
+        "level": "foundational",
+        "order": 3,
+        "title": "Idiomatic syntax & style",
+        "objectives": [
+          "select the idiomatic option over the literal-correct option ≥ 80% accuracy by end of stage",
+          "spot a redundant construct (double negation, useless variable) within 45 seconds"
+        ],
+        "prereqs": [
+          "ja_f2"
+        ],
+        "kc_coverage": [
+          "lang_idiom",
+          "naming_convention",
+          "redundant_construct",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "ad6914a918e9",
+          "102fd1cbfea9",
+          "23eef26752d0",
+          "ec5ed1b11644",
+          "d210d3e78c0d",
+          "e40a9c98d5f5",
+          "a3caa62cea06",
+          "73f7851ae33f",
+          "435ffc676913",
+          "e5983d841d07",
+          "5ff5ee9f7ad9"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Is there a shorter, language-native way to express this? Rate your confidence 1-5.",
+        "est_min": 40,
+        "pedagogy_sources": [
+          "Anderson 2001",
+          "Pane 2001"
+        ]
+      },
+      {
+        "id": "ja_f4",
+        "lang": "javascript",
+        "global_stage_id": "f4",
+        "level": "foundational",
+        "order": 4,
+        "title": "Off-by-one and boundary edges",
+        "objectives": [
+          "identify the off-by-one boundary in a loop or slice ≥ 85% accuracy by end of stage",
+          "predict behavior on empty input within 60 seconds"
+        ],
+        "prereqs": [
+          "ja_f3"
+        ],
+        "kc_coverage": [
+          "off_by_one",
+          "empty_collection",
+          "boundary_value",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "b4873ad077f9",
+          "bbc1e633c213",
+          "4de43f827e44",
+          "cf98c4dcfcdb",
+          "b5159804ef2a",
+          "bd1bd5b4a1dc",
+          "2c4a0c43192f",
+          "6f436c6b78e5",
+          "0c8824d963a3",
+          "6e5fa698e56f",
+          "ffcecbfa686c",
+          "4a498ad906ae",
+          "579e397e50b7",
+          "d8932c4a0c44",
+          "e582bcae611b",
+          "95f35521201a",
+          "f101c08ec7ab",
+          "0d2d958dbb3e",
+          "41d5e21c00a2",
+          "9963194c9410",
+          "fe887ca50328",
+          "0bbe830fd175",
+          "4f6968d88b24"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Trace the loop with n=0 and n=1. Which iteration counts differ?",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Soloway 1984"
+        ]
+      },
+      {
+        "id": "ja_f5",
+        "lang": "javascript",
+        "global_stage_id": "f5",
+        "level": "foundational",
+        "order": 5,
+        "title": "Truthy/falsy & comparison pitfalls",
+        "objectives": [
+          "distinguish == vs === / is vs == semantics ≥ 80% accuracy by end of stage",
+          "predict short-circuit eval order within 45 seconds"
+        ],
+        "prereqs": [
+          "ja_f4"
+        ],
+        "kc_coverage": [
+          "truthy_falsy",
+          "equality_semantics",
+          "short_circuit",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "ad77ceab7aa6",
+          "02c53946947a",
+          "21c8c78ec91c",
+          "2380733fca64",
+          "8b09a3e880b7",
+          "78e773e1bf71",
+          "ed54c390c539",
+          "dd9fa0ae02da",
+          "391aa58cc549",
+          "1125c8744277",
+          "0c99c8afc411",
+          "40b49fe646b4",
+          "2129b9d18e30",
+          "4699089efbc7",
+          "7417708d1302",
+          "47088ed3ba1e",
+          "d07041d074be",
+          "5874a8ef495d",
+          "0599176a102f",
+          "5433ff9e13ca",
+          "c522072f4b06",
+          "e0dc610779f8",
+          "6d734faf6161",
+          "f54c5f918224",
+          "4206ab9a752a",
+          "0a8a1fd6cc50",
+          "3a9e7298cc1b",
+          "333f88fd207f",
+          "043c6531051c",
+          "df284a5564aa",
+          "21757aacabc2",
+          "ee336f982e35"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Would the result change if 0, '', or None replaced the input?",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "ja_i1",
+        "lang": "javascript",
+        "global_stage_id": "i1",
+        "level": "intermediate",
+        "order": 6,
+        "title": "Mutability & reference semantics",
+        "objectives": [
+          "spot unintended shared-reference bugs ≥ 80% accuracy by end of stage",
+          "decide between shallow and deep copy within 60 seconds given a mutation scenario"
+        ],
+        "prereqs": [
+          "ja_f5"
+        ],
+        "kc_coverage": [
+          "aliasing",
+          "shallow_vs_deep",
+          "unintended_mutation",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "f4828a9c638b",
+          "6599041a494c",
+          "26382d970be3",
+          "7d2400be5796",
+          "93a603b2e3d5",
+          "e70c3f4dfbc7",
+          "742606293f55",
+          "2a408ee7b061",
+          "fc97f3d97768",
+          "e9534e99ce00",
+          "34013c401557",
+          "d332297e016c",
+          "c0a11260bec7",
+          "390b0da3b018",
+          "73162f30111d",
+          "bb17064ce7d6",
+          "4b82f996b243",
+          "2a3663b96e50",
+          "305586e4c7e1",
+          "b3b69c0801bd",
+          "2cd585e8005e",
+          "4cf0fb7a6ea1",
+          "1df1f71caecf",
+          "34a64b95f204",
+          "cd7db6b55b43",
+          "7c5a77ac5903",
+          "98bef5b797d9",
+          "bc7d4f58e371",
+          "14f45ba487f2",
+          "d71c56d62363"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Does mutating arg also mutate the caller's variable? Reason before answering.",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "ja_i2",
+        "lang": "javascript",
+        "global_stage_id": "i2",
+        "level": "intermediate",
+        "order": 7,
+        "title": "Performance: complexity & hot paths",
+        "objectives": [
+          "estimate time complexity of a 10-30 line snippet within 90 seconds",
+          "identify the dominant cost line ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ja_i1"
+        ],
+        "kc_coverage": [
+          "big_o_recognition",
+          "quadratic_inside_loop",
+          "memo_opportunity",
+          "wasted_alloc",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "234fd436ef6e",
+          "a8d420459dfc",
+          "4688850d9c4f",
+          "6cc4b68b95a5",
+          "830a6ac2266f",
+          "32373b7b069f",
+          "d05e019532ba",
+          "4053091ece36",
+          "db9b174da8c4"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which line runs the most times? Estimate big-O before reading options.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "ja_i3",
+        "lang": "javascript",
+        "global_stage_id": "i3",
+        "level": "intermediate",
+        "order": 8,
+        "title": "Resource & lifetime management",
+        "objectives": [
+          "identify missed close/drop/free within 60 seconds ≥ 80% accuracy by end of stage",
+          "predict resource leak under exception path within 75 seconds"
+        ],
+        "prereqs": [
+          "ja_i2"
+        ],
+        "kc_coverage": [
+          "close_handle",
+          "ownership_borrow",
+          "drop_order",
+          "raii",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "9986c37015e1",
+          "35e486019eee",
+          "a8bee86e4136",
+          "8c024e33e548",
+          "d1aff0b3bfbb",
+          "0ec1530760da"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What happens if an exception fires before the close call? Trace both branches.",
+        "est_min": 70,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "ja_i4",
+        "lang": "javascript",
+        "global_stage_id": "i4",
+        "level": "intermediate",
+        "order": 9,
+        "title": "Input validation & injection",
+        "objectives": [
+          "identify the injection sink in 15-30 line code within 90 seconds",
+          "select the parameterized fix over string-concat fix ≥ 90% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ja_i3"
+        ],
+        "kc_coverage": [
+          "sql_injection",
+          "xss_sink",
+          "unvalidated_input",
+          "path_traversal",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "592ce24844f3",
+          "e1cebac6ee73",
+          "9db36ff5d19b",
+          "7314f73b4c50",
+          "a5fbe030dfbb",
+          "3aa470bc85b8",
+          "e960338b5f89",
+          "b5db10b28358",
+          "5780dca5a613",
+          "4f9e380d0a00",
+          "dac8cb3aee57",
+          "b0bc42c5f474",
+          "3b805f41975c",
+          "5dd8172eba3b",
+          "de27fda295e5",
+          "69604bf331f6",
+          "e349b73e41d8",
+          "c88c6887f84e",
+          "d60f5bd6ad84",
+          "a0db2d5cdca0",
+          "d1e92645dcc4",
+          "a2a94b0a5fe1",
+          "e3bee52ebf18",
+          "74aaccbdaab6",
+          "b0f841dafd76",
+          "8f4f6111ce62",
+          "3964f55932ac",
+          "3b4af0098f01"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which variable came from user input and reaches an interpreter unchanged?",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021",
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "ja_i5",
+        "lang": "javascript",
+        "global_stage_id": "i5",
+        "level": "intermediate",
+        "order": 10,
+        "title": "Error handling & retry semantics",
+        "objectives": [
+          "spot a swallowed-exception anti-pattern within 60 seconds ≥ 85% accuracy by end of stage",
+          "decide whether a failed op is safe to retry ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ja_i4"
+        ],
+        "kc_coverage": [
+          "swallowed_exception",
+          "wrong_exception_type",
+          "retry_idempotency",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "53707dc0e8cf",
+          "4f6973186ae3",
+          "d58fab7765a7",
+          "5e64b92d10ba",
+          "bd719fe895cc",
+          "9aa2948b5501",
+          "76b098f9bf1f",
+          "6ad5561c428b",
+          "6b995a363f01",
+          "88e2e520c833",
+          "a01ee81d1a8f",
+          "e693183becd0",
+          "759c008e9c67",
+          "d082c6a1c302",
+          "ea8fb018b34f",
+          "b01b203db9ee",
+          "5dc959d16b0e",
+          "530c4662f8e9",
+          "756b0bd0f162",
+          "2dc1edc081a2",
+          "e2a5929174ce",
+          "31a8efc2bd94",
+          "e0b6919dd3f3",
+          "dcb42af5159b"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What information is lost when this exception is caught? Could the retry double-execute a side effect?",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "ja_a1",
+        "lang": "javascript",
+        "global_stage_id": "a1",
+        "level": "advanced",
+        "order": 11,
+        "title": "Concurrency: races & atomicity",
+        "objectives": [
+          "identify the race window in a 2-thread snippet within 120 seconds",
+          "select the atomic primitive over coarse-lock option ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ja_i5"
+        ],
+        "kc_coverage": [
+          "data_race",
+          "check_then_act",
+          "unprotected_shared_state",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "84043c11805c",
+          "6153b8a2d369",
+          "eb5f6e7f8d33",
+          "74eb40c528c1",
+          "9f6187ea8c6f",
+          "aee845a2e67f",
+          "76ba531ef53e",
+          "1591ff8c930a",
+          "02764fb8066f",
+          "0cabe24b4d38",
+          "6b0d487e182a",
+          "0f83d1b79fd9",
+          "c6c84a077cdb",
+          "0d2b1bb6381d",
+          "dca921decf87",
+          "3e696fa1ff64",
+          "590289a7cfaf",
+          "f38a437ff84c",
+          "4cb9d111df6b",
+          "bdbb50d57a46",
+          "b51a95056ab1"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Interleave the two threads at every line break - does any ordering produce the wrong result?",
+        "est_min": 90,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "ja_a2",
+        "lang": "javascript",
+        "global_stage_id": "a2",
+        "level": "advanced",
+        "order": 12,
+        "title": "Memory & UB hazards",
+        "objectives": [
+          "spot use-after-free / dangling-ref within 90 seconds ≥ 75% accuracy by end of stage",
+          "predict integer overflow wraparound result ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ja_a1"
+        ],
+        "kc_coverage": [
+          "use_after_free",
+          "integer_overflow",
+          "unsafe_aliasing",
+          "unchecked_arithmetic",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "95771cf15a1e",
+          "536592319054",
+          "d19b0048762a",
+          "dbd6de2428fe",
+          "91e7faa5aabd",
+          "9c31699a666b",
+          "036091d3ef5c",
+          "9c4f952e2999",
+          "fa7eee470f8d",
+          "a798e7466abb",
+          "596260d0e4c7",
+          "4ae83e4d9219",
+          "ddd63e21e3b4",
+          "a4ce2e8fae8f",
+          "c2b5e5d663a3",
+          "5b6d8651bc08",
+          "9fb765b0a54a"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What is the value at the boundary (INT_MAX, 0, -1)? Walk the arithmetic.",
+        "est_min": 85,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "ja_a3",
+        "lang": "javascript",
+        "global_stage_id": "a3",
+        "level": "advanced",
+        "order": 13,
+        "title": "Crypto & auth correctness",
+        "objectives": [
+          "distinguish MD5/SHA-1 vs SHA-256/Argon2 contexts ≥ 90% accuracy by end of stage",
+          "spot non-constant-time compare in auth code within 60 seconds"
+        ],
+        "prereqs": [
+          "ja_a2"
+        ],
+        "kc_coverage": [
+          "weak_hash_alg",
+          "constant_time_compare",
+          "cred_in_code",
+          "insecure_random",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "449a0618cbca",
+          "cd1920e5c2a6",
+          "9376c75c74da",
+          "acbfe9da8792"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Where could a timing or length leak give an attacker information? Reflect after answering.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021"
+        ]
+      },
+      {
+        "id": "ja_a4",
+        "lang": "javascript",
+        "global_stage_id": "a4",
+        "level": "advanced",
+        "order": 14,
+        "title": "Concurrency: ordering & memory model",
+        "objectives": [
+          "identify deadlock due to lock ordering within 120 seconds ≥ 70% accuracy by end of stage",
+          "spot missing happens-before edge between producer and consumer within 120 seconds"
+        ],
+        "prereqs": [
+          "ja_a3"
+        ],
+        "kc_coverage": [
+          "happens_before",
+          "memory_ordering",
+          "deadlock_order",
+          "missed_signal",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "d713757e01ae",
+          "f19436cee154",
+          "c490e084087d",
+          "7d3b91d418a9",
+          "4ccec70a9632",
+          "812a83427ee2",
+          "74180fa939a9"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Draw the lock acquisition order across both paths. Does any reverse ordering exist?",
+        "est_min": 100,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "ja_a5",
+        "lang": "javascript",
+        "global_stage_id": "a5",
+        "level": "advanced",
+        "order": 15,
+        "title": "Architecture-level review",
+        "objectives": [
+          "recognize hidden coupling between modules within 120 seconds ≥ 70% accuracy by end of stage",
+          "identify stringly-typed API smell ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ja_a4"
+        ],
+        "kc_coverage": [
+          "hidden_coupling",
+          "leaky_abstraction",
+          "stringly_typed",
+          "mutable_global_state",
+          "event_loop_microtask",
+          "this_binding",
+          "truthy_coercion",
+          "array_holes",
+          "promise_unhandled"
+        ],
+        "question_ids": [
+          "5d6fbf1ce1e2",
+          "cd509b232cb7",
+          "85fd1b3472e0",
+          "47294537ab22",
+          "2367a1a7fa1b",
+          "bcc72f2a2685",
+          "16bd537af70e",
+          "2950d60750ff",
+          "d4c13d3a5e29",
+          "44f82fd3ce17",
+          "048b448c99d9",
+          "71b90b1dbeb5"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "If you renamed a field, how many files would change? Reflect on the cost of the abstraction.",
+        "est_min": 80,
+        "pedagogy_sources": [
+          "Bloom 1968",
+          "Koedinger 2012",
+          "Hermans 2021"
+        ]
+      }
+    ],
+    "go": [
+      {
+        "id": "go_f1",
+        "lang": "go",
+        "global_stage_id": "f1",
+        "level": "foundational",
+        "order": 1,
+        "title": "Reading code: literal trace",
+        "objectives": [
+          "trace execution of a 5-15 line snippet ≥ 90% accuracy by end of stage",
+          "identify the printed/returned value of a deterministic snippet within 60 seconds"
+        ],
+        "prereqs": [],
+        "kc_coverage": [
+          "read_control_flow",
+          "read_data_flow",
+          "read_io",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Before answering, mentally simulate the snippet line by line. After answering, note which line surprised you.",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Anderson 2001",
+          "Soloway 1984",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "go_f2",
+        "lang": "go",
+        "global_stage_id": "f2",
+        "level": "foundational",
+        "order": 2,
+        "title": "Common runtime errors",
+        "objectives": [
+          "predict the runtime exception class of a flawed snippet ≥ 85% accuracy by end of stage",
+          "distinguish NullPointer-like vs TypeError-like failures within 90 seconds"
+        ],
+        "prereqs": [
+          "go_f1"
+        ],
+        "kc_coverage": [
+          "null_undefined",
+          "index_out_of_range",
+          "type_mismatch",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What input value would make this code crash? Re-evaluate after seeing the answer.",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "go_f3",
+        "lang": "go",
+        "global_stage_id": "f3",
+        "level": "foundational",
+        "order": 3,
+        "title": "Idiomatic syntax & style",
+        "objectives": [
+          "select the idiomatic option over the literal-correct option ≥ 80% accuracy by end of stage",
+          "spot a redundant construct (double negation, useless variable) within 45 seconds"
+        ],
+        "prereqs": [
+          "go_f2"
+        ],
+        "kc_coverage": [
+          "lang_idiom",
+          "naming_convention",
+          "redundant_construct",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "4b549fe855e7",
+          "d58c7fe1bbf3",
+          "aa7807d8e9a8",
+          "edb15bbaf916",
+          "dcba4e9359b5",
+          "bb29c2e9835f",
+          "88c5f6d3c2a2",
+          "90d9b1153498",
+          "20f843caa3c0",
+          "005fcd26fb68",
+          "f833e36778b5",
+          "1140476a14db",
+          "2f2a2d4e7333",
+          "93914e8fffd4",
+          "c07d35115dc3",
+          "ea5e0b575fbc",
+          "bc9d96333995",
+          "4655ad389e47"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Is there a shorter, language-native way to express this? Rate your confidence 1-5.",
+        "est_min": 40,
+        "pedagogy_sources": [
+          "Anderson 2001",
+          "Pane 2001"
+        ]
+      },
+      {
+        "id": "go_f4",
+        "lang": "go",
+        "global_stage_id": "f4",
+        "level": "foundational",
+        "order": 4,
+        "title": "Off-by-one and boundary edges",
+        "objectives": [
+          "identify the off-by-one boundary in a loop or slice ≥ 85% accuracy by end of stage",
+          "predict behavior on empty input within 60 seconds"
+        ],
+        "prereqs": [
+          "go_f3"
+        ],
+        "kc_coverage": [
+          "off_by_one",
+          "empty_collection",
+          "boundary_value",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "5f2f234b0db5",
+          "ad237d43ccd9",
+          "cf31db71a7d4"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Trace the loop with n=0 and n=1. Which iteration counts differ?",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Soloway 1984"
+        ]
+      },
+      {
+        "id": "go_f5",
+        "lang": "go",
+        "global_stage_id": "f5",
+        "level": "foundational",
+        "order": 5,
+        "title": "Truthy/falsy & comparison pitfalls",
+        "objectives": [
+          "distinguish == vs === / is vs == semantics ≥ 80% accuracy by end of stage",
+          "predict short-circuit eval order within 45 seconds"
+        ],
+        "prereqs": [
+          "go_f4"
+        ],
+        "kc_coverage": [
+          "truthy_falsy",
+          "equality_semantics",
+          "short_circuit",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "1c9c8eb146c8",
+          "6d38596debc8",
+          "bf5671ae83cc",
+          "22e00944ee6c",
+          "5f72006e8a30",
+          "a2748b3c2c31",
+          "fece3c663981",
+          "894065041440",
+          "e5ac9b317bf5",
+          "3aa33d998604",
+          "2ba19fd4ea40",
+          "19634b5ef917",
+          "390d624e2c39",
+          "8beb69f8e7c1",
+          "1ea0c0b4bed8",
+          "345904c3d6d4",
+          "1439a756d8d6",
+          "2ad6eeac0a50",
+          "2d13b0542e80",
+          "4273bb97af6b",
+          "47797d1d6232",
+          "e16d83edda21",
+          "56c670739297",
+          "ab392ad48ca2",
+          "e20e04602bed",
+          "7a4a6b6540d6"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Would the result change if 0, '', or None replaced the input?",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "go_i1",
+        "lang": "go",
+        "global_stage_id": "i1",
+        "level": "intermediate",
+        "order": 6,
+        "title": "Mutability & reference semantics",
+        "objectives": [
+          "spot unintended shared-reference bugs ≥ 80% accuracy by end of stage",
+          "decide between shallow and deep copy within 60 seconds given a mutation scenario"
+        ],
+        "prereqs": [
+          "go_f5"
+        ],
+        "kc_coverage": [
+          "aliasing",
+          "shallow_vs_deep",
+          "unintended_mutation",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "a0637d6b06e7",
+          "b23affa9b251",
+          "04b0b085f0bf",
+          "2463f3651234",
+          "dc21ed828d75",
+          "426fbf5f1a5d",
+          "31ef79677201",
+          "b454019b84ce",
+          "e0bf20b6b3d6",
+          "2c0c3921d916",
+          "4c9dcf7aa1c5",
+          "a319f74bc5b7",
+          "bdfcd408a5de",
+          "f31b713d3de6",
+          "b2f7d25572c0",
+          "0309f66b0341",
+          "6c360ec9191e",
+          "49ab6f8836f9",
+          "07db04e22318",
+          "6f719f825021",
+          "aab8057c6180",
+          "c2c56193403c",
+          "40bec78dcb39",
+          "abc6b08821fe",
+          "f6952c72efc4"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Does mutating arg also mutate the caller's variable? Reason before answering.",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "go_i2",
+        "lang": "go",
+        "global_stage_id": "i2",
+        "level": "intermediate",
+        "order": 7,
+        "title": "Performance: complexity & hot paths",
+        "objectives": [
+          "estimate time complexity of a 10-30 line snippet within 90 seconds",
+          "identify the dominant cost line ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "go_i1"
+        ],
+        "kc_coverage": [
+          "big_o_recognition",
+          "quadratic_inside_loop",
+          "memo_opportunity",
+          "wasted_alloc",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "c26f93ab8ae1",
+          "f4aec8dbf6d4",
+          "189672dab5fe",
+          "865628833173",
+          "faa925d750f3",
+          "049039495dbb",
+          "24ecb095ef44",
+          "3a8298093e6e",
+          "d6cc2d0d3b9d",
+          "3cbe711c21b3",
+          "ee9a39541508",
+          "c70447313fbb",
+          "2136eec186bb",
+          "ae5bb243a098",
+          "ce7c54b52196",
+          "3c0bfe951585",
+          "14ebf39b12ff",
+          "35fc3e724937",
+          "ea0da8dbc401",
+          "ab0a1d288f08",
+          "5fe145c133d3"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which line runs the most times? Estimate big-O before reading options.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "go_i3",
+        "lang": "go",
+        "global_stage_id": "i3",
+        "level": "intermediate",
+        "order": 8,
+        "title": "Resource & lifetime management",
+        "objectives": [
+          "identify missed close/drop/free within 60 seconds ≥ 80% accuracy by end of stage",
+          "predict resource leak under exception path within 75 seconds"
+        ],
+        "prereqs": [
+          "go_i2"
+        ],
+        "kc_coverage": [
+          "close_handle",
+          "ownership_borrow",
+          "drop_order",
+          "raii",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "95de61c4e193",
+          "7195b3816379"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What happens if an exception fires before the close call? Trace both branches.",
+        "est_min": 70,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "go_i4",
+        "lang": "go",
+        "global_stage_id": "i4",
+        "level": "intermediate",
+        "order": 9,
+        "title": "Input validation & injection",
+        "objectives": [
+          "identify the injection sink in 15-30 line code within 90 seconds",
+          "select the parameterized fix over string-concat fix ≥ 90% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "go_i3"
+        ],
+        "kc_coverage": [
+          "sql_injection",
+          "xss_sink",
+          "unvalidated_input",
+          "path_traversal",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "13d75d006139",
+          "4fac83a97edc",
+          "8b6093dc2a0a",
+          "f6fc58a2427a",
+          "688413916ddb",
+          "4da2b0682490",
+          "6ace7bd17501",
+          "52dcab048ba9",
+          "0b17c145a169",
+          "76bccc121d0a",
+          "294571e9b337",
+          "57056ce76f3b",
+          "48a8cf2cb7c4",
+          "b3d51cdc08d6",
+          "d7829b5eb1ac",
+          "13a136b1377a",
+          "b8e5bf098028",
+          "f74b34d8a8f3",
+          "234b839798b6",
+          "db1e47f11938",
+          "3d166820e1d5",
+          "85fcf4ed53f2",
+          "89d5b5fe1e99",
+          "1d6be1c5c98f",
+          "a2ea17a8bae7",
+          "9e26bf46b821",
+          "19c4cfe042ae"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which variable came from user input and reaches an interpreter unchanged?",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021",
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "go_i5",
+        "lang": "go",
+        "global_stage_id": "i5",
+        "level": "intermediate",
+        "order": 10,
+        "title": "Error handling & retry semantics",
+        "objectives": [
+          "spot a swallowed-exception anti-pattern within 60 seconds ≥ 85% accuracy by end of stage",
+          "decide whether a failed op is safe to retry ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "go_i4"
+        ],
+        "kc_coverage": [
+          "swallowed_exception",
+          "wrong_exception_type",
+          "retry_idempotency",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "db5119241a1d",
+          "6ff9ba518044",
+          "09a918708e7f",
+          "d9f0e62c7dfe",
+          "79968c085236",
+          "d28bcaad4dc5",
+          "8ab1892a1c64",
+          "29a77a5e02c2",
+          "87ebca14dd06",
+          "08ab128a49f0",
+          "b0e5ba4c37ed",
+          "faa9d9767594",
+          "cdf68aa8c72d",
+          "b894f1494991",
+          "ffd7a14dae7a",
+          "73194e1e3651",
+          "451c3cf73e1a",
+          "e90530df0cb7",
+          "0ef1f88a765d",
+          "ca423e235675",
+          "3f4e7d35f43f",
+          "43eb7e6086f5",
+          "50d44d9e0a36",
+          "5b36f035d984",
+          "5212a2576b37",
+          "31e91602ed67",
+          "8df18491ce9b",
+          "19ceadbad214",
+          "4dd555fe7e73",
+          "a549f54e187c",
+          "32b7ac36019f",
+          "8fee9ec5b207"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What information is lost when this exception is caught? Could the retry double-execute a side effect?",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "go_a1",
+        "lang": "go",
+        "global_stage_id": "a1",
+        "level": "advanced",
+        "order": 11,
+        "title": "Concurrency: races & atomicity",
+        "objectives": [
+          "identify the race window in a 2-thread snippet within 120 seconds",
+          "select the atomic primitive over coarse-lock option ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "go_i5"
+        ],
+        "kc_coverage": [
+          "data_race",
+          "check_then_act",
+          "unprotected_shared_state",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "1a34087628fa",
+          "f2ac154d8fad",
+          "1c1bb0b361b6",
+          "cdd5c23110ec",
+          "136b5c5eb416",
+          "6569af7b541c",
+          "b45e27d7f094",
+          "12819fb63aa3",
+          "87243cfa9c60",
+          "096cd3c397ab",
+          "e6f30c5428a9",
+          "b2b00bfb9e12",
+          "96d8303f237d",
+          "c3172d7e4cf1",
+          "c47847c49a29",
+          "134b11b09688",
+          "6effb67cac56",
+          "df0519c13cd7",
+          "73fa96d844ad",
+          "30961e466747",
+          "c7fd685127bf",
+          "090668f4d453",
+          "e5831756454e",
+          "0cb7a1380345",
+          "9b919daf651e",
+          "6aecbf608dc6",
+          "14b5f48883cb"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Interleave the two threads at every line break - does any ordering produce the wrong result?",
+        "est_min": 90,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "go_a2",
+        "lang": "go",
+        "global_stage_id": "a2",
+        "level": "advanced",
+        "order": 12,
+        "title": "Memory & UB hazards",
+        "objectives": [
+          "spot use-after-free / dangling-ref within 90 seconds ≥ 75% accuracy by end of stage",
+          "predict integer overflow wraparound result ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "go_a1"
+        ],
+        "kc_coverage": [
+          "use_after_free",
+          "integer_overflow",
+          "unsafe_aliasing",
+          "unchecked_arithmetic",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "f85f5eb27f8f",
+          "a96c5064f660",
+          "c95e8508de15",
+          "f26cdc28aecd",
+          "2697eae74683",
+          "19b5dd051e43",
+          "7f1ad0509734",
+          "5e15b5959cdc",
+          "2d6c425500ba",
+          "5e3c17068590",
+          "66f5735cd2d8",
+          "e1a37425b07f"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What is the value at the boundary (INT_MAX, 0, -1)? Walk the arithmetic.",
+        "est_min": 85,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "go_a3",
+        "lang": "go",
+        "global_stage_id": "a3",
+        "level": "advanced",
+        "order": 13,
+        "title": "Crypto & auth correctness",
+        "objectives": [
+          "distinguish MD5/SHA-1 vs SHA-256/Argon2 contexts ≥ 90% accuracy by end of stage",
+          "spot non-constant-time compare in auth code within 60 seconds"
+        ],
+        "prereqs": [
+          "go_a2"
+        ],
+        "kc_coverage": [
+          "weak_hash_alg",
+          "constant_time_compare",
+          "cred_in_code",
+          "insecure_random",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "0cd940e240c3",
+          "7a87dc6fa5f8"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Where could a timing or length leak give an attacker information? Reflect after answering.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021"
+        ]
+      },
+      {
+        "id": "go_a4",
+        "lang": "go",
+        "global_stage_id": "a4",
+        "level": "advanced",
+        "order": 14,
+        "title": "Concurrency: ordering & memory model",
+        "objectives": [
+          "identify deadlock due to lock ordering within 120 seconds ≥ 70% accuracy by end of stage",
+          "spot missing happens-before edge between producer and consumer within 120 seconds"
+        ],
+        "prereqs": [
+          "go_a3"
+        ],
+        "kc_coverage": [
+          "happens_before",
+          "memory_ordering",
+          "deadlock_order",
+          "missed_signal",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "cba77ef91661",
+          "f8d45bce7d0c",
+          "52dddc618b87",
+          "f929644c6820",
+          "e4c9867cfadd",
+          "8023e700723b",
+          "34d17f6cb7a8",
+          "cdd7bdd3538f",
+          "9101e57d4d95",
+          "ca3a54deba0f",
+          "4bda575114ff",
+          "bae59332d5bf",
+          "cba9c88f9701",
+          "bb751d9cd8ca",
+          "21b185428616",
+          "daa660c85881",
+          "5099f0f1beaa",
+          "34aead7244a0",
+          "b1a92a4171b6"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Draw the lock acquisition order across both paths. Does any reverse ordering exist?",
+        "est_min": 100,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "go_a5",
+        "lang": "go",
+        "global_stage_id": "a5",
+        "level": "advanced",
+        "order": 15,
+        "title": "Architecture-level review",
+        "objectives": [
+          "recognize hidden coupling between modules within 120 seconds ≥ 70% accuracy by end of stage",
+          "identify stringly-typed API smell ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "go_a4"
+        ],
+        "kc_coverage": [
+          "hidden_coupling",
+          "leaky_abstraction",
+          "stringly_typed",
+          "mutable_global_state",
+          "nil_interface_vs_value",
+          "goroutine_leak",
+          "slice_aliasing",
+          "range_loop_var",
+          "defer_in_loop"
+        ],
+        "question_ids": [
+          "6628147ffe41",
+          "1884c0d2314b",
+          "8b407a790060",
+          "60d911431251",
+          "afa29036981b",
+          "0c7168ce395c",
+          "b7b0c92b87f8",
+          "9f607b806b83"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "If you renamed a field, how many files would change? Reflect on the cost of the abstraction.",
+        "est_min": 80,
+        "pedagogy_sources": [
+          "Bloom 1968",
+          "Koedinger 2012",
+          "Hermans 2021"
+        ]
+      }
+    ],
+    "rust": [
+      {
+        "id": "ru_f1",
+        "lang": "rust",
+        "global_stage_id": "f1",
+        "level": "foundational",
+        "order": 1,
+        "title": "Reading code: literal trace",
+        "objectives": [
+          "trace execution of a 5-15 line snippet ≥ 90% accuracy by end of stage",
+          "identify the printed/returned value of a deterministic snippet within 60 seconds"
+        ],
+        "prereqs": [],
+        "kc_coverage": [
+          "read_control_flow",
+          "read_data_flow",
+          "read_io",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "00654f1f6862",
+          "3da2fc943e89",
+          "c2d445e96964",
+          "371a8eccae0a",
+          "edc8850cdc18",
+          "da06018236df",
+          "68ee50a0bbcf",
+          "7757e1015a3f"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Before answering, mentally simulate the snippet line by line. After answering, note which line surprised you.",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Anderson 2001",
+          "Soloway 1984",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "ru_f2",
+        "lang": "rust",
+        "global_stage_id": "f2",
+        "level": "foundational",
+        "order": 2,
+        "title": "Common runtime errors",
+        "objectives": [
+          "predict the runtime exception class of a flawed snippet ≥ 85% accuracy by end of stage",
+          "distinguish NullPointer-like vs TypeError-like failures within 90 seconds"
+        ],
+        "prereqs": [
+          "ru_f1"
+        ],
+        "kc_coverage": [
+          "null_undefined",
+          "index_out_of_range",
+          "type_mismatch",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "2b5f7ee338db",
+          "03ef5064c5c1"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What input value would make this code crash? Re-evaluate after seeing the answer.",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "ru_f3",
+        "lang": "rust",
+        "global_stage_id": "f3",
+        "level": "foundational",
+        "order": 3,
+        "title": "Idiomatic syntax & style",
+        "objectives": [
+          "select the idiomatic option over the literal-correct option ≥ 80% accuracy by end of stage",
+          "spot a redundant construct (double negation, useless variable) within 45 seconds"
+        ],
+        "prereqs": [
+          "ru_f2"
+        ],
+        "kc_coverage": [
+          "lang_idiom",
+          "naming_convention",
+          "redundant_construct",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "b9584b024b9f",
+          "c3eb32e86a24",
+          "58b884ea35fd",
+          "72a8fc4cf923",
+          "35e5ab386c1c",
+          "eaeaad855cef",
+          "d349f4f1301a",
+          "77ee267d851e",
+          "d426eb8dcac6",
+          "4b3c151b17e5"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Is there a shorter, language-native way to express this? Rate your confidence 1-5.",
+        "est_min": 40,
+        "pedagogy_sources": [
+          "Anderson 2001",
+          "Pane 2001"
+        ]
+      },
+      {
+        "id": "ru_f4",
+        "lang": "rust",
+        "global_stage_id": "f4",
+        "level": "foundational",
+        "order": 4,
+        "title": "Off-by-one and boundary edges",
+        "objectives": [
+          "identify the off-by-one boundary in a loop or slice ≥ 85% accuracy by end of stage",
+          "predict behavior on empty input within 60 seconds"
+        ],
+        "prereqs": [
+          "ru_f3"
+        ],
+        "kc_coverage": [
+          "off_by_one",
+          "empty_collection",
+          "boundary_value",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "67ebf53b452e",
+          "bd4a4c39ccd6",
+          "a9ff5fe902b8",
+          "dd109e0657c3",
+          "0cbb32421e30",
+          "a12b999fd6f6",
+          "74671a718808",
+          "394f7b5b7ef2",
+          "9ceca76a816f",
+          "030275ff6906",
+          "4b7cba25be42",
+          "d9c17e4d474d",
+          "2fef08595b67",
+          "b98aba6fefef",
+          "013f2611024a",
+          "c2ae6799a1ac",
+          "ec61460a4a1d",
+          "2b657a4c6bd1",
+          "e23b87da020d",
+          "083991b738d5",
+          "96665d024624",
+          "26298f067722",
+          "622089d3c011",
+          "a9538b1b1037"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Trace the loop with n=0 and n=1. Which iteration counts differ?",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Soloway 1984"
+        ]
+      },
+      {
+        "id": "ru_f5",
+        "lang": "rust",
+        "global_stage_id": "f5",
+        "level": "foundational",
+        "order": 5,
+        "title": "Truthy/falsy & comparison pitfalls",
+        "objectives": [
+          "distinguish == vs === / is vs == semantics ≥ 80% accuracy by end of stage",
+          "predict short-circuit eval order within 45 seconds"
+        ],
+        "prereqs": [
+          "ru_f4"
+        ],
+        "kc_coverage": [
+          "truthy_falsy",
+          "equality_semantics",
+          "short_circuit",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "9d8c414025ef",
+          "7044395f815a",
+          "b3602a75d8cf",
+          "14f760ffdcbd",
+          "168c0c54996a",
+          "ebb999f6ba73",
+          "a7d140789897",
+          "099da3cf128d",
+          "802292866f4d",
+          "8d1e4b17ad8c",
+          "ed8265477753",
+          "efcfd68b0bd9",
+          "cac7b92c0068",
+          "d18216dda6de",
+          "b88f5efabdd3",
+          "e32af7e7ea81",
+          "42de49f25c46",
+          "a0824acb47da"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Would the result change if 0, '', or None replaced the input?",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "ru_i1",
+        "lang": "rust",
+        "global_stage_id": "i1",
+        "level": "intermediate",
+        "order": 6,
+        "title": "Mutability & reference semantics",
+        "objectives": [
+          "spot unintended shared-reference bugs ≥ 80% accuracy by end of stage",
+          "decide between shallow and deep copy within 60 seconds given a mutation scenario"
+        ],
+        "prereqs": [
+          "ru_f5"
+        ],
+        "kc_coverage": [
+          "aliasing",
+          "shallow_vs_deep",
+          "unintended_mutation",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "910c0e8864f5",
+          "37bd1ce17c9a",
+          "0cda9bd0ca71",
+          "1a7c2a51026c",
+          "14a0d10fa684",
+          "d1f270fef8c7",
+          "f062ffd0d059",
+          "074b9d6c55f5",
+          "cf4441956b16",
+          "48bf1286e247",
+          "573482c065dd",
+          "6a1922adc3e4",
+          "dc27cd16f32d",
+          "a299d1022b69",
+          "6b2950f9b710",
+          "818f14416a82",
+          "1475b1af1662",
+          "7b3162137513",
+          "851185ed97d7",
+          "8caf263c5b2e",
+          "df99137c6cd2",
+          "d897dfaf376c",
+          "3c84c47fd268"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Does mutating arg also mutate the caller's variable? Reason before answering.",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "ru_i2",
+        "lang": "rust",
+        "global_stage_id": "i2",
+        "level": "intermediate",
+        "order": 7,
+        "title": "Performance: complexity & hot paths",
+        "objectives": [
+          "estimate time complexity of a 10-30 line snippet within 90 seconds",
+          "identify the dominant cost line ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ru_i1"
+        ],
+        "kc_coverage": [
+          "big_o_recognition",
+          "quadratic_inside_loop",
+          "memo_opportunity",
+          "wasted_alloc",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "6373188f33e3",
+          "881eba9c71c3",
+          "4c6ddb5e470b"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which line runs the most times? Estimate big-O before reading options.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "ru_i3",
+        "lang": "rust",
+        "global_stage_id": "i3",
+        "level": "intermediate",
+        "order": 8,
+        "title": "Resource & lifetime management",
+        "objectives": [
+          "identify missed close/drop/free within 60 seconds ≥ 80% accuracy by end of stage",
+          "predict resource leak under exception path within 75 seconds"
+        ],
+        "prereqs": [
+          "ru_i2"
+        ],
+        "kc_coverage": [
+          "close_handle",
+          "ownership_borrow",
+          "drop_order",
+          "raii",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What happens if an exception fires before the close call? Trace both branches.",
+        "est_min": 70,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "ru_i4",
+        "lang": "rust",
+        "global_stage_id": "i4",
+        "level": "intermediate",
+        "order": 9,
+        "title": "Input validation & injection",
+        "objectives": [
+          "identify the injection sink in 15-30 line code within 90 seconds",
+          "select the parameterized fix over string-concat fix ≥ 90% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ru_i3"
+        ],
+        "kc_coverage": [
+          "sql_injection",
+          "xss_sink",
+          "unvalidated_input",
+          "path_traversal",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "8bea5f118972",
+          "abbd9bc7f593",
+          "aca7f6067638",
+          "7b797dc9aa31",
+          "bfe6e533de0c",
+          "96e59b1b5513",
+          "dddf1d4ee56a"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which variable came from user input and reaches an interpreter unchanged?",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021",
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "ru_i5",
+        "lang": "rust",
+        "global_stage_id": "i5",
+        "level": "intermediate",
+        "order": 10,
+        "title": "Error handling & retry semantics",
+        "objectives": [
+          "spot a swallowed-exception anti-pattern within 60 seconds ≥ 85% accuracy by end of stage",
+          "decide whether a failed op is safe to retry ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ru_i4"
+        ],
+        "kc_coverage": [
+          "swallowed_exception",
+          "wrong_exception_type",
+          "retry_idempotency",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "9ae1af0e2803",
+          "c04dc6e60e1a",
+          "00c32f6c664b",
+          "deec9e360ec6",
+          "3a037ec65f8d",
+          "bb9efe436a01",
+          "af1c70c587b7",
+          "e619d05ecb94",
+          "ceebb60a2098",
+          "93f7000a6f48",
+          "89abd065980e",
+          "fd3336ee1761",
+          "6dff2f228ec1",
+          "c40b540eb5a4",
+          "e050aeda6b89",
+          "06483a854602",
+          "ba641047ff7e",
+          "4de5db5ba85a",
+          "30c15f8f3d3e",
+          "f5cf5865ce0b",
+          "5a3ff69a3d96",
+          "dc4f057ca8ce",
+          "bd7dfffce810",
+          "ee06bdef26ce",
+          "2bc8b8036709",
+          "fb7af002c8b5",
+          "7f24eb3be231",
+          "8fc63be4090f",
+          "812367716e7e",
+          "ed20e0d2b2ca",
+          "e04ed692dab8",
+          "04f9ed9412b3",
+          "7b56f6fb694c",
+          "36ec11fb317f",
+          "0197e150e76b",
+          "2e092f68acc0",
+          "5e9c9a046b36"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What information is lost when this exception is caught? Could the retry double-execute a side effect?",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "ru_a1",
+        "lang": "rust",
+        "global_stage_id": "a1",
+        "level": "advanced",
+        "order": 11,
+        "title": "Concurrency: races & atomicity",
+        "objectives": [
+          "identify the race window in a 2-thread snippet within 120 seconds",
+          "select the atomic primitive over coarse-lock option ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ru_i5"
+        ],
+        "kc_coverage": [
+          "data_race",
+          "check_then_act",
+          "unprotected_shared_state",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "a393bb40e776",
+          "a159f8ef1d8d",
+          "767df9c3b182",
+          "8e0143bff3a1",
+          "30f1558cdf8a",
+          "22e06e578c5e",
+          "1df7d596ca36",
+          "0676277c66a0",
+          "c058997b2e29",
+          "121d5f444587",
+          "8d34d9f67ce9",
+          "aca57490ba3b",
+          "b76a5199c5f9",
+          "e516fd4aba41",
+          "9f82d4a7c9d8",
+          "c2495669d8e9"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Interleave the two threads at every line break - does any ordering produce the wrong result?",
+        "est_min": 90,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "ru_a2",
+        "lang": "rust",
+        "global_stage_id": "a2",
+        "level": "advanced",
+        "order": 12,
+        "title": "Memory & UB hazards",
+        "objectives": [
+          "spot use-after-free / dangling-ref within 90 seconds ≥ 75% accuracy by end of stage",
+          "predict integer overflow wraparound result ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ru_a1"
+        ],
+        "kc_coverage": [
+          "use_after_free",
+          "integer_overflow",
+          "unsafe_aliasing",
+          "unchecked_arithmetic",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "4a4be37a2766",
+          "fcadca8769b0",
+          "66439da2fdff",
+          "f82304fb4d09"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What is the value at the boundary (INT_MAX, 0, -1)? Walk the arithmetic.",
+        "est_min": 85,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "ru_a3",
+        "lang": "rust",
+        "global_stage_id": "a3",
+        "level": "advanced",
+        "order": 13,
+        "title": "Crypto & auth correctness",
+        "objectives": [
+          "distinguish MD5/SHA-1 vs SHA-256/Argon2 contexts ≥ 90% accuracy by end of stage",
+          "spot non-constant-time compare in auth code within 60 seconds"
+        ],
+        "prereqs": [
+          "ru_a2"
+        ],
+        "kc_coverage": [
+          "weak_hash_alg",
+          "constant_time_compare",
+          "cred_in_code",
+          "insecure_random",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "beeb90bb4f2b",
+          "e69ddcad6539",
+          "ea2f95034c02"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Where could a timing or length leak give an attacker information? Reflect after answering.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021"
+        ]
+      },
+      {
+        "id": "ru_a4",
+        "lang": "rust",
+        "global_stage_id": "a4",
+        "level": "advanced",
+        "order": 14,
+        "title": "Concurrency: ordering & memory model",
+        "objectives": [
+          "identify deadlock due to lock ordering within 120 seconds ≥ 70% accuracy by end of stage",
+          "spot missing happens-before edge between producer and consumer within 120 seconds"
+        ],
+        "prereqs": [
+          "ru_a3"
+        ],
+        "kc_coverage": [
+          "happens_before",
+          "memory_ordering",
+          "deadlock_order",
+          "missed_signal",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "896da88e4964",
+          "46197e1f46be",
+          "295789ea2519",
+          "8da84405ddb6",
+          "0590523b6fa7",
+          "0a3a16ef1e77",
+          "5d1012c148dd",
+          "b41640bb50d3",
+          "b556d23449f9"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Draw the lock acquisition order across both paths. Does any reverse ordering exist?",
+        "est_min": 100,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "ru_a5",
+        "lang": "rust",
+        "global_stage_id": "a5",
+        "level": "advanced",
+        "order": 15,
+        "title": "Architecture-level review",
+        "objectives": [
+          "recognize hidden coupling between modules within 120 seconds ≥ 70% accuracy by end of stage",
+          "identify stringly-typed API smell ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "ru_a4"
+        ],
+        "kc_coverage": [
+          "hidden_coupling",
+          "leaky_abstraction",
+          "stringly_typed",
+          "mutable_global_state",
+          "borrow_lifetime_elision",
+          "move_vs_borrow",
+          "sized_unsized",
+          "drop_order_field",
+          "unsafe_send_sync"
+        ],
+        "question_ids": [
+          "fa794b766977",
+          "c36b12bf6959",
+          "c6ff8dff579a",
+          "a568889f5075",
+          "08122531f9dd",
+          "ae4141bd82ff",
+          "012942d45b3c",
+          "b8e68028a5ce",
+          "8b2074d9c7ea",
+          "ec0a1b4265c9",
+          "8050926bdcff"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "If you renamed a field, how many files would change? Reflect on the cost of the abstraction.",
+        "est_min": 80,
+        "pedagogy_sources": [
+          "Bloom 1968",
+          "Koedinger 2012",
+          "Hermans 2021"
+        ]
+      }
+    ],
+    "sql": [
+      {
+        "id": "sq_f1",
+        "lang": "sql",
+        "global_stage_id": "f1",
+        "level": "foundational",
+        "order": 1,
+        "title": "Reading code: literal trace",
+        "objectives": [
+          "trace execution of a 5-15 line snippet ≥ 90% accuracy by end of stage",
+          "identify the printed/returned value of a deterministic snippet within 60 seconds"
+        ],
+        "prereqs": [],
+        "kc_coverage": [
+          "read_control_flow",
+          "read_data_flow",
+          "read_io",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "126ce7d41c26",
+          "1b5c6a56b4fc",
+          "30dd71a5727f",
+          "ec8f93527339",
+          "3d635b7cd54b",
+          "e9cd3976195e",
+          "45dde1c375a5"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Before answering, mentally simulate the snippet line by line. After answering, note which line surprised you.",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Anderson 2001",
+          "Soloway 1984",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "sq_f2",
+        "lang": "sql",
+        "global_stage_id": "f2",
+        "level": "foundational",
+        "order": 2,
+        "title": "Common runtime errors",
+        "objectives": [
+          "predict the runtime exception class of a flawed snippet ≥ 85% accuracy by end of stage",
+          "distinguish NullPointer-like vs TypeError-like failures within 90 seconds"
+        ],
+        "prereqs": [
+          "sq_f1"
+        ],
+        "kc_coverage": [
+          "null_undefined",
+          "index_out_of_range",
+          "type_mismatch",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "bbcc60376aed",
+          "94953cd11000"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What input value would make this code crash? Re-evaluate after seeing the answer.",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Hermans 2021",
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "sq_f3",
+        "lang": "sql",
+        "global_stage_id": "f3",
+        "level": "foundational",
+        "order": 3,
+        "title": "Idiomatic syntax & style",
+        "objectives": [
+          "select the idiomatic option over the literal-correct option ≥ 80% accuracy by end of stage",
+          "spot a redundant construct (double negation, useless variable) within 45 seconds"
+        ],
+        "prereqs": [
+          "sq_f2"
+        ],
+        "kc_coverage": [
+          "lang_idiom",
+          "naming_convention",
+          "redundant_construct",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "9adfe3b82fdc",
+          "f7eff25a8117",
+          "dcf79d385207",
+          "7ff0a4ae33ee",
+          "2e4676451684",
+          "02ac5231811b",
+          "7b8d3c14eadc",
+          "ac313cfcc483",
+          "f0adf915d02d",
+          "d52ffbfa1b47"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Is there a shorter, language-native way to express this? Rate your confidence 1-5.",
+        "est_min": 40,
+        "pedagogy_sources": [
+          "Anderson 2001",
+          "Pane 2001"
+        ]
+      },
+      {
+        "id": "sq_f4",
+        "lang": "sql",
+        "global_stage_id": "f4",
+        "level": "foundational",
+        "order": 4,
+        "title": "Off-by-one and boundary edges",
+        "objectives": [
+          "identify the off-by-one boundary in a loop or slice ≥ 85% accuracy by end of stage",
+          "predict behavior on empty input within 60 seconds"
+        ],
+        "prereqs": [
+          "sq_f3"
+        ],
+        "kc_coverage": [
+          "off_by_one",
+          "empty_collection",
+          "boundary_value",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "f5570c66e880",
+          "630c4282e545",
+          "05f8e6afb54f",
+          "88ac4632f271",
+          "0cd1bb71bfd7",
+          "49f6d0dd9243",
+          "be0d826c3d8b",
+          "82a87c8bf558",
+          "aa5e74a5ef83",
+          "e7eae92f0e57",
+          "469ce15f7d76",
+          "f078d45f0c2e",
+          "457a5a538940",
+          "727318661456",
+          "bab90b826d81",
+          "dd198026946f",
+          "7b584def0876",
+          "4f5c7d29b46d",
+          "7961eadda463",
+          "8582d78ab57b",
+          "08f9369a10b2",
+          "d3e96db77c94",
+          "95968b230fec"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Trace the loop with n=0 and n=1. Which iteration counts differ?",
+        "est_min": 50,
+        "pedagogy_sources": [
+          "Soloway 1984"
+        ]
+      },
+      {
+        "id": "sq_f5",
+        "lang": "sql",
+        "global_stage_id": "f5",
+        "level": "foundational",
+        "order": 5,
+        "title": "Truthy/falsy & comparison pitfalls",
+        "objectives": [
+          "distinguish == vs === / is vs == semantics ≥ 80% accuracy by end of stage",
+          "predict short-circuit eval order within 45 seconds"
+        ],
+        "prereqs": [
+          "sq_f4"
+        ],
+        "kc_coverage": [
+          "truthy_falsy",
+          "equality_semantics",
+          "short_circuit",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "fae406b473e0",
+          "a7f2da048b18",
+          "5c276f9d1aba",
+          "a35cec6e5c03",
+          "f2b49c25cfcc",
+          "320e5055c957",
+          "fceda96c9570",
+          "5efdc2c51540",
+          "014a59076428",
+          "c6f11496e925",
+          "95508d8cb001",
+          "b6bf76f37f51",
+          "358b29f9cad7",
+          "95d9266ea954",
+          "fc3c8782d94f",
+          "6dffc276d8d2",
+          "741d985a6bba",
+          "8b8630c9caff",
+          "9888ae3fd9aa",
+          "7e6b62fe98c4",
+          "c95797f71789"
+        ],
+        "mastery_gate": 0.8,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Would the result change if 0, '', or None replaced the input?",
+        "est_min": 45,
+        "pedagogy_sources": [
+          "Du Boulay 1986"
+        ]
+      },
+      {
+        "id": "sq_i1",
+        "lang": "sql",
+        "global_stage_id": "i1",
+        "level": "intermediate",
+        "order": 6,
+        "title": "Mutability & reference semantics",
+        "objectives": [
+          "spot unintended shared-reference bugs ≥ 80% accuracy by end of stage",
+          "decide between shallow and deep copy within 60 seconds given a mutation scenario"
+        ],
+        "prereqs": [
+          "sq_f5"
+        ],
+        "kc_coverage": [
+          "aliasing",
+          "shallow_vs_deep",
+          "unintended_mutation",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "a5b3ab61af46",
+          "a6deaf06b369",
+          "675e64b248bc",
+          "a9b0d9523365",
+          "8c547312bb74",
+          "60a4345e2496",
+          "95138beccbfe",
+          "8770585c3c2d",
+          "a0f4ced6be93",
+          "61a8a93a6bc2",
+          "381ae6403689",
+          "d7c5a7fa5734",
+          "a99742ae5fb4",
+          "e2874eb9471c",
+          "641e52aaecba",
+          "845cdb6c085b",
+          "0fe25194f474",
+          "1ad0847d9de8",
+          "3a4651636bfe",
+          "d9eecb741efd",
+          "54b7fd0bc295",
+          "19a2cf326ff1",
+          "57f125163dbd",
+          "c2933e419275",
+          "5653a160e15c",
+          "e2d8937cbd6f",
+          "525e32653d17",
+          "fe789fb09495",
+          "6d8b057b4f1d",
+          "af7bf779b5d9",
+          "f813e835fedb",
+          "60b5b703cb5a",
+          "b36228bb672d",
+          "88a7d0b96b1e",
+          "9b5e4fe868af",
+          "6cf88d9eb0e8",
+          "b3bbb68b7103",
+          "c93183de1060",
+          "878eda5c7a39",
+          "1b9f0703eb76",
+          "83d86a67d9c3",
+          "6b54396664b0",
+          "9157cea230d5",
+          "639fdca4dc6a",
+          "e8048b190163",
+          "df1975397160",
+          "8f1585acc869"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Does mutating arg also mutate the caller's variable? Reason before answering.",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "sq_i2",
+        "lang": "sql",
+        "global_stage_id": "i2",
+        "level": "intermediate",
+        "order": 7,
+        "title": "Performance: complexity & hot paths",
+        "objectives": [
+          "estimate time complexity of a 10-30 line snippet within 90 seconds",
+          "identify the dominant cost line ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "sq_i1"
+        ],
+        "kc_coverage": [
+          "big_o_recognition",
+          "quadratic_inside_loop",
+          "memo_opportunity",
+          "wasted_alloc",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "66e093e9b005",
+          "651cedd5fc31",
+          "8de9ebff65b7",
+          "623631e2b8e3",
+          "e1c51e95a8f8",
+          "806b2112f25a",
+          "6808ffd611e0",
+          "7502ff49b148",
+          "9576fad57c75",
+          "10b22959c58f",
+          "073e19e6fb01"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which line runs the most times? Estimate big-O before reading options.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "sq_i3",
+        "lang": "sql",
+        "global_stage_id": "i3",
+        "level": "intermediate",
+        "order": 8,
+        "title": "Resource & lifetime management",
+        "objectives": [
+          "identify missed close/drop/free within 60 seconds ≥ 80% accuracy by end of stage",
+          "predict resource leak under exception path within 75 seconds"
+        ],
+        "prereqs": [
+          "sq_i2"
+        ],
+        "kc_coverage": [
+          "close_handle",
+          "ownership_borrow",
+          "drop_order",
+          "raii",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "40a375cab7df",
+          "69d92896688a",
+          "88699b0ad799",
+          "0142d710716c",
+          "108e4cd7acc4",
+          "8b785f19cbb1",
+          "7882936f5f20",
+          "4ba848c6fcc5",
+          "70789542d5da"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What happens if an exception fires before the close call? Trace both branches.",
+        "est_min": 70,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "sq_i4",
+        "lang": "sql",
+        "global_stage_id": "i4",
+        "level": "intermediate",
+        "order": 9,
+        "title": "Input validation & injection",
+        "objectives": [
+          "identify the injection sink in 15-30 line code within 90 seconds",
+          "select the parameterized fix over string-concat fix ≥ 90% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "sq_i3"
+        ],
+        "kc_coverage": [
+          "sql_injection",
+          "xss_sink",
+          "unvalidated_input",
+          "path_traversal",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "8f661d4b16bc",
+          "dc7cd90a72a5",
+          "cc67120f0561",
+          "acecc9535aad",
+          "ada12d581f0b",
+          "21875c58134e",
+          "932f2442ab6c",
+          "3fb9f3a4537d",
+          "a8fb17f42eed",
+          "2ad94461ba3e",
+          "585c69d806e2",
+          "b26784c4cd61",
+          "ef8cd7570fa7",
+          "ec5633b2c1e2",
+          "4d612dedfae3",
+          "77d9ee3c3e74",
+          "1374ebe93a5c",
+          "6cf30ab10151",
+          "badee82ade24",
+          "987db741fdd7"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Which variable came from user input and reaches an interpreter unchanged?",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021",
+          "Schwartz 2008"
+        ]
+      },
+      {
+        "id": "sq_i5",
+        "lang": "sql",
+        "global_stage_id": "i5",
+        "level": "intermediate",
+        "order": 10,
+        "title": "Error handling & retry semantics",
+        "objectives": [
+          "spot a swallowed-exception anti-pattern within 60 seconds ≥ 85% accuracy by end of stage",
+          "decide whether a failed op is safe to retry ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "sq_i4"
+        ],
+        "kc_coverage": [
+          "swallowed_exception",
+          "wrong_exception_type",
+          "retry_idempotency",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "3bc6bccc11f3",
+          "eb9a7aa39844",
+          "bc761477e2f9",
+          "5861901f78a2",
+          "5174104e2881",
+          "860d59702781",
+          "2df12d89811b",
+          "b51ca103e828",
+          "eff716a8b81b",
+          "cf6f0a4d4236",
+          "4f8f1cf031ee",
+          "358115967443",
+          "1ff0f5432364",
+          "be38fcefb720",
+          "ca4ba2b82b8d",
+          "1b32607fa292",
+          "6a94b8f1c135",
+          "96d07df1fb34",
+          "119c70ce52bb",
+          "e26a5e7a289e",
+          "5b3617f7d9fa"
+        ],
+        "mastery_gate": 0.85,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What information is lost when this exception is caught? Could the retry double-execute a side effect?",
+        "est_min": 60,
+        "pedagogy_sources": [
+          "Flanagan 2020"
+        ]
+      },
+      {
+        "id": "sq_a1",
+        "lang": "sql",
+        "global_stage_id": "a1",
+        "level": "advanced",
+        "order": 11,
+        "title": "Concurrency: races & atomicity",
+        "objectives": [
+          "identify the race window in a 2-thread snippet within 120 seconds",
+          "select the atomic primitive over coarse-lock option ≥ 75% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "sq_i5"
+        ],
+        "kc_coverage": [
+          "data_race",
+          "check_then_act",
+          "unprotected_shared_state",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "689bb8a15983",
+          "b8e48b546e76",
+          "d2d666d70f85",
+          "78ae97b60509",
+          "2082a22a3f0b",
+          "4ef21d615ed1",
+          "52637b7527af",
+          "dfcc48fa5d6b",
+          "994bf895df1a",
+          "70dbf1ac4015",
+          "2c1186d6fea1",
+          "d8d0f03562d2",
+          "b0c8ff9b9b12",
+          "efb680f9a168",
+          "fa651b15bc4c",
+          "8fa966a611c8",
+          "da2f7bfe0db1",
+          "f88c65fd8050",
+          "035a99c7e26c",
+          "9c1bca001c7e",
+          "2898f06a3600",
+          "c29113b524b1"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Interleave the two threads at every line break - does any ordering produce the wrong result?",
+        "est_min": 90,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "sq_a2",
+        "lang": "sql",
+        "global_stage_id": "a2",
+        "level": "advanced",
+        "order": 12,
+        "title": "Memory & UB hazards",
+        "objectives": [
+          "spot use-after-free / dangling-ref within 90 seconds ≥ 75% accuracy by end of stage",
+          "predict integer overflow wraparound result ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "sq_a1"
+        ],
+        "kc_coverage": [
+          "use_after_free",
+          "integer_overflow",
+          "unsafe_aliasing",
+          "unchecked_arithmetic",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "4f09e0bc7083",
+          "6b7b2fd00bbe",
+          "600669169129",
+          "1a6f8e6397fe",
+          "0d5a2f292265",
+          "32207e072137",
+          "76668c41b1f2",
+          "0e5d6acef994",
+          "940229f52607",
+          "8944d86b3a9f",
+          "707cd5abdf1e",
+          "60957dc1feb0",
+          "65e0491de3da"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "What is the value at the boundary (INT_MAX, 0, -1)? Walk the arithmetic.",
+        "est_min": 85,
+        "pedagogy_sources": [
+          "Klabnik 2023"
+        ]
+      },
+      {
+        "id": "sq_a3",
+        "lang": "sql",
+        "global_stage_id": "a3",
+        "level": "advanced",
+        "order": 13,
+        "title": "Crypto & auth correctness",
+        "objectives": [
+          "distinguish MD5/SHA-1 vs SHA-256/Argon2 contexts ≥ 90% accuracy by end of stage",
+          "spot non-constant-time compare in auth code within 60 seconds"
+        ],
+        "prereqs": [
+          "sq_a2"
+        ],
+        "kc_coverage": [
+          "weak_hash_alg",
+          "constant_time_compare",
+          "cred_in_code",
+          "insecure_random",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "9377ad90321f",
+          "d1364c531878",
+          "0eb0cdda5520",
+          "0a82973d8511"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Where could a timing or length leak give an attacker information? Reflect after answering.",
+        "est_min": 75,
+        "pedagogy_sources": [
+          "OWASP 2021"
+        ]
+      },
+      {
+        "id": "sq_a4",
+        "lang": "sql",
+        "global_stage_id": "a4",
+        "level": "advanced",
+        "order": 14,
+        "title": "Concurrency: ordering & memory model",
+        "objectives": [
+          "identify deadlock due to lock ordering within 120 seconds ≥ 70% accuracy by end of stage",
+          "spot missing happens-before edge between producer and consumer within 120 seconds"
+        ],
+        "prereqs": [
+          "sq_a3"
+        ],
+        "kc_coverage": [
+          "happens_before",
+          "memory_ordering",
+          "deadlock_order",
+          "missed_signal",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "02db4e27a538",
+          "59e48b2ac0d6",
+          "11e780505efe",
+          "74203ab70cf1"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "Draw the lock acquisition order across both paths. Does any reverse ordering exist?",
+        "est_min": 100,
+        "pedagogy_sources": [
+          "Donovan 2015",
+          "Goetz 2006"
+        ]
+      },
+      {
+        "id": "sq_a5",
+        "lang": "sql",
+        "global_stage_id": "a5",
+        "level": "advanced",
+        "order": 15,
+        "title": "Architecture-level review",
+        "objectives": [
+          "recognize hidden coupling between modules within 120 seconds ≥ 70% accuracy by end of stage",
+          "identify stringly-typed API smell ≥ 80% accuracy by end of stage"
+        ],
+        "prereqs": [
+          "sq_a4"
+        ],
+        "kc_coverage": [
+          "hidden_coupling",
+          "leaky_abstraction",
+          "stringly_typed",
+          "mutable_global_state",
+          "index_planner_stat",
+          "null_three_valued_logic",
+          "windowed_aggregate",
+          "cte_materialization",
+          "row_estimate_skew"
+        ],
+        "question_ids": [
+          "8c88c0d1f467",
+          "205224c62c0b",
+          "c37d98d368c9",
+          "ec19cb72558f",
+          "ac6994b05a87",
+          "1d924fa44ccd",
+          "4e7ea63c04c0"
+        ],
+        "mastery_gate": 0.9,
+        "spaced_review": [
+          1,
+          3,
+          7,
+          16,
+          35
+        ],
+        "metacog_prompt": "If you renamed a field, how many files would change? Reflect on the cost of the abstraction.",
+        "est_min": 80,
+        "pedagogy_sources": [
+          "Bloom 1968",
+          "Koedinger 2012",
+          "Hermans 2021"
+        ]
+      }
+    ]
+  },
+  "per_lang_kcs": {
+    "python": [
+      "read_control_flow",
+      "read_data_flow",
+      "read_io",
+      "null_undefined",
+      "index_out_of_range",
+      "type_mismatch",
+      "lang_idiom",
+      "naming_convention",
+      "redundant_construct",
+      "off_by_one",
+      "empty_collection",
+      "boundary_value",
+      "truthy_falsy",
+      "equality_semantics",
+      "short_circuit",
+      "aliasing",
+      "shallow_vs_deep",
+      "unintended_mutation",
+      "big_o_recognition",
+      "quadratic_inside_loop",
+      "memo_opportunity",
+      "wasted_alloc",
+      "close_handle",
+      "ownership_borrow",
+      "drop_order",
+      "raii",
+      "sql_injection",
+      "xss_sink",
+      "unvalidated_input",
+      "path_traversal",
+      "swallowed_exception",
+      "wrong_exception_type",
+      "retry_idempotency",
+      "data_race",
+      "check_then_act",
+      "unprotected_shared_state",
+      "use_after_free",
+      "integer_overflow",
+      "unsafe_aliasing",
+      "unchecked_arithmetic",
+      "weak_hash_alg",
+      "constant_time_compare",
+      "cred_in_code",
+      "insecure_random",
+      "happens_before",
+      "memory_ordering",
+      "deadlock_order",
+      "missed_signal",
+      "hidden_coupling",
+      "leaky_abstraction",
+      "stringly_typed",
+      "mutable_global_state",
+      "gil_threading_limits",
+      "list_default_mutable",
+      "late_binding_closure",
+      "f_string_quoting",
+      "walrus_scope"
+    ],
+    "javascript": [
+      "read_control_flow",
+      "read_data_flow",
+      "read_io",
+      "null_undefined",
+      "index_out_of_range",
+      "type_mismatch",
+      "lang_idiom",
+      "naming_convention",
+      "redundant_construct",
+      "off_by_one",
+      "empty_collection",
+      "boundary_value",
+      "truthy_falsy",
+      "equality_semantics",
+      "short_circuit",
+      "aliasing",
+      "shallow_vs_deep",
+      "unintended_mutation",
+      "big_o_recognition",
+      "quadratic_inside_loop",
+      "memo_opportunity",
+      "wasted_alloc",
+      "close_handle",
+      "ownership_borrow",
+      "drop_order",
+      "raii",
+      "sql_injection",
+      "xss_sink",
+      "unvalidated_input",
+      "path_traversal",
+      "swallowed_exception",
+      "wrong_exception_type",
+      "retry_idempotency",
+      "data_race",
+      "check_then_act",
+      "unprotected_shared_state",
+      "use_after_free",
+      "integer_overflow",
+      "unsafe_aliasing",
+      "unchecked_arithmetic",
+      "weak_hash_alg",
+      "constant_time_compare",
+      "cred_in_code",
+      "insecure_random",
+      "happens_before",
+      "memory_ordering",
+      "deadlock_order",
+      "missed_signal",
+      "hidden_coupling",
+      "leaky_abstraction",
+      "stringly_typed",
+      "mutable_global_state",
+      "event_loop_microtask",
+      "this_binding",
+      "truthy_coercion",
+      "array_holes",
+      "promise_unhandled"
+    ],
+    "go": [
+      "read_control_flow",
+      "read_data_flow",
+      "read_io",
+      "null_undefined",
+      "index_out_of_range",
+      "type_mismatch",
+      "lang_idiom",
+      "naming_convention",
+      "redundant_construct",
+      "off_by_one",
+      "empty_collection",
+      "boundary_value",
+      "truthy_falsy",
+      "equality_semantics",
+      "short_circuit",
+      "aliasing",
+      "shallow_vs_deep",
+      "unintended_mutation",
+      "big_o_recognition",
+      "quadratic_inside_loop",
+      "memo_opportunity",
+      "wasted_alloc",
+      "close_handle",
+      "ownership_borrow",
+      "drop_order",
+      "raii",
+      "sql_injection",
+      "xss_sink",
+      "unvalidated_input",
+      "path_traversal",
+      "swallowed_exception",
+      "wrong_exception_type",
+      "retry_idempotency",
+      "data_race",
+      "check_then_act",
+      "unprotected_shared_state",
+      "use_after_free",
+      "integer_overflow",
+      "unsafe_aliasing",
+      "unchecked_arithmetic",
+      "weak_hash_alg",
+      "constant_time_compare",
+      "cred_in_code",
+      "insecure_random",
+      "happens_before",
+      "memory_ordering",
+      "deadlock_order",
+      "missed_signal",
+      "hidden_coupling",
+      "leaky_abstraction",
+      "stringly_typed",
+      "mutable_global_state",
+      "nil_interface_vs_value",
+      "goroutine_leak",
+      "slice_aliasing",
+      "range_loop_var",
+      "defer_in_loop"
+    ],
+    "rust": [
+      "read_control_flow",
+      "read_data_flow",
+      "read_io",
+      "null_undefined",
+      "index_out_of_range",
+      "type_mismatch",
+      "lang_idiom",
+      "naming_convention",
+      "redundant_construct",
+      "off_by_one",
+      "empty_collection",
+      "boundary_value",
+      "truthy_falsy",
+      "equality_semantics",
+      "short_circuit",
+      "aliasing",
+      "shallow_vs_deep",
+      "unintended_mutation",
+      "big_o_recognition",
+      "quadratic_inside_loop",
+      "memo_opportunity",
+      "wasted_alloc",
+      "close_handle",
+      "ownership_borrow",
+      "drop_order",
+      "raii",
+      "sql_injection",
+      "xss_sink",
+      "unvalidated_input",
+      "path_traversal",
+      "swallowed_exception",
+      "wrong_exception_type",
+      "retry_idempotency",
+      "data_race",
+      "check_then_act",
+      "unprotected_shared_state",
+      "use_after_free",
+      "integer_overflow",
+      "unsafe_aliasing",
+      "unchecked_arithmetic",
+      "weak_hash_alg",
+      "constant_time_compare",
+      "cred_in_code",
+      "insecure_random",
+      "happens_before",
+      "memory_ordering",
+      "deadlock_order",
+      "missed_signal",
+      "hidden_coupling",
+      "leaky_abstraction",
+      "stringly_typed",
+      "mutable_global_state",
+      "borrow_lifetime_elision",
+      "move_vs_borrow",
+      "sized_unsized",
+      "drop_order_field",
+      "unsafe_send_sync"
+    ],
+    "sql": [
+      "read_control_flow",
+      "read_data_flow",
+      "read_io",
+      "null_undefined",
+      "index_out_of_range",
+      "type_mismatch",
+      "lang_idiom",
+      "naming_convention",
+      "redundant_construct",
+      "off_by_one",
+      "empty_collection",
+      "boundary_value",
+      "truthy_falsy",
+      "equality_semantics",
+      "short_circuit",
+      "aliasing",
+      "shallow_vs_deep",
+      "unintended_mutation",
+      "big_o_recognition",
+      "quadratic_inside_loop",
+      "memo_opportunity",
+      "wasted_alloc",
+      "close_handle",
+      "ownership_borrow",
+      "drop_order",
+      "raii",
+      "sql_injection",
+      "xss_sink",
+      "unvalidated_input",
+      "path_traversal",
+      "swallowed_exception",
+      "wrong_exception_type",
+      "retry_idempotency",
+      "data_race",
+      "check_then_act",
+      "unprotected_shared_state",
+      "use_after_free",
+      "integer_overflow",
+      "unsafe_aliasing",
+      "unchecked_arithmetic",
+      "weak_hash_alg",
+      "constant_time_compare",
+      "cred_in_code",
+      "insecure_random",
+      "happens_before",
+      "memory_ordering",
+      "deadlock_order",
+      "missed_signal",
+      "hidden_coupling",
+      "leaky_abstraction",
+      "stringly_typed",
+      "mutable_global_state",
+      "index_planner_stat",
+      "null_three_valued_logic",
+      "windowed_aggregate",
+      "cte_materialization",
+      "row_estimate_skew"
+    ]
+  },
+  "lang_specific_kcs": {
+    "python": [
+      "gil_threading_limits",
+      "list_default_mutable",
+      "late_binding_closure",
+      "f_string_quoting",
+      "walrus_scope"
+    ],
+    "javascript": [
+      "event_loop_microtask",
+      "this_binding",
+      "truthy_coercion",
+      "array_holes",
+      "promise_unhandled"
+    ],
+    "go": [
+      "nil_interface_vs_value",
+      "goroutine_leak",
+      "slice_aliasing",
+      "range_loop_var",
+      "defer_in_loop"
+    ],
+    "rust": [
+      "borrow_lifetime_elision",
+      "move_vs_borrow",
+      "sized_unsized",
+      "drop_order_field",
+      "unsafe_send_sync"
+    ],
+    "sql": [
+      "index_planner_stat",
+      "null_three_valued_logic",
+      "windowed_aggregate",
+      "cte_materialization",
+      "row_estimate_skew"
+    ]
+  },
+  "stats": {
+    "total_stage_instances": 75,
+    "stages_per_lang": {
+      "python": 15,
+      "javascript": 15,
+      "go": 15,
+      "rust": 15,
+      "sql": 15
+    },
+    "questions_per_lang": {
+      "python": 286,
+      "javascript": 237,
+      "go": 222,
+      "rust": 175,
+      "sql": 221
+    },
+    "dag_valid_per_lang": {
+      "python": true,
+      "javascript": true,
+      "go": true,
+      "rust": true,
+      "sql": true
+    }
+  }
+}

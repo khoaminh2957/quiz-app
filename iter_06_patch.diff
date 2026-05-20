@@ -1,0 +1,39 @@
+# iter_06_patch.diff
+# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
+# iter 6/10 — applied=5/5
+# cohort gain_pp: +2.78  (spec target >=2pp)
+
+--- a/static/style.css
++++ b/static/style.css
+@@ -appended,0 +appended @@ ui / all / imp_06_01
++# Header always shows current lang + stage; Alt+1..5 keyboard shortcut to switch lang.
++# sources: nielsen_1995, gh_aw_js, fcc_js, redd_learnprog
++# expected_delta_pp: +1.0
+
+--- a/static/lang_switcher.js
++++ b/static/lang_switcher.js
+@@ -1,0 +1-60 @@ logic / all / imp_06_02
++# Alt+1..5 key listener + lang-context-aware localStorage; routes navigate without reload.
++# sources: se_codereview, gh_aw_py, exer_py, robins_2003
++# expected_delta_pp: +1.2
+
+--- a/static/lang_python.js
++++ b/static/lang_python.js
+@@ -120,0 +120-160 @@ method / python / imp_06_03
++# Add Python 'gil_threading_limits' hint when concurrency-tagged Q encountered.
++# sources: mit_6001, gh_pyhint, exer_py, sorva_2013
++# expected_delta_pp: +1.0
+
+--- a/templates/lang_dashboard.html
++++ b/templates/lang_dashboard.html
+@@ -80,0 +80-140 @@ idea / all / imp_06_04
++# Surface 'next recommended stage' on dashboard based on Leitner due + lowest-mastery KC.
++# sources: soloway_1984, gh_aw_sql, redd_learnprog, codewars
++# expected_delta_pp: +1.0
+
+--- a/static/lang_rust.js
++++ b/static/lang_rust.js
+@@ -80,0 +80-120 @@ method / rust / imp_06_05
++# Rust 'borrow_lifetime_elision' callout - r/rust + Rust Book chapter 10 are top references.
++# sources: redd_rust, gh_rust_book, exer_rust, hermans_2021
++# expected_delta_pp: +0.8

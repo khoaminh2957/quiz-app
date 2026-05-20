@@ -1,0 +1,32 @@
+# iter_08_patch.diff
+# pre_sha: 87504cd52a080c31ecfac5d01a74e4ec63320c6d
+# iter 8/10 — applied=4/4
+# cohort gain_pp: +1.81  (spec target >=1pp)
+
+--- a/templates/lang_mastery.html
++++ b/templates/lang_mastery.html
+@@ -1,0 +1-80 @@ ui / all / imp_08_01
++# Per-lang mastery: KCs filtered to that lang (global 52 + 5 lang-specific). Per-stage progress bars.
++# sources: nielsen_1995, gh_aw_sql, mit_6102, redd_learnprog
++# expected_delta_pp: +1.0
+
+--- a/static/mastery_perlang.js
++++ b/static/mastery_perlang.js
+@@ -1,0 +1-100 @@ logic / all / imp_08_02
++# Per-lang mastery rendering; reads `state.per_lang[lang].kc_mastery`.
++# sources: se_codereview, gh_aw_py, exer_py, sorva_2013
++# expected_delta_pp: +1.0
+
+--- a/static/lang_rust.js
++++ b/static/lang_rust.js
+@@ -80,0 +80-120 @@ method / rust / imp_08_03
++# Add Rust 'unsafe_send_sync' + 'sized_unsized' hint.
++# sources: gh_rust_book, redd_rust, exer_rust, hermans_2021
++# expected_delta_pp: +0.8
+
+--- a/static/lang_sql.js
++++ b/static/lang_sql.js
+@@ -40,0 +40-80 @@ method / sql / imp_08_04
++# Add SQL 'windowed_aggregate' + 'cte_materialization' hint citing Postgres docs via pg_query repo.
++# sources: gh_pgquery, se_so_python, exer_py, robins_2003
++# expected_delta_pp: +0.8

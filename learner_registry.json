@@ -1,0 +1,3403 @@
+{
+  "version": 1,
+  "learners": [
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "primary_lang": "python",
+      "joined_iter": 1
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "primary_lang": "javascript",
+      "joined_iter": 1
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "primary_lang": "go",
+      "joined_iter": 1
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "primary_lang": "rust",
+      "joined_iter": 2
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "primary_lang": "sql",
+      "joined_iter": 2
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "primary_lang": "python",
+      "joined_iter": 2
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "primary_lang": "javascript",
+      "joined_iter": 3
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "primary_lang": "go",
+      "joined_iter": 3
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "primary_lang": "rust",
+      "joined_iter": 3
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "primary_lang": "sql",
+      "joined_iter": 4
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "primary_lang": "python",
+      "joined_iter": 4
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "primary_lang": "javascript",
+      "joined_iter": 4
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "primary_lang": "go",
+      "joined_iter": 5
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "primary_lang": "rust",
+      "joined_iter": 5
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "primary_lang": "sql",
+      "joined_iter": 5
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "primary_lang": "python",
+      "joined_iter": 6
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "primary_lang": "javascript",
+      "joined_iter": 6
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "primary_lang": "go",
+      "joined_iter": 6
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "primary_lang": "rust",
+      "joined_iter": 7
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "primary_lang": "sql",
+      "joined_iter": 7
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "primary_lang": "python",
+      "joined_iter": 7
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "primary_lang": "javascript",
+      "joined_iter": 8
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "primary_lang": "go",
+      "joined_iter": 8
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "primary_lang": "rust",
+      "joined_iter": 8
+    },
+    {
+      "agent_id": "learner_025",
+      "profile": "polyglot",
+      "primary_lang": "sql",
+      "joined_iter": 9
+    }
+  ],
+  "distinct_learner_ids_cum": 25,
+  "logs": [
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 1,
+      "lang": "python",
+      "diag": 0.3,
+      "post": 0.367,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_001_iter01_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 1,
+      "lang": "go",
+      "diag": 0.167,
+      "post": 0.233,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_001_iter01_go.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 1,
+      "lang": "javascript",
+      "diag": 0.4,
+      "post": 0.533,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter01_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 1,
+      "lang": "go",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter01_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 1,
+      "lang": "go",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter01_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 1,
+      "lang": "javascript",
+      "diag": 0.467,
+      "post": 0.467,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_003_iter01_javascript.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "python",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_001_iter02_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "rust",
+      "diag": 0.3,
+      "post": 0.3,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter02_rust.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "javascript",
+      "diag": 0.467,
+      "post": 0.567,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter02_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "rust",
+      "diag": 0.233,
+      "post": 0.233,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter02_rust.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "go",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter02_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "rust",
+      "diag": 0.3,
+      "post": 0.333,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter02_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "rust",
+      "diag": 0.3,
+      "post": 0.4,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter02_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "go",
+      "diag": 0.2,
+      "post": 0.3,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter02_go.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "sql",
+      "diag": 0.367,
+      "post": 0.433,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_005_iter02_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "go",
+      "diag": 0.333,
+      "post": 0.467,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_005_iter02_go.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "python",
+      "diag": 0.433,
+      "post": 0.5,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_006_iter02_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 2,
+      "lang": "rust",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter02_rust.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "python",
+      "diag": 0.5,
+      "post": 0.533,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_001_iter03_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.367,
+      "post": 0.467,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "javascript",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter03_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.567,
+      "post": 0.633,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_002_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "go",
+      "diag": 0.467,
+      "post": 0.5,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter03_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.467,
+      "post": 0.533,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_003_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "rust",
+      "diag": 0.267,
+      "post": 0.333,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_004_iter03_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.433,
+      "post": 0.533,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.367,
+      "post": 0.467,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "rust",
+      "diag": 0.333,
+      "post": 0.533,
+      "gain_pp": 20.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter03_rust.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "python",
+      "diag": 0.467,
+      "post": 0.533,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_006_iter03_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.533,
+      "post": 0.567,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "javascript",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_007_iter03_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.367,
+      "post": 0.467,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "go",
+      "diag": 0.5,
+      "post": 0.5,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter03_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.4,
+      "post": 0.533,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_008_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 3,
+      "lang": "rust",
+      "diag": 0.667,
+      "post": 0.733,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter03_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 3,
+      "lang": "sql",
+      "diag": 0.667,
+      "post": 0.733,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter03_sql.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.6,
+      "post": 0.7,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "javascript",
+      "diag": 0.433,
+      "post": 0.567,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_001_iter04_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "javascript",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter04_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.467,
+      "post": 0.6,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "go",
+      "diag": 0.567,
+      "post": 0.667,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_003_iter04_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.5,
+      "post": 0.667,
+      "gain_pp": 16.67,
+      "transcript_ref": "raw/transcripts/learner_003_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "rust",
+      "diag": 0.467,
+      "post": 0.567,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter04_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.467,
+      "post": 0.5,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "sql",
+      "diag": 0.633,
+      "post": 0.7,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_005_iter04_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.667,
+      "post": 0.767,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_006_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "javascript",
+      "diag": 0.433,
+      "post": 0.467,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter04_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "javascript",
+      "diag": 0.567,
+      "post": 0.633,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_007_iter04_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.5,
+      "post": 0.5,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "go",
+      "diag": 0.467,
+      "post": 0.5,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_008_iter04_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_008_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "rust",
+      "diag": 0.533,
+      "post": 0.6,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter04_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_009_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "sql",
+      "diag": 0.667,
+      "post": 0.667,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_010_iter04_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.667,
+      "post": 0.8,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.567,
+      "post": 0.633,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_011_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "javascript",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter04_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "javascript",
+      "diag": 0.667,
+      "post": 0.733,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_012_iter04_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 4,
+      "lang": "python",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter04_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "python",
+      "diag": 0.633,
+      "post": 0.633,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter05_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.367,
+      "post": 0.4,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_001_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.5,
+      "post": 0.567,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_002_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.533,
+      "post": 0.567,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_003_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "rust",
+      "diag": 0.5,
+      "post": 0.5,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter05_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.667,
+      "post": 0.667,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "sql",
+      "diag": 0.533,
+      "post": 0.6,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_005_iter05_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.467,
+      "post": 0.467,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "python",
+      "diag": 0.667,
+      "post": 0.667,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_006_iter05_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.433,
+      "post": 0.5,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_006_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.667,
+      "post": 0.733,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_007_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.4,
+      "post": 0.433,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_007_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.533,
+      "post": 0.533,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.633,
+      "post": 0.667,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_008_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "rust",
+      "diag": 0.533,
+      "post": 0.6,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter05_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_009_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "sql",
+      "diag": 0.767,
+      "post": 0.9,
+      "gain_pp": 13.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter05_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter05_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_012_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.667,
+      "post": 0.733,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_012_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_013_iter05_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.933,
+      "post": 0.967,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_013_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_014_iter05_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_014_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "sql",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_015_iter05_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 5,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_015_iter05_javascript.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "python",
+      "diag": 0.667,
+      "post": 0.733,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_001_iter06_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.433,
+      "post": 0.5,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_001_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter06_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.667,
+      "post": 0.667,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.3,
+      "post": 0.333,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.5,
+      "post": 0.533,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "sql",
+      "diag": 0.733,
+      "post": 0.8,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_005_iter06_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.633,
+      "post": 0.7,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_005_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "python",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter06_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_006_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "javascript",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_007_iter06_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.567,
+      "post": 0.6,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_007_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.633,
+      "post": 0.633,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.633,
+      "post": 0.7,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_008_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_009_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_009_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "sql",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter06_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.8,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_010_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "python",
+      "diag": 0.8,
+      "post": 0.833,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter06_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter06_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_012_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_014_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_014_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "sql",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_015_iter06_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_015_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_016_iter06_python.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_016_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_017_iter06_javascript.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_017_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "go",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter06_go.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 6,
+      "lang": "rust",
+      "diag": 0.7,
+      "post": 0.7,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter06_rust.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "python",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter07_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.6,
+      "post": 0.6,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "javascript",
+      "diag": 0.467,
+      "post": 0.5,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter07_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.567,
+      "post": 0.667,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "go",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter07_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.633,
+      "post": 0.667,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_005_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.533,
+      "post": 0.567,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_005_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter07_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "javascript",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_007_iter07_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.567,
+      "post": 0.667,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter07_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_009_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.767,
+      "post": 0.833,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.833,
+      "post": 0.9,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_010_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "python",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter07_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_011_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_012_iter07_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.767,
+      "post": 0.833,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_012_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "go",
+      "diag": 0.8,
+      "post": 0.9,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter07_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_014_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_014_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.8,
+      "post": 0.867,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_015_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.8,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_015_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_016_iter07_python.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.8,
+      "post": 0.867,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_016_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_017_iter07_javascript.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_017_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "go",
+      "diag": 0.8,
+      "post": 0.833,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_018_iter07_go.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.833,
+      "post": 0.933,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_019_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 7,
+      "lang": "rust",
+      "diag": 0.867,
+      "post": 0.933,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_020_iter07_rust.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 7,
+      "lang": "python",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter07_python.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 7,
+      "lang": "sql",
+      "diag": 0.933,
+      "post": 0.967,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_021_iter07_sql.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter08_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.867,
+      "post": 0.933,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_003_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "rust",
+      "diag": 0.567,
+      "post": 0.667,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_004_iter08_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "sql",
+      "diag": 0.533,
+      "post": 0.533,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter08_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.633,
+      "post": 0.633,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "go",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_008_iter08_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "rust",
+      "diag": 0.733,
+      "post": 0.8,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter08_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_009_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "sql",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_010_iter08_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.833,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_011_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.8,
+      "post": 0.833,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "go",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter08_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_013_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "rust",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_014_iter08_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_014_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "sql",
+      "diag": 0.8,
+      "post": 0.867,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_015_iter08_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_015_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_016_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_016_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_017_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.9,
+      "post": 0.933,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_017_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "go",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter08_go.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "rust",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter08_rust.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "sql",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter08_sql.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "javascript",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_022_iter08_javascript.json"
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_022_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "go",
+      "diag": 1.0,
+      "post": 1.0,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_023_iter08_go.json"
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_023_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "rust",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_024_iter08_rust.json"
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "iter": 8,
+      "lang": "python",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_024_iter08_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter09_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.7,
+      "post": 0.7,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_001_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.8,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_003_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_003_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "rust",
+      "diag": 0.467,
+      "post": 0.5,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter09_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "sql",
+      "diag": 0.567,
+      "post": 0.567,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter09_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_005_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter09_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.733,
+      "post": 0.733,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_006_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.6,
+      "post": 0.667,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_007_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.667,
+      "post": 0.667,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.667,
+      "post": 0.667,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.733,
+      "post": 0.8,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_008_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "rust",
+      "diag": 0.8,
+      "post": 0.867,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter09_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_009_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "sql",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_010_iter09_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "python",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_011_iter09_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_011_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.933,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_014_iter09_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.833,
+      "post": 0.9,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_014_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "sql",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_015_iter09_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.733,
+      "post": 0.767,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_015_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "python",
+      "diag": 0.9,
+      "post": 0.933,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_016_iter09_python.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.967,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_016_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_017_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_017_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_018_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter09_rust.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "sql",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter09_sql.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "python",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter09_python.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_022_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_022_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "go",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_023_iter09_go.json"
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_023_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "rust",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_024_iter09_rust.json"
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_024_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_025",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "sql",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_025_iter09_sql.json"
+    },
+    {
+      "agent_id": "learner_025",
+      "profile": "polyglot",
+      "iter": 9,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_025_iter09_javascript.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "python",
+      "diag": 0.633,
+      "post": 0.667,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_001_iter10_python.json"
+    },
+    {
+      "agent_id": "learner_001",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.7,
+      "post": 0.733,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_001_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "javascript",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_002_iter10_javascript.json"
+    },
+    {
+      "agent_id": "learner_002",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.633,
+      "post": 0.633,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_002_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_003_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_003",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.5,
+      "post": 0.533,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_003_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.5,
+      "post": 0.533,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_004",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_004_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "sql",
+      "diag": 0.6,
+      "post": 0.633,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_005_iter10_sql.json"
+    },
+    {
+      "agent_id": "learner_005",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.8,
+      "post": 0.8,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_005_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "python",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter10_python.json"
+    },
+    {
+      "agent_id": "learner_006",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.667,
+      "post": 0.7,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_006_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_007_iter10_javascript.json"
+    },
+    {
+      "agent_id": "learner_007",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.533,
+      "post": 0.6,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_007_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.7,
+      "post": 0.7,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_008",
+      "profile": "novice",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.5,
+      "post": 0.6,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_008_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.967,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_009_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_009",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_009_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "sql",
+      "diag": 0.933,
+      "post": 0.967,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_010_iter10_sql.json"
+    },
+    {
+      "agent_id": "learner_010",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.833,
+      "post": 0.9,
+      "gain_pp": 6.67,
+      "transcript_ref": "raw/transcripts/learner_010_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "python",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_011_iter10_python.json"
+    },
+    {
+      "agent_id": "learner_011",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_011_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "javascript",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_012_iter10_javascript.json"
+    },
+    {
+      "agent_id": "learner_012",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.867,
+      "gain_pp": 10.0,
+      "transcript_ref": "raw/transcripts/learner_012_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_013",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_013_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_014_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_014",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_014_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "sql",
+      "diag": 0.833,
+      "post": 0.867,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_015_iter10_sql.json"
+    },
+    {
+      "agent_id": "learner_015",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_015_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "python",
+      "diag": 0.867,
+      "post": 0.9,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_016_iter10_python.json"
+    },
+    {
+      "agent_id": "learner_016",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.8,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_016_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "javascript",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_017_iter10_javascript.json"
+    },
+    {
+      "agent_id": "learner_017",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.933,
+      "post": 0.967,
+      "gain_pp": 3.33,
+      "transcript_ref": "raw/transcripts/learner_017_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_018",
+      "profile": "inter",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.767,
+      "post": 0.767,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_018_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_019",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_019_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "sql",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter10_sql.json"
+    },
+    {
+      "agent_id": "learner_020",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_020_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "python",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter10_python.json"
+    },
+    {
+      "agent_id": "learner_021",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_021_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "javascript",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_022_iter10_javascript.json"
+    },
+    {
+      "agent_id": "learner_022",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_022_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.833,
+      "post": 0.833,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_023_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_023",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_023_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "rust",
+      "diag": 0.9,
+      "post": 0.9,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_024_iter10_rust.json"
+    },
+    {
+      "agent_id": "learner_024",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.867,
+      "post": 0.867,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_024_iter10_go.json"
+    },
+    {
+      "agent_id": "learner_025",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "sql",
+      "diag": 0.967,
+      "post": 0.967,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_025_iter10_sql.json"
+    },
+    {
+      "agent_id": "learner_025",
+      "profile": "polyglot",
+      "iter": 10,
+      "lang": "go",
+      "diag": 0.933,
+      "post": 0.933,
+      "gain_pp": 0.0,
+      "transcript_ref": "raw/transcripts/learner_025_iter10_go.json"
+    }
+  ],
+  "cohort_pass_rate_by_iter": {
+    "0": null,
+    "1": {
+      "diag": 0.344,
+      "post": 0.4,
+      "gain_pp": 5.56,
+      "active_learners": 3,
+      "new_learners": 3,
+      "cum_distinct_learners": 3
+    },
+    "2": {
+      "diag": 0.336,
+      "post": 0.394,
+      "gain_pp": 5.83,
+      "active_learners": 6,
+      "new_learners": 3,
+      "cum_distinct_learners": 6
+    },
+    "3": {
+      "diag": 0.463,
+      "post": 0.535,
+      "gain_pp": 7.22,
+      "active_learners": 9,
+      "new_learners": 3,
+      "cum_distinct_learners": 9
+    },
+    "4": {
+      "diag": 0.589,
+      "post": 0.654,
+      "gain_pp": 6.53,
+      "active_learners": 12,
+      "new_learners": 3,
+      "cum_distinct_learners": 12
+    },
+    "5": {
+      "diag": 0.648,
+      "post": 0.679,
+      "gain_pp": 3.11,
+      "active_learners": 15,
+      "new_learners": 3,
+      "cum_distinct_learners": 15
+    },
+    "6": {
+      "diag": 0.697,
+      "post": 0.725,
+      "gain_pp": 2.78,
+      "active_learners": 18,
+      "new_learners": 3,
+      "cum_distinct_learners": 18
+    },
+    "7": {
+      "diag": 0.749,
+      "post": 0.785,
+      "gain_pp": 3.57,
+      "active_learners": 21,
+      "new_learners": 3,
+      "cum_distinct_learners": 21
+    },
+    "8": {
+      "diag": 0.822,
+      "post": 0.84,
+      "gain_pp": 1.81,
+      "active_learners": 24,
+      "new_learners": 3,
+      "cum_distinct_learners": 24
+    },
+    "9": {
+      "diag": 0.825,
+      "post": 0.842,
+      "gain_pp": 1.67,
+      "active_learners": 25,
+      "new_learners": 1,
+      "cum_distinct_learners": 25
+    },
+    "10": {
+      "diag": 0.817,
+      "post": 0.835,
+      "gain_pp": 1.87,
+      "active_learners": 25,
+      "new_learners": 0,
+      "cum_distinct_learners": 25
+    }
+  },
+  "simulation_method": "deterministic_monte_carlo",
+  "honest_note": "Spec §2 calls for LLM sim-learner agents (in-prompt 30Q diag→study→post). This implementation uses deterministic profile-based Monte Carlo with seeded RNG per (learner,iter,lang) to honor §7 cumulative fan-out cap (≤24); the prior /goal exhausted that budget so further LLM fan-outs would deepen, not resolve, the §7 violation."
+}

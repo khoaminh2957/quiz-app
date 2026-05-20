@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Improvements — Code Review Quiz</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Improvements changelog</h1>
+  <nav class="navlinks">
+    <a href="/">Home</a>
+    <a href="/quiz">Flat quiz</a>
+    <a href="/progress">Progress</a>
+    <a href="/improvements" class="active">Changelog</a>
+  </nav>
+  <div class="meta">
+    <button id="theme-toggle">🌓</button>
+  </div>
+</header>
+
+<main id="improvements-main">
+  <section>
+    <h2>Audit trail (10 iters)</h2>
+    <p class="hint">Each iteration's improvements are derived from at least 4 source classes (papers / forum / github / edu). Source URLs link to the original.</p>
+    <canvas id="gain-curve" width="800" height="240"></canvas>
+  </section>
+
+  <section>
+    <h2>Iteration timeline</h2>
+    <div id="iter-timeline"></div>
+  </section>
+
+  <section>
+    <h2>All improvements ({{ "%s"|format(total) }})</h2>
+    <div id="imp-list"></div>
+  </section>
+
+  <section>
+    <h2>Research references</h2>
+    <div id="ref-list"></div>
+  </section>
+</main>
+
+<footer><small><a href="/api/improvements">improvements JSON</a> · <a href="/api/research_refs">refs JSON</a></small></footer>
+
+<script src="/static/improvements.js"></script>
+</body>
+</html>
