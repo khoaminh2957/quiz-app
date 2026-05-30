@@ -2,9 +2,14 @@
 <html lang="vi" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="Quiz review code Python — 286 câu hỏi, 15 stages, gate mastery, ôn tập Leitner.">
+<meta name="description" content="CodeReview Quiz — luyện kỹ năng ĐỌC & BẮT BUG code Python. {{ total }} câu code-review thật (bug/security/perf/style), chấm điểm tức thì. Kỹ năng phỏng vấn senior mà LeetCode không dạy.">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quiz Review Code — Python</title>
+<title>CodeReview Quiz — Luyện đọc & bắt bug code Python</title>
+<meta property="og:title" content="CodeReview Quiz — Luyện kỹ năng ĐỌC & BẮT BUG code">
+<meta property="og:description" content="{{ total }} câu code-review Python thật. Đọc code, bắt bug/security/perf/style — kỹ năng phỏng vấn senior cần mà LeetCode không dạy.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="/">
 <link rel="stylesheet" href="/static/style.css">
 <script src="/static/error_reporter.js"></script>
 </head>
@@ -17,8 +22,8 @@
     <a href="/lang/python/roadmap">Lộ trình</a>
     <a href="/lang/python/mastery">Mức độ thành thạo</a>
     <a href="/quiz">Quiz nhanh</a>
+    <a href="/pricing">Bảng giá</a>
     <a href="/progress">Tiến độ</a>
-    <a href="/improvements">Nhật ký</a>
   </nav>
   <div class="meta">
     <span>{{ total }} câu hỏi · 15 stages · 3 cấp độ</span>
@@ -28,8 +33,21 @@
 
 <main id="main" tabindex="-1">
   <section class="hero">
-    <h2>Lộ trình Code Review bằng Python</h2>
-    <p class="hint">Học theo từng giai đoạn — 15 stages, gate mastery theo cấp độ (80% / 85% / 90%), ôn lại theo Leitner 5-box (1·3·7·16·35 ngày).</p>
+    <h2>Họ dạy bạn <s>VIẾT</s> code. Chúng tôi luyện bạn <strong>ĐỌC &amp; BẮT BUG</strong> như một reviewer.</h2>
+    <p class="hint">Kỹ năng <strong>code review</strong> — đọc code người khác, phát hiện bug / security / perf / style — là thứ phỏng vấn senior và công việc thật cần, nhưng LeetCode &amp; Codewars không dạy. <strong>{{ total }} câu Python thật</strong>, 6 nhóm lỗi, chấm điểm tức thì, có giải thích.</p>
+    <div class="hero-cta">
+      <a class="cta" href="/quiz" data-track="cta_start_quiz">Thử ngay — không cần đăng ký →</a>
+      <a class="cta cta-ghost" href="/pricing" data-track="cta_view_pricing">Xem các gói</a>
+    </div>
+    <form id="waitlist-form" class="waitlist" data-source="landing" data-persona="interview_prep" aria-label="Đăng ký nhận sớm">
+      <label for="wl-email" class="hint">Nhận <strong>Security-Review Interview Pack</strong> + bản Pro khi ra mắt:</label>
+      <div class="wl-row">
+        <input id="wl-email" type="email" required placeholder="email@cua-ban.com" autocomplete="email">
+        <button type="submit">Đăng ký sớm</button>
+      </div>
+      <p id="wl-msg" class="hint" role="status" aria-live="polite"></p>
+      <p class="hint" style="font-size:.8rem;opacity:.75">Chỉ dùng email để báo khi ra mắt. Xem <a href="/privacy">Quyền riêng tư</a>.</p>
+    </form>
   </section>
 
   <section class="gamification-grid">
@@ -60,10 +78,11 @@
   </section>
 </main>
 
-<footer><small>Tham khảo pedagogy: <a href="/api/pedagogy">refs JSON</a> · Nhật ký build: <a href="/improvements">/improvements</a></small></footer>
+<footer><small><a href="/privacy">Quyền riêng tư</a> · <a href="/terms">Điều khoản</a> · Tham khảo pedagogy: <a href="/api/pedagogy">refs JSON</a> · Nhật ký build: <a href="/improvements">/improvements</a></small></footer>
 
 <script src="/static/state_migrate.js"></script>
 <script src="/static/landing.js"></script>
 <script src="/static/gamification.js"></script>
+<script src="/static/analytics.js"></script>
 </body>
 </html>

@@ -235,7 +235,9 @@ def improvements_view():
 
 @app.route("/api/questions")
 def api_questions():
-    body = json.dumps(QUESTIONS).encode("utf-8")
+    # SECURITY: never bulk-ship the answer key — strip correct_idx/explain even here.
+    # (Server-side grading via /api/check still works for the client fallback path.)
+    body = json.dumps([_public_question(q) for q in QUESTIONS]).encode("utf-8")
     etag = _etag_for(body)
     from flask import request, make_response
     if request.headers.get("If-None-Match") == etag:
@@ -430,6 +432,220 @@ def api_client_errors():
     except Exception:
         pass
     return jsonify({"ok": True})
+
+# ============================================================================
+# PHASE 0 — "Measure & Position" (harness 20-vòng P0s; khả thi không cần DB)
+#   1. Bịt rò đáp án: /api/questions/public (strip key) + /api/check (chấm server)
+#   2. Đo cầu: /api/event (funnel cookieless) + /api/waitlist (lead → sink ngoài)
+#   3. Fake-door: /pricing  4. SEO: /q/<id> SSR + /sitemap.xml + /robots.txt
+# ============================================================================
+
+# --- 0. Hardening helpers (rate-limit, sanitize) — review Phase 0 ---
+app.config["MAX_CONTENT_LENGTH"] = 64 * 1024  # chặn payload bomb vào POST APIs
+
+from collections import defaultdict as _dd
+_RL = _dd(lambda: [0.0, 0.0])  # key -> [tokens, last_ts]; in-memory per-instance (interim)
+
+def _client_ip():
+    xff = request.headers.get("X-Forwarded-For", "")
+    return (xff.split(",")[0].strip() if xff else (request.remote_addr or "?"))
+
+def _rate_ok(bucket, rate=60, per=60.0):
+    """Token-bucket per (bucket,IP). True nếu còn quota. Vercel multi-instance →
+    đây là rào chắn interim; production nên dùng Vercel KV/Upstash."""
+    key = f"{bucket}:{_client_ip()}"
+    now = time.time()
+    tok, last = _RL[key]
+    tok = min(float(rate), tok + (now - last) * (rate / per))
+    if tok < 1.0:
+        _RL[key] = [tok, now]
+        return False
+    _RL[key] = [tok - 1.0, now]
+    return True
+
+def _defang(s):
+    """Chống CSV/formula injection khi forward dữ liệu user tới sink ngoài (Sheets/Slack)."""
+    s = str(s)
+    return ("'" + s) if s[:1] in ("=", "+", "-", "@", "\t", "\r") else s
+
+def _clip_dict(d, maxkeys=20, maxlen=200):
+    """Chỉ giữ value str/number, cắt độ dài, giới hạn số key."""
+    out = {}
+    if not isinstance(d, dict):
+        return out
+    for i, (k, v) in enumerate(d.items()):
+        if i >= maxkeys:
+            break
+        k = str(k)[:40]
+        if isinstance(v, bool) or isinstance(v, (int, float)):
+            out[k] = v
+        elif isinstance(v, str):
+            out[k] = v[:maxlen]
+    return out
+
+@app.errorhandler(429)
+def _429(e):
+    return jsonify({"error": "Quá nhiều request, thử lại sau", "req_id": getattr(g, "_req_id", "?")}), 429
+
+# --- 1. Answer-key integrity: never bulk-ship correct_idx/explain ---
+# Allowlist (default-deny): chỉ ship field an toàn. correct_idx, explain,
+# misconception_map, metacog_*, est_difficulty... ở lại server (tránh lộ gián tiếp).
+_PUBLIC_FIELDS = ("id", "lang", "code", "question", "options", "topic", "subtopic", "difficulty")
+_Q_BY_ID = {q["id"]: q for q in QUESTIONS}
+
+def _public_question(q):
+    """Phiên bản câu hỏi chỉ gồm field an toàn (không lộ/gợi ý đáp án)."""
+    return {k: q[k] for k in _PUBLIC_FIELDS if k in q}
+
+@app.route("/api/questions/public")
+def api_questions_public():
+    """Như /api/questions nhưng đã STRIP correct_idx + explain. Dùng cho client."""
+    from flask import make_response
+    body = json.dumps([_public_question(q) for q in QUESTIONS]).encode("utf-8")
+    etag = _etag_for(body)
+    if request.headers.get("If-None-Match") == etag:
+        resp = make_response("", 304)
+    else:
+        resp = make_response(body)
+        resp.headers["Content-Type"] = "application/json"
+    resp.headers["ETag"] = etag
+    return _add_cache_headers(resp, 3600)
+
+@app.route("/api/check", methods=["POST"])
+def api_check():
+    """Chấm điểm SERVER-SIDE — answer key ở lại trên server. Chỉ lộ đáp án
+    SAU khi người dùng đã chọn (POST {id, choice}), không bulk-leak."""
+    if not _rate_ok("check", rate=90, per=60.0):
+        abort(429)
+    body = request.get_json(silent=True) or {}
+    qid = str(body.get("id", ""))
+    q = _Q_BY_ID.get(qid)
+    if not q:
+        abort(404)
+    try:
+        choice = int(body.get("choice"))
+    except (TypeError, ValueError):
+        return jsonify({"error": "choice phải là số nguyên"}), 400
+    n_opts = len(q.get("options", []))
+    if not (0 <= choice < n_opts):
+        return jsonify({"error": "choice ngoài phạm vi"}), 400
+    ci = q.get("correct_idx")
+    return jsonify({
+        "id": qid, "ok": (choice == ci), "correct_idx": ci,
+        "explain": q.get("explain", ""), "sources": q.get("sources", []),
+    })
+
+# --- 2. Demand measurement: cookieless funnel + email waitlist ---
+EVENTS_LOG   = LOG_DIR / "events.jsonl"
+WAITLIST_LOG = LOG_DIR / "waitlist.jsonl"
+import re as _re
+_EMAIL_RE = _re.compile(r"^[^@\s]+@[^@\s]+\.[A-Za-z]{2,}$")
+
+def _append_jsonl(path, rec):
+    try:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        return True
+    except Exception:
+        return False  # Vercel FS ephemeral — sink ngoài mới là durable thật
+
+@app.route("/api/event", methods=["POST"])
+def api_event():
+    """Funnel analytics cookieless (anonymous client-id, KHÔNG cookie/PII)."""
+    if not _rate_ok("event", rate=180, per=60.0):
+        abort(429)
+    body = request.get_json(silent=True) or {}
+    ev = {
+        "ts": round(time.time(), 3),
+        "name": str(body.get("name", ""))[:64],
+        "cid":  str(body.get("cid", ""))[:40],
+        "path": str(body.get("path", ""))[:200],
+        "ref":  str(body.get("ref", ""))[:200],
+        "props": _clip_dict(body.get("props")),
+        "utm":   _clip_dict(body.get("utm")),
+    }
+    _append_jsonl(EVENTS_LOG, ev)
+    logger.info("event", extra={"req_id": getattr(g, "_req_id", "?"),
+                                "evt": json.dumps(ev, ensure_ascii=False)[:400]})
+    return jsonify({"ok": True})
+
+@app.route("/api/waitlist", methods=["POST"])
+def api_waitlist():
+    """Bắt lead email. Sink durable qua env WAITLIST_WEBHOOK_URL (Vercel FS ephemeral)."""
+    if not _rate_ok("waitlist", rate=12, per=60.0):
+        abort(429)
+    body = request.get_json(silent=True) or {}
+    email = str(body.get("email", "")).strip().lower()[:120]
+    if not _EMAIL_RE.match(email):
+        return jsonify({"ok": False, "error": "Email không hợp lệ"}), 400
+    # Defang mọi field user-controlled trước khi lưu/forward (CSV/formula injection)
+    rec = {
+        "ts": round(time.time(), 3), "email": _defang(email),
+        "source":  _defang(str(body.get("source", ""))[:60]),
+        "persona": _defang(str(body.get("persona", ""))[:40]),
+        "ref":     _defang(str(body.get("ref", ""))[:200]),
+        "utm":     {k: _defang(v) for k, v in _clip_dict(body.get("utm")).items()},
+    }
+    delivered = False
+    sink = os.environ.get("WAITLIST_WEBHOOK_URL")
+    if sink:
+        try:
+            import urllib.request
+            req = urllib.request.Request(
+                sink, data=json.dumps(rec).encode("utf-8"),
+                headers={"Content-Type": "application/json"})
+            urllib.request.urlopen(req, timeout=2.5)  # best-effort, không block lâu
+            delivered = True
+        except Exception:
+            logger.warning("waitlist_sink_fail", extra={"req_id": getattr(g, "_req_id", "?")})
+    _append_jsonl(WAITLIST_LOG, rec)
+    logger.info("waitlist", extra={"req_id": getattr(g, "_req_id", "?")})
+    return jsonify({"ok": True, "delivered": delivered})
+
+# --- 3. Fake-door pricing (đo willingness-to-pay, ZERO billing code) ---
+@app.route("/pricing")
+def pricing():
+    return render_template("pricing.html", total=len(QUESTIONS))
+
+@app.route("/privacy")
+def privacy():
+    return render_template("legal.html", page="privacy")
+
+@app.route("/terms")
+def terms():
+    return render_template("legal.html", page="terms")
+
+# --- 4. Programmatic SEO: per-question SSR permalink + sitemap + robots ---
+@app.route("/q/<qid>")
+def question_permalink(qid):
+    q = _Q_BY_ID.get(qid)
+    if not q:
+        abort(404)
+    return render_template("question.html", q=_public_question(q), total=len(QUESTIONS))
+
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    from flask import make_response
+    base = request.url_root.rstrip("/")
+    static_urls = ["/", "/quiz", "/pricing", "/lang/python/roadmap", "/lang/python/mastery"]
+    parts = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    for u in static_urls:
+        parts.append(f"  <url><loc>{base}{u}</loc><changefreq>weekly</changefreq></url>")
+    for q in QUESTIONS:
+        parts.append(f"  <url><loc>{base}/q/{q['id']}</loc><changefreq>monthly</changefreq></url>")
+    parts.append("</urlset>")
+    resp = make_response("\n".join(parts))
+    resp.headers["Content-Type"] = "application/xml; charset=utf-8"
+    return _add_cache_headers(resp, 3600)
+
+@app.route("/robots.txt")
+def robots_txt():
+    from flask import make_response
+    base = request.url_root.rstrip("/")
+    resp = make_response(f"User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /debug/\nSitemap: {base}/sitemap.xml\n")
+    resp.headers["Content-Type"] = "text/plain; charset=utf-8"
+    return resp
 
 # (404 handler defined above near logging middleware)
 

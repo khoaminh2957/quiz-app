@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ q.question }} — CodeReview Quiz</title>
+<meta name="description" content="Câu hỏi code-review Python ({{ q.topic }}, {{ q.difficulty }}): {{ q.question }}">
+<link rel="canonical" href="/q/{{ q.id }}">
+<meta property="og:title" content="Code Review Challenge — {{ q.topic }} ({{ q.difficulty }})">
+<meta property="og:description" content="{{ q.question }} — Bạn có bắt được lỗi không? Thử ngay.">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/error_reporter.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "learningResourceType": "Quiz",
+  "name": {{ q.question | tojson }},
+  "about": {{ q.topic | tojson }},
+  "educationalLevel": {{ q.difficulty | tojson }},
+  "inLanguage": "vi",
+  "teaches": "Kỹ năng đọc và phê bình code (code review) {{ q.lang }}"
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+<header class="topbar">
+  <h1>CodeReview Quiz · <span class="lang-pill lang-python">Python</span></h1>
+  <nav class="navlinks">
+    <a href="/">Trang chủ</a>
+    <a href="/quiz">Quiz nhanh</a>
+    <a href="/pricing">Bảng giá</a>
+  </nav>
+  <div class="meta">
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<section id="quiz">
+  <div class="card" data-qid="{{ q.id }}">
+    <div class="qmeta">
+      <span>{{ q.lang }}</span>
+      <span>{{ q.topic }}</span>
+      <span>{{ q.difficulty }}</span>
+    </div>
+    <pre class="code"><code class="language-python">{{ q.code }}</code></pre>
+    <p><strong>{{ q.question }}</strong></p>
+    <form id="q-options">
+      {% for opt in q.options %}
+      <label data-idx="{{ loop.index0 }}"><input type="radio" name="opt" value="{{ loop.index0 }}"><span>{{ loop.index }}. {{ opt }}</span></label>
+      {% endfor %}
+    </form>
+    <div class="actions">
+      <button id="check-btn" type="button">Kiểm tra đáp án</button>
+      <a class="cta cta-ghost" href="/quiz" data-track="permalink_to_quiz">Luyện thêm {{ total }} câu →</a>
+    </div>
+    <div id="feedback" class="hidden" role="status" aria-live="polite"></div>
+  </div>
+</section>
+</main>
+
+<footer><small>Một câu trong bộ {{ total }} câu code-review Python. <a href="/">Về trang chủ</a> · <a href="/pricing">Các gói</a></small></footer>
+
+<script src="/static/prism.js"></script>
+<script src="/static/analytics.js"></script>
+<script>
+(function () {
+  const qid = document.querySelector('.card').dataset.qid;
+  const btn = document.getElementById('check-btn');
+  const fb = document.getElementById('feedback');
+  function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  btn.addEventListener('click', async () => {
+    const sel = document.querySelector('input[name=opt]:checked');
+    if (!sel) { fb.className = 'bad'; fb.textContent = 'Hãy chọn một đáp án trước.'; return; }
+    const choice = +sel.value;
+    if (window.Analytics) Analytics.track('permalink_check', { qid: qid });
+    try {
+      const r = await fetch('/api/check', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: qid, choice: choice }) });
+      const res = await r.json();
+      fb.className = res.ok ? 'ok' : 'bad';
+      const labels = document.querySelectorAll('#q-options label');
+      labels.forEach(l => { l.classList.add('disabled'); const i = +l.dataset.idx;
+        if (i === res.correct_idx) l.classList.add('correct'); else if (i === choice) l.classList.add('wrong'); });
+      const status = res.ok ? '✓ Đúng!' : '✗ Chưa đúng';
+      const src = (res.sources && res.sources.length) ? '<div class="sources">Nguồn: ' + esc(res.sources.join(', ')) + '</div>' : '';
+      fb.innerHTML = '<strong>' + status + '</strong><div class="explain">' + esc(res.explain || '') + '</div>' + src;
+    } catch (e) { fb.className = 'bad'; fb.textContent = 'Không kiểm tra được, thử lại.'; }
+  });
+})();
+</script>
+</body>
+</html>

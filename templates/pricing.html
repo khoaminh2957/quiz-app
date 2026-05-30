@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Các gói CodeReview Quiz — luyện kỹ năng đọc & bắt bug code. Free, Pro, Team.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bảng giá — CodeReview Quiz</title>
+<meta property="og:title" content="Bảng giá — CodeReview Quiz">
+<meta property="og:description" content="Luyện kỹ năng code-review. Gói Free, Pro ($7/tháng), Team ($12/chỗ).">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/error_reporter.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+<header class="topbar">
+  <h1>CodeReview Quiz · <span class="lang-pill lang-python">Python</span></h1>
+  <nav class="navlinks">
+    <a href="/">Trang chủ</a>
+    <a href="/quiz">Quiz nhanh</a>
+    <a href="/lang/python/roadmap">Lộ trình</a>
+    <a href="/pricing" class="active">Bảng giá</a>
+  </nav>
+  <div class="meta">
+    <button id="theme-toggle" type="button" aria-label="Chuyển sáng/tối" title="Chuyển sáng/tối"><span aria-hidden="true">🌓</span></button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero">
+    <h2>Chọn gói phù hợp</h2>
+    <p class="hint">Bắt đầu miễn phí. Nâng cấp khi bạn muốn luyện sâu kỹ năng code-review để phỏng vấn & công việc thật. <strong>Đang mở early-access</strong> — đăng ký để khoá giá ra mắt.</p>
+  </section>
+
+  <section class="pricing-grid">
+    <div class="price-card">
+      <h3>Free</h3>
+      <p class="price"><span class="amount">$0</span><span class="per">/mãi mãi</span></p>
+      <ul class="price-feat">
+        <li>✓ Quiz nhanh ngẫu nhiên/tuần tự</li>
+        <li>✓ {{ total }} câu Python, 6 nhóm lỗi</li>
+        <li>✓ Chấm điểm tức thì + giải thích</li>
+        <li>✓ Lưu tiến độ trên trình duyệt</li>
+      </ul>
+      <a class="cta cta-ghost" href="/quiz" data-track="pricing_cta" data-track-props='{"tier":"free"}'>Dùng ngay</a>
+    </div>
+
+    <div class="price-card price-pop">
+      <span class="badge">Phổ biến</span>
+      <h3>Pro</h3>
+      <p class="price"><span class="amount">$7</span><span class="per">/tháng</span></p>
+      <ul class="price-feat">
+        <li>✓ Mọi thứ ở Free</li>
+        <li>✓ Lộ trình 15 stage + gate mastery</li>
+        <li>✓ Spaced repetition (Leitner) nhắc ôn</li>
+        <li>✓ Mastery theo từng nhóm lỗi</li>
+        <li>✓ Đồng bộ tiến độ đa thiết bị <em>(sắp có)</em></li>
+        <li>✓ Security-Review Interview Pack</li>
+      </ul>
+      <button class="cta" type="button" data-tier="pro" data-track="pricing_cta" data-track-props='{"tier":"pro"}'>Chọn Pro</button>
+    </div>
+
+    <div class="price-card">
+      <h3>Team</h3>
+      <p class="price"><span class="amount">$12</span><span class="per">/chỗ/tháng</span></p>
+      <ul class="price-feat">
+        <li>✓ Mọi thứ ở Pro</li>
+        <li>✓ Dashboard tiến độ cả nhóm</li>
+        <li>✓ Onboarding review-skill cho dev mới</li>
+        <li>✓ Bộ đề review theo codebase của bạn <em>(sắp có)</em></li>
+      </ul>
+      <button class="cta cta-ghost" type="button" data-tier="team" data-track="pricing_cta" data-track-props='{"tier":"team"}'>Liên hệ Team</button>
+    </div>
+  </section>
+
+  <section class="hero" id="wl-section">
+    <h2>Khoá giá early-access</h2>
+    <p class="hint">Để lại email — bạn nhận quyền dùng Pro sớm + giá ưu đãi khi ra mắt.</p>
+    <form id="waitlist-form" class="waitlist" data-source="pricing" aria-label="Đăng ký early access">
+      <div class="wl-row">
+        <input id="wl-email" type="email" required placeholder="email@cua-ban.com" autocomplete="email">
+        <button type="submit">Đăng ký</button>
+      </div>
+      <p id="wl-msg" class="hint" role="status" aria-live="polite"></p>
+      <p class="hint" style="font-size:.8rem;opacity:.75">Chỉ dùng email để báo khi ra mắt. Xem <a href="/privacy">Quyền riêng tư</a>.</p>
+    </form>
+  </section>
+</main>
+
+<footer><small>Giá tham chiếu benchmark thị trường (Codewars Red, Sourcery). Đây là trang early-access — chưa thu tiền.</small></footer>
+
+<script src="/static/analytics.js"></script>
+<script>
+  // Fake-door: bấm chọn tier Pro/Team -> log intent + cuộn tới form đăng ký
+  document.querySelectorAll('[data-tier]').forEach(b => b.addEventListener('click', () => {
+    const t = b.dataset.tier;
+    const sec = document.getElementById('wl-section');
+    const f = document.getElementById('waitlist-form');
+    if (f) f.dataset.persona = t;
+    const msg = document.getElementById('wl-msg');
+    if (msg) msg.textContent = 'Gói ' + t.toUpperCase() + ' đang mở early-access — để lại email để nhận sớm 👇';
+    if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+    const inp = document.getElementById('wl-email'); if (inp) inp.focus();
+  }));
+</script>
+</body>
+</html>

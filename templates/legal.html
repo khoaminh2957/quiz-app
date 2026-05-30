@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% if page == 'terms' %}Điều khoản{% else %}Quyền riêng tư{% endif %} — CodeReview Quiz</title>
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Bỏ qua tới nội dung</a>
+<header class="topbar">
+  <h1>CodeReview Quiz</h1>
+  <nav class="navlinks">
+    <a href="/">Trang chủ</a>
+    <a href="/quiz">Quiz nhanh</a>
+    <a href="/pricing">Bảng giá</a>
+  </nav>
+</header>
+<main id="main" tabindex="-1" class="quick-start">
+{% if page == 'terms' %}
+  <h2>Điều khoản sử dụng</h2>
+  <p>CodeReview Quiz đang ở giai đoạn <strong>early-access / beta</strong>. Dịch vụ cung cấp "nguyên trạng" (as-is) phục vụ mục đích học tập.</p>
+  <ul>
+    <li>Nội dung câu hỏi &amp; giải thích nhằm mục đích giáo dục, không phải tư vấn kỹ thuật chính thức.</li>
+    <li>Bạn không được scrape/tự động hoá việc thu thập ngân hàng câu hỏi hoặc đáp án.</li>
+    <li>Gói trả phí hiện <strong>chưa thu tiền</strong>; mọi cam kết tính năng "sắp có" có thể thay đổi.</li>
+    <li>Liên hệ qua email đăng ký early-access cho mọi yêu cầu.</li>
+  </ul>
+{% else %}
+  <h2>Chính sách quyền riêng tư</h2>
+  <p>Chúng tôi tôn trọng quyền riêng tư của bạn và thu thập <strong>tối thiểu</strong> dữ liệu (phù hợp tinh thần Nghị định 13/2023/NĐ-CP &amp; GDPR).</p>
+  <ul>
+    <li><strong>Tiến độ học</strong>: lưu trên trình duyệt của bạn (localStorage), không gửi lên máy chủ.</li>
+    <li><strong>Analytics</strong>: cookieless — chỉ một mã ẩn danh ngẫu nhiên (không cookie, không định danh cá nhân) để đo luồng sử dụng.</li>
+    <li><strong>Email waitlist</strong>: chỉ dùng để báo bạn khi ra mắt bản Pro. Bạn có thể yêu cầu xoá bất cứ lúc nào.</li>
+    <li>Chúng tôi <strong>không bán</strong> dữ liệu cho bên thứ ba.</li>
+  </ul>
+{% endif %}
+  <p><a href="/">← Về trang chủ</a></p>
+</main>
+<footer><small><a href="/privacy">Quyền riêng tư</a> · <a href="/terms">Điều khoản</a></small></footer>
+</body>
+</html>

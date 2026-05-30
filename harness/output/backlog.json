@@ -1,0 +1,450 @@
+[
+ {
+  "round": "01",
+  "axis": "Market & Demand Validation",
+  "priority": "P0",
+  "title": "Analytics funnel nhẹ + fake-door pricing để đo mức sẵn-sàng-trả tiền (PHẦN ANALYTICS: gắn Plausible/PostHog cookieless)",
+  "why": "Verified: grep gtag/posthog/plausible/mixpanel trên app.py+templates+static = 0 match -> sản phẩm hiện KHÔNG đo được gì. Đây là tín hiệu cầu rẻ nhất, nhanh nhất: 1 script tag cookieless, không cần DB, không đụng Vercel read-only FS. Cho funnel landing->quiz->Q5->complete ngay trong vài giờ. Là điều kiện-tiên-quyết cho mọi quyết định bán hàng -> P0. Lưu ý: tách phần fake-door /pricing trong cùng đề xuất này ra (trùng với đề xuất pricing riêng), chỉ nhận phần analytics tag."
+ },
+ {
+  "round": "01",
+  "axis": "Market & Demand Validation",
+  "priority": "P0",
+  "title": "Email waitlist capture lưu vào managed store + double-opt-in nhẹ",
+  "why": "Verified: app chỉ có localStorage, /api/client_errors CHỈ logger.warning (không ghi store nào), nên hiện 0 lead thật. Đây là viên gạch monetization đầu tiên và là bằng chứng cầu mạnh nhất (email = intent thật, không phải pageview). Chọn bản này thay vì bản 'Waitlist landing' vì nó nêu đúng ràng buộc Vercel ephemeral FS -> bắt buộc store ngoài (Supabase/Airtable/Sheet webhook) và có source/UTM/lang để đo conversion theo kênh. Effort low, impact cao nhất cho việc bán -> P0."
+ },
+ {
+  "round": "01",
+  "axis": "Market & Demand Validation",
+  "priority": "P1",
+  "title": "Fake-door pricing test: trang /pricing 3 tier + bắt click 'Subscribe' để đo willingness-to-pay",
+  "why": "Đo câu hỏi sống-còn 'ai trả & giá nào' trước khi xây Stripe/DB. Verified 0 match 'pricing/stripe'. Khung giá bám benchmark thật (Codewars Red $5, Sourcery $12/seat) là hợp lý. Chọn bản này (1 route GET + static, ghi tier_intent qua /api/event đã có nhờ analytics ở P0) thay vì bản trùng trong đề xuất analytics. Hạ xuống P1 vì phụ thuộc analytics+waitlist (P0) phải có trước để bắt event & email; pricing test vô nghĩa nếu chưa có funnel + lead capture."
+ },
+ {
+  "round": "01",
+  "axis": "Market & Demand Validation",
+  "priority": "P1",
+  "title": "Định vị lại landing quanh ngách 'Code-Review Skill' (CHỈ phần repositioning, KHÔNG mở 5 ngôn ngữ)",
+  "why": "Verified: landing hiện title 'Quiz Review Code — Python', hero đã nói 'Lộ trình Code Review' -> ngách code-review là thật và chưa bị LeetCode/HackerRank đánh trực diện; nhấn mạnh 'đọc & bắt bug như reviewer' sẽ làm value-prop sắc hơn để test trên funnel P0. Effort thấp (sửa copy hero/why). NHƯNG chỉ nhận phần định vị/copy; loại bỏ phần '/en + 5 ngôn ngữ' (xem rejected) vì app cố ý Python-only và EN content chưa deployable."
+ },
+ {
+  "round": "02",
+  "axis": "Competitor Landscape & Differentiation",
+  "priority": "P0",
+  "title": "Reposition landing against named competitors: \"They make you WRITE code. We train you to JUDGE it.\"",
+  "why": "Highest impact-to-effort lever on the whole axis and the single most cause of being un-sellable today. Verified: landing.html (69 lines, Vietnamese) leads with internal mechanics (Leitner 5-box, gate mastery %, 15 stages, 'Vì sao chỉ Python') and never names the job-to-be-done or any competitor — a visitor cannot tell in 5 seconds why this exists vs LeetCode/Codewars. The 'judge code, not write code' frame is the genuine empty lane and is a pure Jinja/HTML edit, zero backend. CAVEAT for execution: proposal cites '1,141 questions' but the repo has 286 (verified in questions.json) — copy MUST use the real number or it becomes an overclaim that destroys trust. The comparison table claims (Codewars=TDD write-and-run, Sourcery=AI replaces reviewer) are defensible. Ship this first; it is the storefront."
+ },
+ {
+  "round": "02",
+  "axis": "Competitor Landscape & Differentiation",
+  "priority": "P1",
+  "title": "Surface the 6-category flaw taxonomy as the product spine (filter + per-category mastery)",
+  "why": "Verified the data is real and balanced (style 76 / bug 60 / security 46 / perf 35 / concurrency 37 / edge 32 in the 'topic' field) so the taxonomy is the product's actual substance, not vaporware. Turning it into a category grid + per-category mastery + /quiz filter converts the P0 positioning claim into a demonstrable feature a buyer can click — without it the repositioning is a slogan with nothing behind it. Medium effort (template + localStorage tally + filter, no DB) is justified. P1 not P0 only because it should land right after the storefront message exists; the grid is meaningless before the visitor knows why categorized flaw-spotting matters."
+ },
+ {
+  "round": "02",
+  "axis": "Competitor Landscape & Differentiation",
+  "priority": "P2",
+  "title": "Anchor credibility on the SmartBear review methodology as a unique \"why this works\" badge",
+  "why": "Cheap, defensible, and differentiating: a static Jinja /method page citing the 200-400 LOC / 60-90 min / 70-90% defect-discovery rule gives a 'why this works' backbone competitors don't market, and the citation infra already exists (/api/research_refs and /api/pedagogy routes are live). P2 because it is a trust-reinforcer, not a conversion driver — nobody buys because of a methodology footnote, but it raises close-rate once interest exists. Note: SmartBear/200-400 is NOT yet in research_refs.json (only a stray mention in questions.json), so this is new content to author, slightly more than 'reuse the pattern' implies — still low effort. Do after P0/P1."
+ },
+ {
+  "round": "03",
+  "axis": "Target Users, ICP & JTBD",
+  "priority": "P0",
+  "title": "Track 'Security-Review Interview Prep' làm ICP mũi nhọn",
+  "why": "Đòn bẩy mạnh nhất của cả trục: impact=high / effort=low, đánh đúng MỘT ICP trả-tiền-được (bootcamp grad / job seeker) với MỘT JTBD rõ ('pass code-review round'). Đã verify: 46 câu security + 60 câu bug + 39 câu hard tồn tại thật, misconception_map có trên cả 286 câu nên feedback 'vì sao bẫy này hay trượt' khả thi NGAY, không sinh content mới. Ngách này Codewars (TDD) và Sourcery/CodeRabbit (B2B AI) đều bỏ trống. Đây là cách rẻ nhất biến 'nền tảng vô danh tính ICP' thành 'sản phẩm có 1 người mua cụ thể' — điều kiện cần để bán được."
+ },
+ {
+  "round": "03",
+  "axis": "Target Users, ICP & JTBD",
+  "priority": "P0",
+  "title": "Persona-based question-pack endpoint từ taxonomy 6-category sẵn có",
+  "why": "Backbone kỹ thuật cho mọi track ICP. Verify: mọi câu đều có topic (style76/bug60/security46/perf35/concurrency37/edge32) + difficulty + stage_id → một dict Python tĩnh map persona→filter là đủ, read-only, cache 3600s đúng pattern /api/roadmap dòng 257. Effort thực sự thấp, không DB/content mới, và là dependency của track #2 lẫn onboarding routing. Không có endpoint này thì các track chỉ là deep-link mong manh client-side. P0 vì nó là nền tảng chia-pack-theo-JTBD, rủi ro gần như bằng 0."
+ },
+ {
+  "round": "03",
+  "axis": "Target Users, ICP & JTBD",
+  "priority": "P1",
+  "title": "Onboarding 2-bước chọn ICP → route theo JTBD (client-side, không DB)",
+  "why": "Cơ chế self-serve phân-khúc-tại-phiên-đầu mà bottom-up adoption đòi hỏi. Chọn bản #4 (effort=low) thay vì #1 (effort=medium) vì cùng mục tiêu nhưng #4 reuse đúng filter quiz.js dòng 74-76 đã verify (q.topic/q.difficulty), chỉ thêm 1 file static + đọc query-param, không cần /api/meta sửa, không Jinja route mới. P1 (không P0) vì giá trị onboarding phụ thuộc đã có sẵn ít nhất 1 track đích (P0 #2 + #5); ship sau khi pack endpoint sống thì routing mới có chỗ để dẫn tới."
+ },
+ {
+  "round": "03",
+  "axis": "Target Users, ICP & JTBD",
+  "priority": "P1",
+  "title": "Waitlist phân-khúc theo ICP qua endpoint POST + managed store ngoài",
+  "why": "Cách DUY NHẤT để định lượng phân-khúc-trả-tiền (B2C learner vs B2B team-lead) trước khi xây pricing — đúng yêu cầu của trục ICP. Verify khả thi: clone pattern api_client_errors POST dòng 414, forward sang store ngoài vì Vercel filesystem ephemeral (đã đúng nhận định). P1 không P0 vì cần dependency: phải có persona từ onboarding (#4) để prefill, và phải có track sống (#2) để user có lý do ở lại mà điền email. Effort=medium do tích hợp Formspree/Sheets webhook + xử lý lỗi mạng. Là bằng chứng thị trường rẻ nhất, nên giữ lại."
+ },
+ {
+  "round": "04",
+  "axis": "Value Proposition & Positioning",
+  "priority": "P0",
+  "title": "Viet lai hero landing theo Dunford: JUDGE code khong WRITE code",
+  "why": "Verified core gap: landing.html line 31 hien la 'Lo trinh Code Review bang Python' chung-chung, ZERO positioning. Day la cau dau tien khach doc — neu khong noi duoc 'JUDGE-not-WRITE' thi khong ban duoc. Du lieu chong lung that: 286 cau all-judge-format (options+correct_idx+misconception_map), topic style76/bug60/security46/concurrency37/perf35/edge32 → framing '6 loai flaw' la THAT khong phong dai. High-impact/low-effort: chi sua Jinja template, 0 endpoint, 0 DB. Chon ban nay lam canonical hero (gop 3 de xuat hero trung lap thanh 1)."
+ },
+ {
+  "round": "04",
+  "axis": "Value Proposition & Positioning",
+  "priority": "P1",
+  "title": "Endpoint /api/positioning read-only cho comparison table + one-liner",
+  "why": "Comparison table la vu khi ban hang manh nhat sau hero — khach can thay 'tai sao chon ta thay vi LeetCode/Sourcery/Coursera'. Stack co san pattern dict-tinh + _add_cache_headers(3600) (app.py line 247/256-260) nen low-effort that. Accept BAN NAY cho comparison (endpoint clone /api/roadmap) thay vi #2 (Jinja static dict) vi cung mot noi dung nhung kien truc nhat quan voi codebase hien co, de cache/CDN tren Vercel, va tach data khoi template. P1 (khong P0) vi hero phai len truoc — comparison vo nghia neu positioning chua dinh."
+ },
+ {
+  "round": "04",
+  "axis": "Value Proposition & Positioning",
+  "priority": "P2",
+  "title": "Badge \"Human skill AI won't replace\" — neo vao use-vs-want gap",
+  "why": "Verified SO 2024: reviewing code 13.2% AI-dung / 40.9% muon — bang chung that, neo cau chuyen 'human review skill con gia tri' rat dat. Effort thap (badge static + 1 source link, reuse research_refs.json pattern da co cau truc citation). Nhung P2 vi: la message bo-tro, khong phai positioning loi; chi co gia tri sau khi hero + comparison da dung. Rui ro nho: con so 13/41% can footnote nguon ro de tranh ve 'cherry-pick stat'."
+ },
+ {
+  "round": "05",
+  "axis": "Pricing & Monetization Model",
+  "priority": "P0",
+  "title": "Fake-door /pricing page + 3 market-anchored tiers + cookieless intent capture (waitlist/event log, zero billing code)",
+  "why": "Verified against the codebase: no /pricing route exists, and the app has zero auth/DB/payment, so a fake-door is the ONLY way to measure willingness-to-pay before spending on infra. Effort is genuinely low — the /api/pricing config endpoint clones the proven _add_cache_headers(jsonify(...),3600) pattern already used by /api/roadmap and /api/pedagogy (app.py:256-260), and intent capture can reuse the existing POST /api/client_errors structured-logger pattern (app.py:414) with no PII/cookies. This is the single highest impact-per-effort item and the correct first gate for a market-ready monetization track. NOTE: I am MERGING the three near-duplicate fake-door/pricing-config proposals into this one accepted item — ship the canonical pricing.json config endpoint (added to vercel.json includeFiles) AND the /pricing Jinja page AND the intent/waitlist capture as one P0 unit, since they are the same deliverable described from two perspectives. Tier anchors (Free $0 / Pro $12/mo or $99/yr / Team ~$15-19/seat) sit inside the cited market band and respect Stripe's 2-4 tier guidance."
+ },
+ {
+  "round": "05",
+  "axis": "Pricing & Monetization Model",
+  "priority": "P1",
+  "title": "Server-side free/premium content split (tier field + filtered question endpoints) to make any paywall enforceable",
+  "why": "Correctly identifies the true blocker: /api/questions ships the entire question set as a readable blob (app.py:238, json.dumps(QUESTIONS)), so no paywall is defensible until content is split server-side. ACCEPTED but DOWNGRADED to P1 and CONDITIONAL on fake-door demand, because (a) it is pure cost with no revenue until Stripe ships, so it must not precede validation, and (b) the proposal as written is technically incomplete and would leak the paywall: filtering ONLY /api/questions still exposes every 'pro' item via /api/stage/<id> and /api/lang/<lang>/stage/<id> (app.py:262-289), which return questions by stage question_ids regardless of tier — and it would also break the existing quiz.js (fetches /api/questions) and lang_roadmap.js (caches cachedAllQs from /api/questions). Acceptance is therefore explicitly scoped to: tag the 39 hard + security/concurrency items as tier=pro AND filter ALL three question-serving paths, AND keep quiz/roadmap views functional for free items. Only build this after P0 proves intent."
+ },
+ {
+  "round": "05",
+  "axis": "Pricing & Monetization Model",
+  "priority": "P2",
+  "title": "Wire real Stripe-hosted Checkout + signed entitlement token for the Pro tier",
+  "why": "This is where validated demand becomes revenue and is strategically correct (Stripe-hosted Checkout means no card data touches a no-DB Flask app; JWT-in-localStorage as proof-of-purchase avoids needing a user DB for v1). But it is high-effort, introduces the app's first real secrets/webhook/security surface, and is strictly gated on BOTH P0 (proven willingness-to-pay) and P1 (enforceable content boundary) — building checkout before the content split is enforceable would sell access that leaks for free. Correct as the third and final step; P2 because it must not be started until the two cheaper gates pass. The cited market-size figures ($14.7B→$61.4B) are tangential macro color, not load-bearing for this decision."
+ },
+ {
+  "round": "06",
+  "axis": "Core Feature Set for Market Fit",
+  "priority": "P0",
+  "title": "Ship a scored \"Review Round\" loop with a per-category result screen (the missing core mechanic)",
+  "why": "VERIFIED the core gap is real: quiz.js submit() (line 150) only saves the answer + recolors options; lang_lesson.js shows inline feedback but neither produces a completable, scored unit — no /api/round exists. Without a discrete assess->score->result unit you cannot demo value, cannot gate a trial, cannot prove skill growth. This is THE thing that converts a content browser into a sellable product. Per-category result is cheap because topic (style/bug/security/concurrency/perf/edge) is already on all 286 Qs (confirmed distribution: style 76 / bug 60 / security 46 / concurrency 37 / perf 35 / edge 32). Highest impact, medium effort, foundational for everything else. Caveat: spec says 'reuse Prism/keyboard from quiz.js' but the LIVE primary UI is lang_lesson.html/.js, not quiz.js — build the round against the live path."
+ },
+ {
+  "round": "06",
+  "axis": "Core Feature Set for Market Fit",
+  "priority": "P0",
+  "title": "Cham diem server-side + payload khong lo dap an (/api/check)",
+  "why": "VERIFIED critical leak: /api/questions (app.py:238) returns the entire QUESTIONS array including correct_idx + explain + misconception_map, and scoring happens client-side (quiz.js:135, lang_lesson.js:133). Any future paywall, trial gate, or 'premium slice' is bypassable in 10 seconds via DevTools. You literally cannot monetize on top of a loop whose answers and scoring live in the browser. This is the structural precondition for selling anything — must land with or before the Round loop (they should be built together: /api/round serves no-answer payloads, /api/check scores). Free/pro split is schema-ready (verified 103 premium Qs / 183 free). Stays stateless on Vercel."
+ },
+ {
+  "round": "06",
+  "axis": "Core Feature Set for Market Fit",
+  "priority": "P1",
+  "title": "Make the product English-first using the already-built EN dataset",
+  "why": "VERIFIED the asset is real and UNDERSTATED by the proposal: questions_en_full.json holds 286 real EN Python Qs (sample: 'What PEP 8 violation appears...') PLUS 855 more across JS/Go/SQL/Rust (1141 total), identical schema. The buyer/pricing evidence cited is a global English audience while the UI is ~100% Vietnamese — a genuine market-fit blocker. Content cost is near-zero; remaining work is the ?lang switch, adding the file to vercel.json includeFiles, and translating ~13 templates' chrome strings. P1 not P0 only because it is sequenced AFTER the loop+server-scoring exist (translating chrome around a non-existent core loop is wasted churn). High addressable-market unlock for medium UI effort."
+ },
+ {
+  "round": "06",
+  "axis": "Core Feature Set for Market Fit",
+  "priority": "P2",
+  "title": "Add a \"Judge the AI's code\" mode that frames snippets as AI-generated",
+  "why": "Strong differentiation thesis and the wedge (review-AI-code as the durable human skill) is compelling, and misconception_map is already stored to power the 'why the AI got it wrong' note. Accepted but P2: it is a re-skin/copy layer that delivers its value ONLY once the scored round + server scoring exist (otherwise it is reframed free-browse with the same no-outcome problem). Caveat on the spec: it claims to 'reuse the existing #mode select in quiz.js' — that select DOES exist (quiz.js:73, values review/rand) but the LIVE primary UI is lang_lesson.html which does not use it, so the integration point named is wrong. Cheapest of the four; ship after P0/P1 as the marketing/positioning hook."
+ },
+ {
+  "round": "07",
+  "axis": "AI-Powered Features",
+  "priority": "P0",
+  "title": "Endpoint /api/code_review: dán code, AI review server-side có quota + cache",
+  "why": "Đây là WEDGE bán-được duy nhất biến app từ 'làm quiz' thành 'công cụ dùng thật' — gap cầu lớn nhất (40.9% muốn vs 13.2% dùng AI). Bản Engineering thắng bản PRODUCT cùng ý tưởng vì đã verify đúng stack: phải server-side (vì /api/questions hiện json.dumps cả correct_idx — đã xác nhận tại app.py:238, rò đáp án; route review tách riêng tránh lặp lỗi đó), gate chi phí bằng giới hạn ký tự + hash-cache KV + quota cookie/IP + timeout serverless là kiến trúc khả thi trên Vercel stateless. Đây là tính năng monetize được (free 3/ngày, pro unlimited). P0 vì không có nó thì trục AI = 0, app chỉ là quiz tĩnh."
+ },
+ {
+  "round": "07",
+  "axis": "AI-Powered Features",
+  "priority": "P1",
+  "title": "AI Question Generator gated bằng chính validate.py (anti-hallucination)",
+  "why": "Đòn bẩy cao / rủi ro thấp nhất: tái dùng validate.py (đã verify tồn tại — schema Draft2020 + code-exec đa-ngôn-ngữ + distractor + dedup + pedagogy) làm cổng chống ảo giác, chạy OFFLINE batch nên KHÔNG đụng timeout/chi phí Vercel runtime. Giải bài toán cung nội dung (hiện 286 câu, 100% python — cần mở rộng để bán). Chặn hallucination 16.67% bằng hạ tầng có sẵn = gần như free. P1 (không P0) vì là content-supply backstage, không phải thứ user trả tiền trực tiếp ngay; ship sau khi wedge code_review có người dùng. Lưu ý nhỏ: harness thực tế dùng jaccard chứ không phải cosine như mô tả — vẫn đủ tốt làm gate."
+ },
+ {
+  "round": "07",
+  "axis": "AI-Powered Features",
+  "priority": "P2",
+  "title": "AI Tutor 'Explain like a senior' theo từng câu — có nhãn tin cậy",
+  "why": "Context cố định đã có thật trong data (đã verify: 286/286 có misconception_map + explain, 273 có sources) nên rủi ro hallucination thấp và effort medium hợp lý. Là feature pro-gate thứ 2 (Educative-style $149-249/năm) làm dày giá trị subscription. Nhưng P2 vì phụ thuộc code_review đã có user và là 'nice retention layer' chứ không phải wedge mở thị trường; chấm sau hai cái trên."
+ },
+ {
+  "round": "08",
+  "axis": "Accounts, Auth & Data Model",
+  "priority": "P0",
+  "title": "Cloud progress sync: lift the existing localStorage blob to a per-user row",
+  "why": "Verified single biggest enabler AND the most acute market-blocking risk. ALL learner progress today lives only in the client localStorage blob (static/state_migrate.js, schema_v:2) — clearing cache or switching device wipes everything, the exact freeCodeCamp #16147 failure. Because the state is already one serializable JSON tree, sync is a blob upload keyed by user_id with field-merge (max xp/streak, union attempts/badges) — low effort, high impact, and it does not touch the existing read-only question-serving paths. Without durable progress there is no account worth paying for, so this is the keystone of the whole trục. Spec is concrete and correct (progress(user_id PK, state_json JSONB, updated_at); GET/PUT /api/progress; keep localStorage as offline cache + anon fallback)."
+ },
+ {
+  "round": "08",
+  "axis": "Accounts, Auth & Data Model",
+  "priority": "P0",
+  "title": "GitHub/Google OAuth (single method) + server session, no passwords",
+  "why": "Identity is the hard prerequisite for progress sync and billing — without a user_id you cannot key a row. This is the best-written of the three OAuth duplicates: it explicitly constrains to ONE primary method (GitHub, matching the dev audience like Exercism) with provider_uid UNIQUE, which directly prevents the freeCodeCamp duplicate-account/'lost progress' class of bug — a verified failure, not speculation. Choosing a signed httpOnly server-session cookie sidesteps OWASP password-storage liability entirely. P0 because nothing else in this trục ships without it. Note for implementation: must be stateless-cookie based (JWT or signed cookie), not in-process session, since Vercel functions are stateless."
+ },
+ {
+  "round": "08",
+  "axis": "Accounts, Auth & Data Model",
+  "priority": "P1",
+  "title": "Billing-ready data model + idempotent Stripe webhook scaffold",
+  "why": "Monetization is why this trục matters commercially, and the design is correct where it counts: idempotency via processed_events(event_id PK) (Stripe explicitly redelivers events — double-provisioning is a real money/abuse bug), provision on invoice.paid, revoke on canceled/payment_failed, and gate pro features off server-side users.plan rather than tamperable client state. P1 not P0 because there is currently ZERO premium content or tier field in questions.json (grep confirmed) — you cannot sell a 'pro' tier that does not exist yet. Ship auth+sync first to retain users, build the actual premium surface, then turn on billing. The scaffold is cheap to land now so the data model is billing-ready, but it is not the launch blocker."
+ },
+ {
+  "round": "09",
+  "axis": "Backend Architecture & Database",
+  "priority": "P0",
+  "title": "Đóng rò đáp án + enforce free/pro phía server bằng split round/check + cột tier",
+  "why": "VERIFIED trên code: /api/questions (app.py:236-247) serialize toàn bộ QUESTIONS gồm correct_idx + explain; static/lang_roadmap.js:30 fetch cả mảng về client → mọi đáp án scrape được trong 1 request (VI 397KB là payload đang LIVE; EN 1.48MB chỉ là hypothetical vì questions_en_full.json KHÔNG nằm trong includeFiles và KHÔNG được app.py load). Schema 20 keys, KHÔNG có 'tier' (verified) → không thể enforce paywall server-side. Đây là blocker bán-được-hàng số 1: không có integrity (ai cũng lấy hết đáp án) và không có paywall thì không có gì để bán. Split /api/round (strip correct_idx/explain) + /api/check chấm server-side + thêm cột tier là điều kiện cần tối thiểu để monetize. Impact cao, effort medium, là nền cho mọi thứ khác."
+ },
+ {
+  "round": "09",
+  "axis": "Backend Architecture & Database",
+  "priority": "P1",
+  "title": "Postgres serverless qua HTTP-driver (Neon/Supabase) + tách content store khỏi DB",
+  "why": "Đây là bản tổng hợp tốt nhất trong 4 đề DB: chốt 1 quyết định provisioning cụ thể (Neon serverless / Supabase Pro), schema tối thiểu đúng (users/progress JSONB/processed_events cho idempotent webhook), kết nối qua HTTP-driver né TCP-pool exhaustion trên Vercel stateless (đã verify app hiện stateless, state chỉ ở localStorage — cần backend để bán cross-device + để gắn billing). Gộp luôn quyết định 'tách content khỏi DB' nên thay thế được đề #1 đứng riêng. Là P1 vì không phải blocker tức thì như rò đáp án, nhưng bắt buộc trước khi có account/billing/progress cross-device. Chọn cái này làm đại diện cho cụm DB và reject các đề DB trùng lặp khác."
+ },
+ {
+  "round": "09",
+  "axis": "Backend Architecture & Database",
+  "priority": "P2",
+  "title": "Tách content store (static, không DB) khỏi user-state store (Postgres)",
+  "why": "Đúng và rẻ — content load 7.3ms (verified), nhồi 1.8MB content vào DB là phản tác dụng. Nhưng đây gần như là KHẲNG ĐỊNH HIỆN TRẠNG (app đã serve content từ memory + ETag, đã có Cache-Control) chứ không phải việc-phải-làm mới; phần 'dựng bảng progress' đã nằm trong đề Postgres P1. Giữ P2 như nguyên-tắc-thiết-kế cần ghi vào ADR để không ai lỡ tay đưa content vào DB, không tốn effort riêng."
+ },
+ {
+  "round": "10",
+  "axis": "Payments & Billing",
+  "priority": "P0",
+  "title": "Stripe Checkout + signature-verified webhook làm xương sống doanh thu (P0)",
+  "why": "Verified: grep app.py = 0 dòng stripe/billing/webhook; POST duy nhất /api/client_errors nhận JSON KHÔNG verify chữ ký (đúng anti-pattern). Không có đường thu tiền nào tồn tại — đây là điều kiện tiên quyết tuyệt đối để bán được. Hosted Checkout đẩy PCI ra ngoài scope (không cần form thẻ), effort=medium hợp lý. construct_event verify + processed_events PK idempotency là bắt buộc vì serverless stateless. Chọn bản này thay vì đề-xuất-1 MoR vì nó đặc tả kỹ thuật cụ thể, kiểm chứng được, không phụ thuộc lựa chọn provider mơ hồ — và idempotency/replay protection là thứ đề-xuất-1 bỏ sót."
+ },
+ {
+  "round": "10",
+  "axis": "Payments & Billing",
+  "priority": "P0",
+  "title": "Cột `tier` trong schema + entitlement check server-side khoá nội dung Pro (P0)",
+  "why": "Verified: schema.json KHÔNG có `tier` (12 required keys); app.py KHÔNG set secret_key (đã grep, NO secret_key). Không có tier + không ký được session ⇒ không thể phân biệt free/pro server-side ⇒ paywall vô nghĩa. Đây là nửa còn lại của xương sống doanh thu, đồng-P0 với Stripe. CẢNH BÁO thực thi: đề xuất nhắc /api/round và /api/check như chỗ gate — hai route NÀY KHÔNG TỒN TẠI; điểm gate thực tế là /api/questions (app.py:236) đang dump full correct_idx+explain. Phải vá leak này NGAY trong cùng hạng mục, nếu không paywall bị bypass bằng cách scrape /api/questions."
+ },
+ {
+  "round": "10",
+  "axis": "Payments & Billing",
+  "priority": "P1",
+  "title": "Webhook + bảng entitlement Postgres làm nguồn-sự-thật cho quyền Pro (không dùng localStorage)",
+  "why": "Verified: tiến trình lưu localStorage + không có DB driver trong requirements; localStorage không thể là nguồn-sự-thật cho quyền trả phí (client-controlled). Cần Postgres serverless (Neon/Supabase HTTP-driver né TCP-pool) cho entitlements + processed_events. P1 chứ không P0 vì NỘI DUNG kỹ thuật của nó chồng lấn phần lớn với 2 P0 ở trên (webhook+idempotency+entitlement) — coi đây là 'lớp hạ tầng DB' củng cố 2 P0, không phải hạng mục độc lập thứ ba. Lưu ý: route /api/code_review nhắc trong mô tả KHÔNG tồn tại; điểm đọc-gate thật là /api/questions."
+ },
+ {
+  "round": "10",
+  "axis": "Payments & Billing",
+  "priority": "P2",
+  "title": "Pricing tier + thanh toán nội địa VN (Momo/VNPay) và Smart Retries chống rớt thu",
+  "why": "Tách làm 2 phần: (a) định giá Pro $5/th–$40/năm + cột tier nội dung + Smart Retries — phần này GIÁ TRỊ và bằng chứng đối thủ (Codewars Red, LeetCode $159/năm, bẫy donation Exercism) là verified-hợp-lý, nhưng Smart Retries chỉ là bật-flag Stripe nên gộp vào P0 Stripe; (b) Momo/VNPay là mở rộng thị trường, KHÔNG phải đường thu tiền tối thiểu để launch. Với team 1 người pre-revenue, dựng cổng nội địa song song trước khi có 1 khách trả tiền quốc tế là lệch ưu tiên ra-thị-trường. Giữ P2: làm sau khi xương sống quốc tế chạy + có tín hiệu cầu từ VN. Định giá thì quyết sớm (gần như free), nhưng tích hợp cổng VN hoãn."
+ },
+ {
+  "round": "11",
+  "axis": "Content Strategy & Question-Bank Scaling",
+  "priority": "P0",
+  "title": "Khử rò rỉ vị trí + độ dài đáp án (answer-key debias) trên toàn bank",
+  "why": "VERIFIED ground-truth: correct_idx={0:427,1:955,2:40,3:5} → B=66.9% (SQL=74.2%), VÀ đáp án đúng là option dài nhất ở 88.1% (EN 1005/1141). quiz.js render options theo thứ tự cố định (forEach i), không shuffle. Hai rò rỉ này CỘNG HƯỞNG: học viên đoán 'B/cái-dài-nhất' đúng ~67-88% mà không đọc code — phá hoàn toàn construct validity của một sản phẩm bán kỹ năng code-review. Đây là blocker bán-được #1. Chọn đề xuất #4 thay vì #1 vì nó là superset: vừa rebalance vị trí (~25%/đáp án, seed cố định để tái lập) VỪA bắt lỗi length-leak để rewrite distractor — #1 chỉ xử lý vị trí. debias.py offline + 2 gate vào validate.py là self-contained, KHÔNG phụ thuộc /api/round (chưa tồn tại), chạy trọn trên stack hiện tại. Effort low, impact tối đa. Phải làm trước mọi scaling: scale một bank rò rỉ chỉ nhân rò rỉ lên."
+ },
+ {
+  "round": "11",
+  "axis": "Content Strategy & Question-Bank Scaling",
+  "priority": "P1",
+  "title": "Chuyển 'sources' từ tag trần sang link nguồn thật (đúng value-prop)",
+  "why": "VERIFIED: 1552 source-string, 0 URL, 74 câu rỗng nguồn, render hiện chỉ join text (showFeedback: 'Nguồn: '+join(', ')). Value-prop 'explain + link nguồn' đang nói dối — không một link bấm được nào. sources_map.json (tag→canonical URL) + build-step làm giàu + gate chặn tag ngoài map là low-effort, không cần DB, không phụ thuộc endpoint chưa build. P1 chứ không P0 vì: bank vẫn 'usable' khi đáp án đã debiased; thiếu link làm yếu trust/khác-biệt cạnh tranh nhưng không phá tính hợp lệ đo lường như P0. Là việc thứ hai phải làm để có thể tính tiền."
+ },
+ {
+  "round": "11",
+  "axis": "Content Strategy & Question-Bank Scaling",
+  "priority": "P2",
+  "title": "Calibration thực nghiệm P/D + provenance freshness để scale ngân hàng có kiểm soát",
+  "why": "VERIFIED: 100% calibration_method='content_heuristic', 0 câu có P/D/n_responses/created_at/content_version; schema chặn iter<=12 và 1019/1427 câu ĐÃ kẹt ở iter=12 → pipeline scaling thực sự bị khóa hôm nay. Chấp nhận nhưng P2 vì: (a) phần cốt lõi (P/D thực) phụ thuộc /api/check CHƯA tồn tại trong app.py → không thể giao trong vòng này; (b) cần response thật của learner → có giá trị chỉ SAU khi có traffic, không phải đòn bán-được tức thì. Tuy nhiên hai phần CÓ THỂ làm ngay và nên tách ra làm sớm: bỏ trần iter=12 trong schema (đang chặn cứng) + thêm field provenance (created_at/content_version) + cross-bank dedup VI∪EN cosine>=0.85 (dedup_cosine.py hiện chạy per-file). Gộp #3 (chọn bản này) và loại #5 vì #3 là superset của #5 (cùng P/D-from-/api/check NHƯNG #3 thêm freshness/version/retire/cross-bank dedup)."
+ },
+ {
+  "round": "12",
+  "axis": "Pedagogy & Learning Efficacy",
+  "priority": "P0",
+  "title": "Nối nốt Spaced Repetition: biến due-list thành phiên luyện chạy được (/review?mode=due)",
+  "why": "VERIFIED against code: state_migrate.js:108-112 thực sự tính+lưu Leitner box [1,3,7,16,35] + next_due_days mỗi attempt, và mastery_perlang.js:44-59 thực sự tính due-queue nhưng chỉ render <li> chữ chết (dòng 56-58). Đây là vòng học DUY NHẤT đã có đủ data nhưng đứt khâu cuối — last-mile gap kinh điển, ROI cao nhất trục. CHỌN bản này thay vì đề xuất #1 (trùng feature) vì scope gọn hơn, đúng đắn về kỹ thuật (reuse runner + /api/questions đã cache, 0 DB, 0 phantom endpoint). LƯU Ý ĐIỀU CHỈNH: route /review đã TỒN TẠI ở app.py:154 nhưng render index.html (flat quiz vô-pedagogy) — không được tái dùng tên đó cho due-mode; phải dùng route mới (vd /review-session) như đề xuất #1 đề nghị để tránh va chạm. effort thực tế là LOW-MEDIUM chứ không phải low: runner là IIFE bind chặt STAGE_ID + stageData.mastery_gate (lang_lesson.js:12,68,156), cần tách renderQ/submit thành hàm tái dùng + stub gate logic + scaffold template DOM IDs. Vẫn là bán-được-nhất: hiện thực hóa lợi ích spaced-repetition đã quảng cáo trong roadmap.json (spaced_review [1,3,7,16,35] x15 stage)."
+ },
+ {
+  "round": "12",
+  "axis": "Pedagogy & Learning Efficacy",
+  "priority": "P1",
+  "title": "Đo learning gain: pre/post diagnostic + lưu confidence để chấm calibration",
+  "why": "PHẦN confidence VERIFIED: lang_lesson.js clamp confidence-pre (dòng 137) nhưng recordAttempt(lang,q,chosen,correct) ở state_migrate.js:95 KHÔNG nhận confidence → dữ liệu calibration bị vứt thật. Đây là fix 1-dòng (thêm tham số) đem lại data siêu nhận thức để đo overconfidence — rẻ, cao giá trị. TÁCH ƯU TIÊN: phần lưu-confidence là P1 quick win; phần /diagnostic (8-10 câu/stage baseline + lặp lại sau gate + hiển thị Δ accuracy) nặng hơn, là điểm-bán-hàng 'learning gain hữu hình' nhưng phụ thuộc nội dung diagnostic riêng và UX mới — không chặn ra mắt. Gom chung P1 vì kim chỉ nam learning-gain là khác biệt sư phạm so với đối thủ, nhưng đứng sau việc đóng vòng SRS (P0)."
+ },
+ {
+  "round": "12",
+  "axis": "Pedagogy & Learning Efficacy",
+  "priority": "P2",
+  "title": "Adaptive sequencing dùng est_difficulty đã có sẵn (Elo nhẹ trong localStorage)",
+  "why": "VERIFIED: 286 câu có est_difficulty IRT-calibrated, lang_lesson.js:104 chỉ HIỂN THỊ ('est +x.xx'), runner chạy qs[cur] tuần tự (cur++, dòng 164). Adaptive per-item là khác biệt thật so với đối thủ. NHƯNG để P2 vì: (1) rủi ro pedagogy cao nhất — theta Elo ±0.3 ad-hoc chưa kiểm chứng, dễ tạo trải nghiệm lệch (nhảy câu, bỏ sót KC) nếu sweet-spot 70-85% sai; (2) tương tác xấu với mastery_gate hiện đo 'acc 20 câu gần nhất' (mastery_perlang.js:34) — chọn câu dễ theo theta sẽ bơm-phồng accuracy giả, phá gate; cần đo lường learning-gain (P1) trước để có tín hiệu trước khi thay đổi sequencing. Không cấp thiết cho việc bán được — đóng vòng SRS + đo gain quan trọng hơn nhiều cho lần ra mắt đầu."
+ },
+ {
+  "round": "13",
+  "axis": "UX/UI & Onboarding Redesign",
+  "priority": "P0",
+  "title": "Instant first-question onboarding on landing (time-to-value <10s, no account) — merge of the two zero-click variants",
+  "why": "VERIFIED: app has literally zero first-run flow (grep onboard/tour/welcome = 0 real hits; only the harness brief mentions it) and landing.html:47-55 is a 4-step text wall ('Bắt đầu nhanh' + 'Vì sao chỉ Python?' pedagogy) gating ALL value behind landing->/lang/python->roadmap->lesson->quiz. /api/daily (app.py:315) and the quiz.js runner already exist and need 0 new routes/DB. For a no-signup self-learn product this is THE single highest revenue-relevant lever: time-to-value is the conversion bottleneck. I merge both submitted variants — the engineering one is the stronger spec (concrete: fetch /api/daily, reuse quiz.js runner, localStorage 'seen_intro', 'Luyện tiếp' CTA, 0 route/0 DB), so build that; the product variant's 3-step coachmark to roadmap/mastery/review is a nice-to-have layer to fold in only if cheap. Effort is genuinely low (one section swap + reuse existing runner), impact high → clear P0."
+ },
+ {
+  "round": "13",
+  "axis": "UX/UI & Onboarding Redesign",
+  "priority": "P1",
+  "title": "Wire the already-built English content + EN/VI UI toggle (i18n) via ?lang=en -> questions_en_full.json",
+  "why": "VERIFIED and stronger than claimed: questions_en_full.json (1141 Qs) is real English (not a stale backup despite the misleading migrate_vi_python.py docstring) and ALL 286 current VI ids exist in it with identical English text — PLUS 4 untapped language tracks (JS 237 / Go 222 / SQL 221 / Rust 175). It is referenced by zero routes today (load_questions() in app.py only reads questions.json). So the data asset is paid-for but unsold; wiring a ?lang/Accept-Language switch on QUESTIONS load is low-medium effort. The ~115 hardcoded-Vietnamese Jinja strings need a t() layer (the higher-effort half). A 100% Vietnamese UI hard-walls the 82.1%-self-taught global English market, and neither Exercism nor Codecademy ships UI i18n, so this is a defensible differentiator. P1 not P0: it widens the market but the product must first NOT bounce people (onboarding) before it's worth translating; ship after P0. Implementation note — split delivery: phase 1 = swap question content by lang (cheap, unlocks 4 tracks); phase 2 = UI string extraction."
+ },
+ {
+  "round": "13",
+  "axis": "UX/UI & Onboarding Redesign",
+  "priority": "P2",
+  "title": "WCAG 2.2 tap-target sizing + visible keyboard-shortcut affordance (CSS-only + small '?' overlay)",
+  "why": "VERIFIED: .copy-btn (style.css:56) is padding 2px 8px (~20px, under SC 2.5.8's 24px CSS-px floor); .page-btn/.qmeta spans and the @media max-width:600px block don't bump touch targets to 44px; shortcuts are footer-only text (index.html:75) with no on-screen affordance. The fix is near-pure-CSS and correctly preserves existing :focus-visible (style.css:16,21) and aria-live (index.html:64). Real polish + genuine mobile/a11y win, but it does not move the activation or market-reach needle the way onboarding/i18n do, and it's low-risk to defer. Also fold the html-lang correction here (lesson.html:2 / mastery.html:2 / roadmap.html:2 declare lang='en' over Vietnamese = SC 3.1.1 fail) — a one-line-per-file fix that's free to bundle with this CSS pass. I merge the two tap-target variants into one; build the CSS-only engineering version and add the '?' shortcut overlay from the product variant. P2."
+ },
+ {
+  "round": "14",
+  "axis": "Growth, SEO & Acquisition",
+  "priority": "P0",
+  "title": "Programmatic SEO: per-question route /q/<id> server-rendered + sitemap.xml + robots.txt + canonical/OG/JSON-LD (QAPage)",
+  "why": "VERIFIED on codebase: zero SEO surface today (grep for sitemap/robots/canonical/og:/ld+json = empty), and 100% of questions carry code+question+options(4)+correct_idx+explain+misconception_map (sources 273/286) across 261 subtopics — so index-able answer pages are genuinely buildable. Content is currently locked inside the client-side /api/questions blob (verified), invisible to crawlers; this is the single biggest acquisition lever for a no-brand newcomer and the wedge that makes everything else (analytics, share) measurable. Feasible with ~1 Jinja route + 2 dynamic routes, 0 DB, on the existing api/index.py Vercel shim. This ACCEPT consolidates proposals #1 and #4 (near-duplicate). IMPORTANT CAVEAT for scoping: ship for the 286 Python questions that the live app actually loads — NOT the claimed 1,427. The 1,141 EN questions live only in questions_en_full.json, which is a pre-migration backup that is NOT loaded and NOT routed (verified: app.py is hardcoded PRIMARY_LANG=python, LANGS=[python], non-Python redirects home). Treat re-wiring that corpus as a separate prerequisite, not free URLs."
+ },
+ {
+  "round": "14",
+  "axis": "Growth, SEO & Acquisition",
+  "priority": "P1",
+  "title": "Lightweight cookieless analytics (Plausible/Umami) to measure traffic source, landing, and conversion to a practice session",
+  "why": "VERIFIED zero analytics (no gtag/plausible/posthog/umami/fathom in code or templates). You cannot judge whether the SEO bet works, what converts, or CAC without this — flying blind. Effort is genuinely low (one script tag) and it is the measurement backbone for the whole growth axis, so it should land right after (or alongside) the SEO route. Split out from proposal #3: accept the analytics half at P1; the daily-content-engine half is weaker and judged separately."
+ },
+ {
+  "round": "14",
+  "axis": "Growth, SEO & Acquisition",
+  "priority": "P2",
+  "title": "Daily code-review challenge with a stable dated URL /daily/<date> (index-able + OG), built on existing /api/daily",
+  "why": "Real foundation: /api/daily already exists and is deterministic-by-date (verified). Stable dated URLs give crawl-freshness, a return-habit hook, and shareable daily content at low marginal cost once the SEO route infrastructure (P0) and OG rendering exist. P2 because it is a multiplier on P0/P1, not a prerequisite — it adds little if the core per-question pages and measurement are not live first. Accept only the URL+content-cadence half of proposal #3 here; the analytics half is promoted to its own P1 item above."
+ },
+ {
+  "round": "14",
+  "axis": "Growth, SEO & Acquisition",
+  "priority": "P2",
+  "title": "Shareable scorecard: session/daily result page /result with dynamic OG image + native share to a play-now link",
+  "why": "Plausible viral loop with a real hook (/api/daily exists) and feasible via serverless OG image generation, no signup/DB. Accepted but P2, not P1, because: (1) dynamic OG image rendering (Pillow/SVG-to-PNG) is the highest-effort/most-fragile item in this set on Vercel Python serverless and adds a real dependency/cold-start risk; (2) a share loop only compounds once there is measurable traffic and index-able landing destinations from P0/P1 — shipping it first risks amplifying near-zero traffic. Strong idea, correct sequencing is after SEO + analytics."
+ },
+ {
+  "round": "15",
+  "axis": "Retention, Engagement & Gamification",
+  "priority": "P0",
+  "title": "Achievement/badge engine kích hoạt ngay ngày-1 + confetti milestone",
+  "why": "Highest impact-to-effort on the board và là item bán-được-hàng nhất. Verified trong code: badges_earned:[] (state_migrate.js:57) khai báo nhưng KHÔNG BAO GIỜ ghi — đúng là dead code, fix rẻ nhất (~60 dòng, zero infra). celebration.js đã có spawnConfetti + modal pattern sẵn để tái dùng cho milestone (hiện chỉ bắn ở mastery gate). Bằng chứng day-1 achievement → 33.42% vs 20.36% retention là đòn bẩy onboarding mạnh nhất. Chọn bản này thay vì đề xuất #2 vì spec rõ hơn (bộ badge cụ thể, đảm bảo ≥1 badge dễ trong session đầu, milestone streak/XP confetti)."
+ },
+ {
+  "round": "15",
+  "axis": "Retention, Engagement & Gamification",
+  "priority": "P1",
+  "title": "Streak-freeze (đóng băng streak) client-side + cảnh báo nguy cơ mất streak",
+  "why": "Verified gap: streak logic (state_migrate.js:123-136) hard-reset về 1 khi diff>1, không có freeze. Thuần localStorage, ~25 dòng, zero infra. Bằng chứng 17.19 vs 11.62 ngày (+48%) là retention thật, không phải dark pattern (giữ chuỗi khi lỡ, không ép mua). Chọn bản này thay #1 vì spec mạnh hơn: thêm 'banner nguy cơ mất streak hôm nay' — đây là re-engagement nudge thực sự, không chỉ giữ số. P1 (không P0) vì chỉ phát huy sau khi user đã có streak nhiều ngày; badge day-1 phải lên kệ trước để tạo cohort có-streak."
+ },
+ {
+  "round": "16",
+  "axis": "Analytics, Metrics & Experimentation",
+  "priority": "P0",
+  "title": "Tích hợp PostHog cookieless làm event pipeline P0 (1 snippet, anonymous client-ID)",
+  "why": "Đây là blocker cốt lõi của cả TRỤC: codebase có ZERO instrumentation (đã verify: không match posthog/ga4/amplitude trong bất kỳ .py/.js/.html nào của quiz-app). Không đo thì mọi quyết định feature/pricing/retention đều mù. Effort thật sự thấp & đã được chứng minh khả thi: pattern beacon đã tồn tại nguyên vẹn — error_reporter.js POST keepalive:true tới /api/client_errors (verify app.py:414), hook points lộ rõ (quiz.js:29 init, quiz.js:150 submit), và state_migrate.js đã sẵn streak/xp/daily_completed làm nguyên liệu activation. PostHog free 1M events/tháng + serverless không cần DB khớp đúng ràng buộc stack. Đây là P0 vì mọi đề xuất còn lại phụ thuộc vào nó."
+ },
+ {
+  "round": "16",
+  "axis": "Analytics, Metrics & Experimentation",
+  "priority": "P1",
+  "title": "Định nghĩa North-star + funnel activation D7 và dashboard cohort",
+  "why": "Layer phân tích trên event ở P0, gần như zero code app — chỉ cấu hình dashboard PostHog. North-star 'JUDGE đúng >=10 câu code-review trong 7 ngày đầu' khớp positioning sản phẩm (judge-not-write) và gắn trực tiếp D7 — chỉ báo dẫn dắt retention dài hạn. Hạ xuống P1 (không P0) vì phụ thuộc cứng vào pipeline P0 phải chạy trước và sinh đủ dữ liệu; định nghĩa funnel mà chưa có event chảy về thì chỉ là tài liệu. Cấp thiết cao để biến số đo thành quyết định bán-được-hàng, nhưng tuần tự sau P0."
+ },
+ {
+  "round": "16",
+  "axis": "Analytics, Metrics & Experimentation",
+  "priority": "P2",
+  "title": "A/B testing infra qua PostHog feature flags để thử nghiệm activation lever",
+  "why": "Đúng về kỹ thuật (cùng snippet P0, feature-flag free tier, không backend mới) và cần thiết về dài hạn để chứng minh lever nào đẩy D7. Nhưng A/B là tối ưu hoá — vô nghĩa khi sản phẩm pre-revenue chưa có lưu lượng đủ để đạt significance. Phải có baseline đo (P0) + định nghĩa North-star/funnel (P1) và một lượng user thực trước khi chạy thí nghiệm. Accept nhưng P2: dựng sau, không phải đòn bẩy ra-thị-trường ngay."
+ },
+ {
+  "round": "17",
+  "axis": "Security, Privacy & Compliance",
+  "priority": "P0",
+  "title": "Bịt rò đáp án: /api/questions ngừng ship correct_idx + explain (server-side grading)",
+  "why": "VERIFIED LIVE: app.py:238 dumps full QUESTIONS với correct_idx+explain+misconception_map+sources; quiz.js chấm hoàn toàn client-side bằng q.correct_idx (dòng 95/135/138/145/150). Bất kỳ ai cũng scrape trọn đáp án bằng 1 GET → paywall code_review ($5/th) vô nghĩa = lỗ trực tiếp vào khả năng bán. Phải có server-side grading (/api/grade hoặc /api/answer/<id>) vì client hiện cần correct_idx để render. ĐÂY là blocker P0 duy nhất thực sự. LƯU Ý sửa mô tả: questions_en_full.json KHÔNG nằm trong includeFiles (grep=0) → bỏ phần đó; learner_registry CÓ trong includeFiles nhưng KHÔNG web-reachable dạng file thô (chỉ rò qua /api/learners) → fix đúng là gate endpoint, không phải xoá includeFiles."
+ },
+ {
+  "round": "17",
+  "axis": "Security, Privacy & Compliance",
+  "priority": "P1",
+  "title": "Dựng nền HTTP-security: CSP nonce + HSTS/X-Frame-Options/X-Content-Type + đóng /api/learners",
+  "why": "VERIFIED: after_request (app.py:64-73) chỉ set X-Req-Id, zero security header; /api/learners (app.py:299) + /api/cohort_progress (app.py:291) public, không gate sau _is_dev(); /api/client_errors (app.py:414) POST không auth không throttle. Effort thấp, không thêm dep, ship ngay trên Flask/Vercel. Baseline OWASP go-live. Gộp chung với #4 (trùng nội dung) — chọn bản này vì cụ thể hơn về nonce cho 4 inline bootstrap và liệt kê đủ /api/learners + client_errors. P1 chứ không P0 vì clickjacking/header thiếu không trực tiếp chặn việc bán như rò đáp án."
+ },
+ {
+  "round": "17",
+  "axis": "Security, Privacy & Compliance",
+  "priority": "P2",
+  "title": "Khung pháp lý go-live tối thiểu: Privacy Policy + ToS + quyền access/delete (GDPR/CCPA/Nghị định 13 VN)",
+  "why": "VERIFIED không có route/template privacy|terms. Cần để nhận user EU/CA/VN, nhưng HÔM NAY learner_registry chỉ chứa 25 agent TỔNG HỢP (learner_001, Monte Carlo, honest_note xác nhận không có user thật) + chỉ localStorage → PII surface gần-zero. Là forward-looking, kích hoạt khi account/Stripe thật landing. Effort thấp (Jinja tĩnh), nên làm sớm nhưng KHÔNG chặn launch bản zero-auth hiện tại → P2. Nêu rõ retention + mốc 30 ngày để vượt điểm yếu 'vague' của Codecademy là điểm cộng."
+ },
+ {
+  "round": "18",
+  "axis": "Scalability, Reliability & Infra",
+  "priority": "P0",
+  "title": "Observability thật: stream log + Four Golden Signals ra sink durable",
+  "why": "VERIFIED real blocker: app.py:48-56 dùng RotatingFileHandler ghi logs/app.log, KHÔNG có StreamHandler ra stdout — trên Vercel serverless FS ephemeral nên production hiện có 0 observability, không debug được sự cố, không đo được error budget. Đây là điều kiện CẦN trước SLO. Fix rẻ (effort=low như đề xuất #4 mô tả): đổi sang logging.StreamHandler(sys.stdout) + 1 managed log sink tier $0; after_request (app.py:64-73) đã emit latency_ms/status/path sẵn nên 4 Golden Signals gần như free. Chọn bản #4 (low effort, có line refs cụ thể) thay vì bản #1 trùng (medium effort, mô tả lan man hơn). Bán-được-hàng: không có cách phát hiện downtime/lỗi prod = không dám nhận khách trả tiền."
+ },
+ {
+  "round": "18",
+  "axis": "Scalability, Reliability & Infra",
+  "priority": "P0",
+  "title": "Edge-cache /api/questions qua CDN + gzip/brotli + tách correct_idx server-side",
+  "why": "Gộp 2 vấn đề, trong đó tách correct_idx là P0 THẬT: đã verify questions.json chứa field correct_idx và /api/questions (app.py:236-247) ship NGUYÊN khối ra client → đáp án lộ trắng, scrape 1 request là có toàn bộ key. Với quiz/assessment thương mại đây là blocker bán hàng (gian lận = sản phẩm vô giá trị cho khách B2B). Phần edge-cache + brotli là đòn bẩy scale rẻ, đúng (hiện chỉ có max-age=3600, KHÔNG có s-maxage/CDN-Cache-Control — verified, nên Vercel chưa phục vụ từ edge, vẫn re-parse mỗi cold start). Chọn bản #3 vì nêu rõ tách correct_idx ra /api/grade; reject các bản dup. Hạ xuống: nếu tách scope, riêng phần grade/correct_idx là P0, edge-cache thuần là P1."
+ },
+ {
+  "round": "18",
+  "axis": "Scalability, Reliability & Infra",
+  "priority": "P1",
+  "title": "Công bố SLO uptime + error budget làm release control loop",
+  "why": "Đúng và rẻ (effort=low), endpoint /debug/health đã tồn tại (verified, trả ok/git_sha/counts) nên cắm UptimeRobot/BetterStack được ngay. NHƯNG là P1 không phải P0: SLO/error-budget chỉ có giá trị SAU KHI có observability (P0) để đo. Công bố SLO 99.5% khi chưa đo được gì là cam kết rỗng. Đúng thứ tự: observability trước → uptime monitor + SLO sau. Hữu ích cho bán hàng (SLA là điều khách B2B hỏi) nên giữ P1, làm ngay sau cặp P0."
+ },
+ {
+  "round": "19",
+  "axis": "Brand, Trust & Social Proof",
+  "priority": "P0",
+  "title": "Biến source tag thành link kiểm chứng được (verifiable citations) — clickable citations + normalize tag variants",
+  "why": "VERIFIED load-bearing: lesson.js:100 + lang_lesson.js:145 render q.sources qua .join(' · ') text trần, 0/207 tag bấm được, dù 273/286 câu CÓ source chuẩn (PEP/CWE/OWASP/python-docs). Đây là wedge niềm tin rẻ nhất, impact cao nhất: chỉ thêm static/sources_map.json + sửa 2 dòng render thành <a target=_blank>. Chọn bản proposal #4 (không #1) vì #4 nêu đúng cả 2 file render thật (lesson.js:99 + lang_lesson.js:144) và bắt buộc build-time normalize 'PEP 8'/'PEP-8'/'PEP 8 broad-except' — tôi đã confirm các biến thể này tồn tại trong questions.json (PEP-8=32, PEP 8=11). Không có normalize thì map URL sẽ miss hàng loạt. Người học không tự kiểm chứng được 'vì sao đáp án đúng' = blocker bán hàng số 1."
+ },
+ {
+  "round": "19",
+  "axis": "Brand, Trust & Social Proof",
+  "priority": "P1",
+  "title": "Trang /trust công khai: 'Vì sao tin đáp án đúng' + Cách kiểm định nội dung",
+  "why": "VERIFIED: research_refs.json chứa DOI thật (Soloway 10.1109/TSE.1984.5010283, Sorva, Robins, Lister, Hermans) nhưng chỉ phơi ở /api/research_refs dưới JSON thô — tài sản E-E-A-T bị chôn. landing.html footer chỉ link 'refs JSON' trần, không có trang giải thích quy trình. improvement_log.json + 12 iter_*_review.md có thật để dẫn '12 vòng kiểm định'. Chọn bản #5 (low effort, render template tĩnh từ JSON đã có endpoint) thay vì #2 (medium) — cùng nội dung nhưng #5 đúng effort hơn vì data đã sẵn. Bắt buộc CHỈ metric thật (286 câu/273 nguồn/15 stage), KHÔNG đụng learner_registry — honest_note đã confirm 25 agent Monte Carlo, không phải user thật. P1 không P0 vì page-build tốn công hơn citation và không chặn giao dịch ngay như citation."
+ },
+ {
+  "round": "20",
+  "axis": "Launch Plan & GTM Execution",
+  "priority": "P0",
+  "title": "Durable waitlist capture via serverless POST → external sink (Formspree/Sheets/Resend)",
+  "why": "VERIFIED: codebase has ZERO email/signup capture; the only POST write-path /api/client_errors (app.py:414) just logger.warning to stdout = ephemeral on Vercel serverless. A launch today literally converts 0 visitors into 0 retained contacts. This is the #1 GTM blocker. This variant correctly mirrors the proven /api/client_errors POST pattern and routes to an EXTERNAL durable sink (the only way to persist with no DB), with honeypot + per-IP throttle. Lowest effort, highest leverage. Chosen over the KV/Upstash twin (#2) because the external-sink design avoids standing up new stateful infra before demand is validated."
+ },
+ {
+  "round": "20",
+  "axis": "Launch Plan & GTM Execution",
+  "priority": "P0",
+  "title": "Daily Code Review Challenge: SSR permalink /q/<id> + OG/Twitter cards + nút Share",
+  "why": "VERIFIED: grep returns ZERO og:/twitter: tags in any template; landing already renders a LeetCode/Duolingo-style daily-card (gamification.js → /api/daily, deterministic by date-hash). But /api/daily is JSON-only with NO shareable SSR route, and navigator.clipboard is already used elsewhere so the Share button is nearly free. Without preview cards every HN/ProductHunt/Twitter share renders a dead link = near-zero CTR. The SSR permalink + cards is THE organic distribution primitive that turns the existing daily mechanic into a growth loop. Most complete of the two share proposals."
+ },
+ {
+  "round": "20",
+  "axis": "Launch Plan & GTM Execution",
+  "priority": "P1",
+  "title": "Localize top-of-funnel sang EN-first cho kênh launch quốc tế (i18n landing + ?lang)",
+  "why": "VERIFIED: landing.html is lang=\"vi\", title 'Quiz Review Code — Python' is Vietnamese; the planned launch channels (ProductHunt/HN/Stack-Overflow) are English-first. 1,141 EN questions already exist in questions_en_full.json but app.py loads ONLY questions.json (line 116/128) so EN content is dark inventory. Top-funnel/UI language mismatch caps conversion on exactly the chosen channels. P1 not P0: it amplifies reach but the waitlist+cards must exist first to capture anything; ?lang gating is low-risk and reuses existing EN assets."
+ },
+ {
+  "round": "20",
+  "axis": "Launch Plan & GTM Execution",
+  "priority": "P2",
+  "title": "Launch funnel instrumentation (cookieless PostHog) — analytics half only",
+  "why": "VERIFIED: grep finds NO posthog/analytics/gtag anywhere despite GTM plan citing it; you cannot measure which launch channel converts without page→quiz-start→waitlist events. Accept ONLY the cookieless analytics instrumentation (cheap, decision-critical for iterating on launch). Reject the bundled pricing teaser ($5/mo–$40/yr 'Reviewer' tier) and hero copy rewrite as premature: monetization positioning before a single retained lead exists is unvalidated and out of scope for a 0→1 unblock."
+ }
+]
