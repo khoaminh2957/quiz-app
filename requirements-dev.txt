@@ -1,0 +1,8 @@
+# Build-time / validator dependencies — NOT installed on Vercel.
+# Used by validate.py (schema + code-execution gates) and dedup_cosine.py
+# (sentence-transformers cosine dedup). Install locally:
+#   pip install -r requirements-dev.txt
+flask>=3
+jsonschema>=4
+sentence-transformers>=2.7
+sqlglot>=23
